@@ -51,7 +51,7 @@ import cn.sharesdk.tencent.qq.QQ;
 import cn.sharesdk.wechat.friends.Wechat;
 
 /**
- * @功能：欢迎界面<br>
+ * @功能：登陆界面<br>
  * @作者： 李凌云<br>
  * @版本：1.0<br>
  * @时间：2015/12/9<br>

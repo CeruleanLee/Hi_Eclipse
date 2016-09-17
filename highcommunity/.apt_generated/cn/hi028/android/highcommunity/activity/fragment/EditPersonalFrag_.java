@@ -76,23 +76,11 @@ public final class EditPersonalFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mAge = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_UserAge));
-        tvAuth = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_AuthZiliao));
-        mIntro = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_EditPersonal_UserIntro));
+        mSex = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_UserSex));
         mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_NickName));
         mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_EditPersonal_Avatar));
-        mSex = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_UserSex));
-        if (tvAuth!= null) {
-            tvAuth.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    EditPersonalFrag_.this.authClick();
-                }
-
-            }
-            );
-        }
+        tvAuth = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_AuthZiliao));
+        mIntro = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_EditPersonal_UserIntro));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_submit);
             if (view!= null) {
@@ -107,6 +95,18 @@ public final class EditPersonalFrag_
                 }
                 );
             }
+        }
+        if (tvAuth!= null) {
+            tvAuth.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    EditPersonalFrag_.this.authClick();
+                }
+
+            }
+            );
         }
         initView();
     }

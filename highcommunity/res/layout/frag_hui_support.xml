@@ -8,6 +8,7 @@
         android:id="@+id/layoutContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         android:background="@color/defult_color_white" >
 
         <cn.hi028.android.highcommunity.view.PagerListView
@@ -78,6 +79,7 @@
         </FrameLayout>
     </FrameLayout>
     <include
+        android:id="@+id/loadingviewContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"

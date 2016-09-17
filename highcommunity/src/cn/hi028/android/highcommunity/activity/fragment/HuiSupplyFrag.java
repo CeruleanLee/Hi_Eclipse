@@ -75,7 +75,8 @@ public class HuiSupplyFrag extends BaseFragment implements ViewPager.OnPageChang
 	PopupWindow waitPop;
 	View layoutContainer;
 	private LoadingView mLoadingView;
-
+	   private PopupWindow mWatingWindow;
+	   View loadingviewContainer;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		if (mFragmeView == null) {
@@ -87,14 +88,20 @@ public class HuiSupplyFrag extends BaseFragment implements ViewPager.OnPageChang
 			parent.removeView(mFragmeView);
 		return mFragmeView;
 	}
-
+@Override
+public void onActivityCreated(Bundle savedInstanceState) {
+	super.onActivityCreated(savedInstanceState);
+	initData();
+	
+	
+}
 
 	public static final String Tag = "~~~zhigong~~~";
 	private int  childCount;
 	void initView() {
 		findView();
 		LogUtil.d(Tag+"initView   setOnLoadingViewListener");
-		mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
+//		mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
 		LogUtil.d(Tag+" initView   startLoading");
 		//		mLoadingView.startLoading();
 		btn_order.setOnClickListener(mClickListener);
@@ -138,7 +145,7 @@ public class HuiSupplyFrag extends BaseFragment implements ViewPager.OnPageChang
 		//        );
 
 
-		initData();
+		
 
 
 	}
@@ -146,7 +153,9 @@ public class HuiSupplyFrag extends BaseFragment implements ViewPager.OnPageChang
 	private void findView() {
 		mFragmeView = LayoutInflater.from(getActivity()).inflate(
 				R.layout.frag_hui_support, null);
+		
 		layoutContainer=mFragmeView.findViewById(R.id.layoutContainer);
+		loadingviewContainer=mFragmeView.findViewById(R.id.loadingviewContainer);
 		clv_comment = (PagerListView) mFragmeView.findViewById(R.id.clv_comment);
 		btn_order = (Button) mFragmeView.findViewById(R.id.btn_order);
 		btn_pay = (Button) mFragmeView.findViewById(R.id.btn_pay);
@@ -173,6 +182,8 @@ public class HuiSupplyFrag extends BaseFragment implements ViewPager.OnPageChang
 		}
 	};
 	private void initData() {
+//		 mWatingWindow = HighCommunityUtils.GetInstantiation().ShowWaittingPopupWindow(getActivity(), mFragmeView, Gravity.CENTER);
+		mLoadingView.startLoading();
 		HTTPHelper.GetHuiSupportList(mIbpi);
 	}
 
@@ -230,8 +241,10 @@ public class HuiSupplyFrag extends BaseFragment implements ViewPager.OnPageChang
 				updateData();
 			}
 			mLoadingView.loadSuccess();
-			mLoadingView.setVisibility(View.GONE);
+			loadingviewContainer.setVisibility(View.GONE);
+//			mLoadingView.setVisibility(View.GONE);
 			LogUtil.d("-------------  initView   loadSuccess");
+//			mWatingWindow.dismiss();
 			layoutContainer.setVisibility(View.VISIBLE);
 			LogUtil.d("-------------  initView   setVisibility");
 		}

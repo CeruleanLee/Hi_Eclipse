@@ -76,12 +76,12 @@ public final class ShakeFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        img_shake_more = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_shake_more));
-        img_shake = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_shake_center));
-        img_shake_time = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_shake_time));
         cl_shake_list = ((CustomList) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cl_shake_list));
-        ll_shake_list = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_shake_list));
         fl_shake = ((FrameLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_shake));
+        img_shake_time = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_shake_time));
+        ll_shake_list = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_shake_list));
+        img_shake = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_shake_center));
+        img_shake_more = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_shake_more));
         if (img_shake_more!= null) {
             img_shake_more.setOnClickListener(new OnClickListener() {
 

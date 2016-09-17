@@ -1,7 +1,3 @@
-/***************************************************************************
- * Copyright (c) by raythinks.com, Inc. All Rights Reserved
- **************************************************************************/
-
 package cn.hi028.android.highcommunity.activity.fragment;
 
 import net.duohuo.dhroid.activity.BaseFragment;
@@ -68,7 +64,6 @@ public class ServiceFrag extends BaseFragment {
 	public static final String Tag = "~~~ServiceFrag~~~";
 	public static final String FRAGMENTTAG = "ServiceFrag";
 	public ImagePagerAdapter pagerAdapter;
-
 	@ViewById(R.id.view_pager)
 	AutoScrollViewPager viewPager;
 	@ViewById(R.id.home_cpi)
@@ -80,89 +75,47 @@ public class ServiceFrag extends BaseFragment {
 	
 	@ViewInject(R.id.loadingView)
 	private LoadingView mLoadingView;
-	LinearLayout layoputContainer;
-	
+	ViewGroup layoputContainer;
 	ThirdServiceAdapter mAdapter;
-	
 	Intent mIntent;
-	@Override
-	public void onAttach(Activity activity) {
-		// TODO Auto-generated method stub
-		super.onAttach(activity);
-		LogUtil.d(Tag+"onAttach");
-	}
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		LogUtil.d(Tag+"onCreate");
-		
-	}
-	
-	
-	
-	
-	
+	@ViewInject(R.id.loadingviewContainer)
+View loadingviewContainer;
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onActivityCreated(savedInstanceState);
 		LogUtil.d(Tag+"onActivityCreated");
-	}
-	@Override
-	@Nullable
-	public View onCreateView(LayoutInflater inflater,
-			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-	
-		return super.onCreateView(inflater, container, savedInstanceState);
-	
-	}
-	@Override
-	public void onDestroy() {
-		// TODO Auto-generated method stub
-		super.onDestroy();
-		LogUtil.d(Tag+"onDestroy");
-	}
-	@Override
-	public void onStart() {
-		// TODO Auto-generated method stub
-		super.onStart();
-		LogUtil.d(Tag+"onStart");
-		
-	}
-	@Override
-	public void onStop() {
-		// TODO Auto-generated method stub
-		super.onStop();
-		LogUtil.d(Tag+"onStop");
+		super.onActivityCreated(savedInstanceState);
+		mLoadingView.startLoading();
+		initDatas();
 	}
 	@AfterViews
 	void initView() {
 		LogUtil.d(Tag+"initView");
 		ViewUtils.inject(this, getView());
 		mLoadingView=(LoadingView) getActivity().findViewById(R.id.loadingView);
-		LogUtil.d(Tag+"initView   setOnLoadingViewListener");
-		mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
-
-		LogUtil.d(Tag+" initView   startLoading");
-		mLoadingView.startLoading();
-		
+		loadingviewContainer=getActivity().findViewById(R.id.loadingviewContainer);
+		//		mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
+//		LogUtil.d(Tag+" initView   startLoading");
 		mScrollview.setMode(PullToRefreshBase.Mode.DISABLED);
 		initPager();
-		
 		mIntent = new Intent(getActivity(),
 				GeneratedClassUtils.get(ServiceAct.class));
 		mAdapter = new ThirdServiceAdapter(getActivity());
 		mGridView.setMode(PullToRefreshBase.Mode.DISABLED);
 		mGridView.setOnItemClickListener(mItemClickListener);
-		layoputContainer=(LinearLayout) getActivity().findViewById(R.id.service_scrollView_LinearLayoutContainer);
-		
-		HTTPHelper.GetThirdService(mIbpi);
-		
+		layoputContainer=(ViewGroup) getActivity().findViewById(R.id.service_scrollView_LinearLayoutContainer);
+		mLoadingView.startLoading();
 	}
+	private void initDatas() {
+		LogUtil.d(Tag+"initDatas");
+		
+		mLoadingView.startLoading();
+		LogUtil.d(Tag+"---startLoading");
+		HTTPHelper.GetThirdService(mIbpi);
+		LogUtil.d(Tag+"---GetThirdService");
+	}
+	
 	/****
-	 * 
+	 * 初始化头部viewpager
 	 */
 	private void initPager() {
 		pagerAdapter = new ImagePagerAdapter(getActivity())
@@ -171,26 +124,18 @@ public class ServiceFrag extends BaseFragment {
 		vgcpi.setViewPager(viewPager);
 		vgcpi.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			@Override
-			public void onPageScrolled(int i, float v, int i1) {
-				
-			}
-			
+			public void onPageScrolled(int i, float v, int i1) { }
 			@Override
-			public void onPageSelected(int i) {
-
-			}
-			
+			public void onPageSelected(int i) { }
 			@Override
-			public void onPageScrollStateChanged(int i) {
-
-			}
+			public void onPageScrollStateChanged(int i) { }
 		});
 		viewPager.setInterval(2000);
 		viewPager.startAutoScroll();
 		viewPager.setCurrentItem(0);
 	}
 	/**
-	 * 监听 LoadingView 按钮的点击
+	 * 监听 LoadingView 
 	 */
 	OnLoadingViewListener onLoadingViewListener = new OnLoadingViewListener() {
 
@@ -216,15 +161,15 @@ public class ServiceFrag extends BaseFragment {
 			LogUtil.d("-------------  initView   onSuccess");
 			if (null == message) return;
 			LogUtil.d("-------------  initView   message:"+message);
-			
 			ThirdServiceBean mBean = (ThirdServiceBean) message;
-
 			mAdapter.AddNewData(mBean.getServices());
 			mGridView.setAdapter(mAdapter);
 			pagerAdapter.setImageIdList(mBean.getBanners());
 			HighCommunityUtils.GetInstantiation()
 					.setThirdServiceGridViewHeight(mGridView, mAdapter, 4);
 			mLoadingView.loadSuccess();
+			loadingviewContainer.setVisibility(View.GONE);
+			
 			LogUtil.d("-------------  initView   loadSuccess");
 			layoputContainer.setVisibility(View.VISIBLE);
 			LogUtil.d("-------------  initView   setVisibility");
@@ -332,15 +277,16 @@ public class ServiceFrag extends BaseFragment {
 	@Override
 	public void onPause() {
 		super.onPause();
-		LogUtil.d("-------------  onPause");
+		LogUtil.d(Tag+"onPause");
 		viewPager.stopAutoScroll();
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
-		LogUtil.d("-------------  onResume");
+		LogUtil.d(Tag+"onResume");
 		viewPager.startAutoScroll();
+//		mLoadingView.startLoading();
 		registNetworkReceiver();
 	}
 	
@@ -398,9 +344,44 @@ public class ServiceFrag extends BaseFragment {
 		}
 	}
 	private boolean isNoNetwork;
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		LogUtil.d(Tag+"onCreateView");
+		return super.onCreateView(inflater, container, savedInstanceState);
+	}
+
+	@Override
+	public void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		LogUtil.d(Tag+"onDestroy");
+	}
+	@Override
+	public void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		LogUtil.d(Tag+"onStart");
+		
+	}
+	@Override
+	public void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		LogUtil.d(Tag+"onStop");
+	}
 	
-	
-	
-	
+	@Override
+	public void onAttach(Activity activity) {
+		// TODO Auto-generated method stub
+		super.onAttach(activity);
+		LogUtil.d(Tag+"onAttach");
+	}
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		LogUtil.d(Tag+"onCreate");
+		
+	}
 	
 }

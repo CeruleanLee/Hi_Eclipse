@@ -74,20 +74,20 @@ public final class ServicePaymentDetailFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mType = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_type));
-        mOwnerDosage = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_OwnerDosage));
-        mFinish = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_finished));
-        mDosage = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_Dosage));
-        mOwnerNumber = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_OwnerNumber));
-        mOwner = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_OwnerName));
-        mSubmit = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_Submit));
-        mUnitPrice = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_UnitPrice));
+        mFinished = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_finished));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_PaymentDetails);
+        mOwnerDosage = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_OwnerDosage));
+        mDosage = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_Dosage));
+        mOwner = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_OwnerName));
+        mType = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_type));
         mTotalPrice = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_TotalPrice));
-        mName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_name));
-        mNodta = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_PaymentDetails_Nodata));
+        mSubmit = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_Submit));
         mDate = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_OwnerDate));
-        mFinished = mFinish;
+        mOwnerNumber = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_OwnerNumber));
+        mName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_name));
+        mUnitPrice = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_detail_UnitPrice));
+        mFinish = mFinished;
+        mNodta = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_PaymentDetails_Nodata));
         if (mSubmit!= null) {
             mSubmit.setOnClickListener(new OnClickListener() {
 

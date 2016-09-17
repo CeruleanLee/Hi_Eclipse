@@ -74,24 +74,51 @@ public final class SettingFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mQQ = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_setting_thirdPary_qq));
         mWeibo = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_setting_thirdPary_weibo));
+        mQQ = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_setting_thirdPary_qq));
         tv_settings_Logout = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_settings_Logout));
         mWeixin = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_setting_thirdPary_weixin));
         {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_settings_AppUpdate);
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_settings_ReciveAddress);
             if (view!= null) {
                 view.setOnClickListener(new OnClickListener() {
 
 
                     @Override
                     public void onClick(View view) {
-                        SettingFrag_.this.update();
+                        SettingFrag_.this.address();
                     }
 
                 }
                 );
             }
+        }
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_settings_AboutUs);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        SettingFrag_.this.aboutus();
+                    }
+
+                }
+                );
+            }
+        }
+        if (tv_settings_Logout!= null) {
+            tv_settings_Logout.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    SettingFrag_.this.Logout();
+                }
+
+            }
+            );
         }
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_settings_clear);
@@ -102,6 +129,21 @@ public final class SettingFrag_
                     @Override
                     public void onClick(View view) {
                         SettingFrag_.this.clearCache();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_settings_modifyPassword);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        SettingFrag_.this.modify();
                     }
 
                 }
@@ -124,61 +166,19 @@ public final class SettingFrag_
             }
         }
         {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_settings_AboutUs);
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_settings_AppUpdate);
             if (view!= null) {
                 view.setOnClickListener(new OnClickListener() {
 
 
                     @Override
                     public void onClick(View view) {
-                        SettingFrag_.this.aboutus();
+                        SettingFrag_.this.update();
                     }
 
                 }
                 );
             }
-        }
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_settings_ReciveAddress);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        SettingFrag_.this.address();
-                    }
-
-                }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_settings_modifyPassword);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        SettingFrag_.this.modify();
-                    }
-
-                }
-                );
-            }
-        }
-        if (tv_settings_Logout!= null) {
-            tv_settings_Logout.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    SettingFrag_.this.Logout();
-                }
-
-            }
-            );
         }
         initView();
     }

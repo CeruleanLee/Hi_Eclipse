@@ -76,29 +76,14 @@ public final class GroupDetilsFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_name));
-        mBefore = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_transTitle_before));
-        mTitle = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_transTitle_name));
-        mFirstName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_title));
         mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_groupdetils_avatar));
-        mIntroduce = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_introduce));
+        mTitle = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_transTitle_name));
         mCreater = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_creater));
-        mGrideView = ((PullToRefreshGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrgv_group_member_grideview));
         mAfter = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_transTitle_after));
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_message);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        GroupDetilsFrag_.this.message();
-                    }
-
-                }
-                );
-            }
-        }
+        mIntroduce = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_introduce));
+        mGrideView = ((PullToRefreshGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrgv_group_member_grideview));
+        mFirstName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_title));
+        mBefore = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_transTitle_before));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_transTitle_back);
             if (view!= null) {
@@ -108,6 +93,21 @@ public final class GroupDetilsFrag_
                     @Override
                     public void onClick(View view) {
                         GroupDetilsFrag_.this.back();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_message);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        GroupDetilsFrag_.this.message();
                     }
 
                 }

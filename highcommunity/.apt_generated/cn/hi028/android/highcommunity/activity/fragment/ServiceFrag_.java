@@ -76,40 +76,10 @@ public final class ServiceFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        vgcpi = ((CirclePageIndicator) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.home_cpi));
         mGridView = ((PullToRefreshGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrgv_service_thirdParty));
         viewPager = ((AutoScrollViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.view_pager));
-        vgcpi = ((CirclePageIndicator) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.home_cpi));
         mScrollview = ((PullToRefreshScrollView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.service_scrollView_layout));
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_research);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        ServiceFrag_.this.research();
-                    }
-
-                }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_notice);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        ServiceFrag_.this.notice();
-                    }
-
-                }
-                );
-            }
-        }
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_craftsman);
             if (view!= null) {
@@ -141,6 +111,66 @@ public final class ServiceFrag_
             }
         }
         {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_voluntary);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        ServiceFrag_.this.voluntary();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_notice);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        ServiceFrag_.this.notice();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_payment);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        ServiceFrag_.this.payment();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_research);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        ServiceFrag_.this.research();
+                    }
+
+                }
+                );
+            }
+        }
+        {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_notice_one);
             if (view!= null) {
                 view.setOnClickListener(new OnClickListener() {
@@ -149,36 +179,6 @@ public final class ServiceFrag_
                     @Override
                     public void onClick(View view) {
                         ServiceFrag_.this.one();
-                    }
-
-                }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_tenement);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        ServiceFrag_.this.tenement();
-                    }
-
-                }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_guide);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        ServiceFrag_.this.guide();
                     }
 
                 }
@@ -201,14 +201,14 @@ public final class ServiceFrag_
             }
         }
         {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_voluntary);
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_guide);
             if (view!= null) {
                 view.setOnClickListener(new OnClickListener() {
 
 
                     @Override
                     public void onClick(View view) {
-                        ServiceFrag_.this.voluntary();
+                        ServiceFrag_.this.guide();
                     }
 
                 }
@@ -216,14 +216,14 @@ public final class ServiceFrag_
             }
         }
         {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_payment);
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_tenement);
             if (view!= null) {
                 view.setOnClickListener(new OnClickListener() {
 
 
                     @Override
                     public void onClick(View view) {
-                        ServiceFrag_.this.payment();
+                        ServiceFrag_.this.tenement();
                     }
 
                 }

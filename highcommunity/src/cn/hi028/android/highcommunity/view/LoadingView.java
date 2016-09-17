@@ -13,12 +13,14 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import cn.hi028.android.highcommunity.R;
 
 public class LoadingView extends FrameLayout implements View.OnClickListener{
-
+	Context context;
 	public LoadingView(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		this.context=context;
 		init();
 	}
 	private View mLodingImg;
@@ -48,8 +50,17 @@ public class LoadingView extends FrameLayout implements View.OnClickListener{
 	 * 开始加载的时候调用这个方法
 	 */
 	public  void startLoading(){
+		Toast.makeText(context, "进入startLoading", 0).show();
 		mLoadingLayout.setVisibility(View.VISIBLE);
 		mFailedLayout.setVisibility(View.GONE);
+//		mLodingImg.post(new Runnable() {
+//			
+//			@Override
+//			public void run() {
+//				anim.start();// TODO Auto-generated method stub
+//				
+//			}
+//		});
 		mLodingImg.startAnimation(anim);
 	}
 	/**

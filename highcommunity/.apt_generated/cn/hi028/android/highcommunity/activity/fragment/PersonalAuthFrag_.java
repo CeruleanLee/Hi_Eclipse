@@ -75,13 +75,13 @@ public final class PersonalAuthFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mPhone = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_personalauth_phone));
-        mCity = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_personalauth_city));
-        mQuxian = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_personalauth_quxian));
-        mUnit = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_personalauth_unit));
+        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_personalauth_name));
+        mXiaoqu = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_personalauth_xiaoqu));
         mDoorNumber = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_personalauth_doorNumber));
         mBuild = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_personalauth_build));
-        mXiaoqu = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_personalauth_xiaoqu));
-        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_personalauth_name));
+        mUnit = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_personalauth_unit));
+        mCity = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_personalauth_city));
+        mQuxian = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_personalauth_quxian));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_personalauth_submit);
             if (view!= null) {

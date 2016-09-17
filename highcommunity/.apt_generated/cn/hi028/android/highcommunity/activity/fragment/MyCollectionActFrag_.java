@@ -74,8 +74,8 @@ public final class MyCollectionActFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mCreate = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activity_create));
         mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activity_Nodata));
+        mCreate = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activity_create));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_activity_notice);
         mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_activity_listView));
         if (mCreate!= null) {

@@ -73,8 +73,8 @@ public final class HuiChipsOrderFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        rg = ((RadioGroup) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rg_huil_ife));
         mPager = ((ViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.vPager));
+        rg = ((RadioGroup) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rg_huil_ife));
         initView();
     }
 

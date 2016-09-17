@@ -77,28 +77,28 @@ public final class HuiLifeSuppBuyFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        tv_address_default = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_address_default));
-        tv_wallet = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_wallet));
-        tv_reserve_phone = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_phone));
-        tv_total_pay = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_total_pay));
-        fl_huiLife_addressChooice = ((FrameLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_huiLife_addressChooice));
-        btn_order = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_order));
-        tv_reserve_name = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_name));
-        edt_pay_num = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.edt_pay_num));
-        fl_yhq = ((FrameLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_yhq));
-        btn_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_pay));
-        mNoAddress = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_huiLife_NoAddress));
-        tv_coupon = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_coupon));
         tv_total_actual = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_total_actual));
-        tv_reserve_address = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_address));
+        tv_total_pay = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_total_pay));
         cl_goods = ((CustomListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cl_goods));
-        if (fl_yhq!= null) {
-            fl_yhq.setOnClickListener(new OnClickListener() {
+        tv_reserve_address = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_address));
+        fl_huiLife_addressChooice = ((FrameLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_huiLife_addressChooice));
+        tv_wallet = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_wallet));
+        mNoAddress = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_huiLife_NoAddress));
+        edt_pay_num = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.edt_pay_num));
+        tv_reserve_phone = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_phone));
+        tv_address_default = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_address_default));
+        btn_order = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_order));
+        tv_coupon = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_coupon));
+        btn_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_pay));
+        fl_yhq = ((FrameLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_yhq));
+        tv_reserve_name = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_name));
+        if (mNoAddress!= null) {
+            mNoAddress.setOnClickListener(new OnClickListener() {
 
 
                 @Override
                 public void onClick(View view) {
-                    HuiLifeSuppBuyFrag_.this.onTicket();
+                    HuiLifeSuppBuyFrag_.this.CreateAddress();
                 }
 
             }
@@ -116,18 +116,6 @@ public final class HuiLifeSuppBuyFrag_
             }
             );
         }
-        if (mNoAddress!= null) {
-            mNoAddress.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    HuiLifeSuppBuyFrag_.this.CreateAddress();
-                }
-
-            }
-            );
-        }
         if (fl_huiLife_addressChooice!= null) {
             fl_huiLife_addressChooice.setOnClickListener(new OnClickListener() {
 
@@ -135,6 +123,18 @@ public final class HuiLifeSuppBuyFrag_
                 @Override
                 public void onClick(View view) {
                     HuiLifeSuppBuyFrag_.this.ChooiceAddress();
+                }
+
+            }
+            );
+        }
+        if (fl_yhq!= null) {
+            fl_yhq.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    HuiLifeSuppBuyFrag_.this.onTicket();
                 }
 
             }

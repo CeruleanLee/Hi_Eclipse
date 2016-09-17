@@ -74,9 +74,9 @@ public final class HuiCommOrderFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        ll_NoticeDetails_Progress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
         lv_list = ((ListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.lv_list));
         btn_comment = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_comment));
+        ll_NoticeDetails_Progress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
         if (btn_comment!= null) {
             btn_comment.setOnClickListener(new OnClickListener() {
 

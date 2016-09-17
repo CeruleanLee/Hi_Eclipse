@@ -78,16 +78,16 @@ public final class VallageCityFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mHight = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.title_secondTitle_Hight);
+        mLetter = ((MyLetterListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.mlv_village_Letter));
         tv_dialog = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_dialog));
+        fl_vallage_search = ((FrameLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_vallage_search));
+        lv_vallage = ((ListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.lv_vallage));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
         mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
         tv_secondtitle_name = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_secondtitle_name));
-        img_back = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_back));
+        mHight = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.title_secondTitle_Hight);
         ll_village = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_village));
-        lv_vallage = ((ListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.lv_vallage));
-        mLetter = ((MyLetterListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.mlv_village_Letter));
-        fl_vallage_search = ((FrameLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_vallage_search));
+        img_back = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_back));
         if (fl_vallage_search!= null) {
             fl_vallage_search.setOnClickListener(new OnClickListener() {
 

@@ -1,10 +1,7 @@
-/***************************************************************************
- * Copyright (c) by raythinks.com, Inc. All Rights Reserved
- **************************************************************************/
-
 package cn.hi028.android.highcommunity.activity.fragment;
 
 import net.duohuo.dhroid.util.LogUtil;
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -13,9 +10,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,8 +31,6 @@ import cn.hi028.android.highcommunity.HighCommunityApplication;
 import cn.hi028.android.highcommunity.R;
 import cn.hi028.android.highcommunity.activity.MainActivity;
 import cn.hi028.android.highcommunity.activity.VallageAct;
-import cn.hi028.android.highcommunity.activity.fragment.ServiceFrag.NetworkReceiver;
-import cn.hi028.android.highcommunity.adapter.CommunityListAdapter;
 import cn.hi028.android.highcommunity.adapter.CommunityListAdapter2;
 import cn.hi028.android.highcommunity.bean.CommunityBean;
 import cn.hi028.android.highcommunity.bean.CommunityListBean;
@@ -44,7 +39,6 @@ import cn.hi028.android.highcommunity.utils.HTTPHelper;
 import cn.hi028.android.highcommunity.utils.HighCommunityUtils;
 import cn.hi028.android.highcommunity.view.LoadingView;
 import cn.hi028.android.highcommunity.view.LoadingView.OnLoadingViewListener;
-
 /**
  * @功能：邻里界面<br>
  * @作者： 赵海<br>
@@ -62,20 +56,11 @@ public class CommunityFrag extends Fragment {
 	private ImageView mChange;
 	RelativeLayout layoutContainer;
 	private LoadingView mLoadingView;
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-
-		LogUtil.d(Tag+"onCreate");
-
-	}
-
 	private TextView mNodata;
 	private View mProgress;
 	CommunityListBean mList = new CommunityListBean();
 	CommunityBean mBean = null;
 	public static boolean isNeedRefresh = true;
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		LogUtil.d(Tag+"onCreateView");
@@ -88,13 +73,17 @@ public class CommunityFrag extends Fragment {
 		initReceiver();
 		return mFragmeView;
 	}
-
+	@Override
+	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+		LogUtil.d(Tag+"onActivityCreated");
+		super.onActivityCreated(savedInstanceState);
+		initDatas();
+	}
 	private void initReceiver() {
 		IntentFilter mFilter = new IntentFilter();
 		mFilter.addAction(Constacts.BROADCAST);
 		getActivity().registerReceiver(mReceiver, mFilter);
 	}
-
 	private BroadcastReceiver mReceiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {
@@ -102,28 +91,17 @@ public class CommunityFrag extends Fragment {
 			onResume();
 		}
 	};
-
-	@Override
-	public void onPause() {
-		LogUtil.d(Tag+"---onPause");
-		//        getActivity().unregisterReceiver(mReceiver);
-		super.onPause();
-	}
-
-
-
 	private void initView() {
-
 		LogUtil.d(Tag+"---initView");
 		mFragmeView = LayoutInflater.from(getActivity()).inflate(
 				R.layout.frag_community_list, null);
 		findView();
-		mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
+//		mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
 		LogUtil.d(Tag+" initView   startLoading");
-		//		mLoadingView.startLoading();
+		
 		mAdapter = new CommunityListAdapter2((MainActivity) getActivity());
-		//        mListView.setEmptyView(mNodata);
 		mListView.setAdapter(mAdapter);
+		mListView.setEmptyView(mNodata);
 		mListView.setMode(PullToRefreshBase.Mode.BOTH);
 		mProgress.setVisibility(View.VISIBLE);
 		mListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
@@ -166,14 +144,11 @@ public class CommunityFrag extends Fragment {
 		@Override
 		public void onTryAgainClick() {
 			if(!isNoNetwork)
-				//				 RefreshData(0);
 				Toast.makeText(getActivity(), "------------OnLoadingViewListener", 0).show();
 		}
 	};
-	@Override
-	public void onResume() {
-		LogUtil.d(Tag+"---onResume");
-		initReceiver();
+	private void initDatas() {
+		mLoadingView.startLoading();
 		mCount = -1;
 		//        if (isNeedRefresh) {
 		String time = "";
@@ -181,8 +156,22 @@ public class CommunityFrag extends Fragment {
 			time = mAdapter.getItem(0).getCreate_time();//mList.getData().get(0).getCreate_time();
 		}
 
-		//            HTTPHelper.GetMessage(mIbpi, HighCommunityApplication.mUserInfo.getId(), HighCommunityApplication.mUserInfo.getV_id(), time);
-		//            LogUtil.d(Tag+"GetMessage2 ");
+		HTTPHelper.GetMessage(mIbpi, HighCommunityApplication.mUserInfo.getId(), HighCommunityApplication.mUserInfo.getV_id(), time);
+		LogUtil.d(Tag+"GetMessage2 ");
+	}
+	@Override
+	public void onResume() {
+		LogUtil.d(Tag+"---onResume");
+		initReceiver();
+		//		mCount = -1;
+		//		//        if (isNeedRefresh) {
+		//		String time = "";
+		//		if (mAdapter != null && mAdapter.getCount() > 0) {
+		//			time = mAdapter.getItem(0).getCreate_time();//mList.getData().get(0).getCreate_time();
+		//		}
+		//
+		//		HTTPHelper.GetMessage(mIbpi, HighCommunityApplication.mUserInfo.getId(), HighCommunityApplication.mUserInfo.getV_id(), time);
+		//		LogUtil.d(Tag+"GetMessage2 ");
 
 		//        }
 		super.onResume();
@@ -191,7 +180,6 @@ public class CommunityFrag extends Fragment {
 	}
 
 	private void RefreshData(int type) {
-
 		LogUtil.d(Tag+"RefreshData ");
 		String time = "";
 		if (type == 0) {
@@ -229,7 +217,7 @@ public class CommunityFrag extends Fragment {
 			}
 			HighCommunityUtils.GetInstantiation().ShowToast(message, 0);
 			//            if(!isNoNetwork){
-				//				mLoadingView.loadFailed();
+							mLoadingView.loadFailed();
 			//			}
 		}
 
@@ -250,11 +238,11 @@ public class CommunityFrag extends Fragment {
 			} else if (mCount == -1) {
 				mAdapter.SetData(mList.getData());
 			}
+			mLoadingView.loadSuccess();
+			LogUtil.d("-------------  initView   loadSuccess");
+			layoutContainer.setVisibility(View.VISIBLE);
+			LogUtil.d("-------------  initView   setVisibility");
 			mListView.onRefreshComplete();
-			//            mLoadingView.loadSuccess();
-			//			LogUtil.d("-------------  initView   loadSuccess");
-			//			layoutContainer.setVisibility(View.VISIBLE);
-			//			LogUtil.d("-------------  initView   setVisibility");
 
 
 		}
@@ -275,6 +263,11 @@ public class CommunityFrag extends Fragment {
 			mListView.onRefreshComplete();
 		}
 	};
+
+
+
+
+
 
 	/****
 	 * 与网络状态相关
@@ -319,7 +312,7 @@ public class CommunityFrag extends Fragment {
 					LogUtils.d("没有网络");
 					Toast.makeText(getActivity(), "没有网络", 0).show();
 					//					if(nextPage == 1){
-					mLoadingView.noNetwork();
+										mLoadingView.noNetwork();
 					//					}
 					isNoNetwork = true;
 				}
@@ -328,6 +321,50 @@ public class CommunityFrag extends Fragment {
 	}
 	private boolean isNoNetwork;
 
+	@Override
+	public void onAttach(Activity activity) {
+		// TODO Auto-generated method stub
+		LogUtil.d(Tag+"onAttach");
+		super.onAttach(activity);
+	}
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		LogUtil.d(Tag+"onCreate");
+	}
+	@Override
+	public void onStart() {
+		LogUtil.d(Tag+"onStart");
+		super.onStart();
+	}
+	@Override
+	public void onPause() {
+		LogUtil.d(Tag+"onPause");
+		//        getActivity().unregisterReceiver(mReceiver);
+		super.onPause();
+	}
 
+	@Override
+	public void onStop() {
+		LogUtil.d(Tag+"onStop");
+		super.onStop();
+	}
+
+	@Override
+	public void onDestroy() {
+		LogUtil.d(Tag+"onDestroy");
+		super.onDestroy();
+	}
+	@Override
+	public void onDestroyView() {
+		LogUtil.d(Tag+"onDestroyView");
+		super.onDestroyView();
+	}
+	@Override
+	public void onDetach() {
+		LogUtil.d(Tag+"onDetach");
+		super.onDetach();
+	}
+	
 
 }

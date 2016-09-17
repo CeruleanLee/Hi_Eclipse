@@ -74,11 +74,11 @@ public final class ReportFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mType3 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type3));
-        mType4 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type4));
-        mType2 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type2));
-        mType5 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type5));
         submit = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_report_submit));
+        mType5 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type5));
+        mType2 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type2));
+        mType4 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type4));
+        mType3 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type3));
         mType1 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type1));
         if (submit!= null) {
             submit.setOnClickListener(new OnClickListener() {
