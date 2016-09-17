@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/Defult_Color_ShallowGrey">
+    <include
+        android:id="@+id/ll_NoticeDetails_Progress"
+        layout="@layout/progress" />
+
+    <TextView
+        android:id="@+id/tv_NoticeDetails_noData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="暂无数据"
+        android:visibility="gone" />
+<GridView
+    android:id="@+id/gv_chips"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:gravity="fill"
+    android:horizontalSpacing="11dp"
+    android:scrollbars="none"
+    android:numColumns="2"
+    android:stretchMode="columnWidth"
+    android:verticalSpacing="11dp"
+ >
+
+</GridView>
+</LinearLayout>

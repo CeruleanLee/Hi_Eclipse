@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/padding_8" >
+
+    <com.don.view.CircleImageView
+        android:id="@+id/civl_ServiceCarftsItem_avatar"
+        android:layout_width="55dip"
+        android:layout_height="55dip"
+        android:layout_marginLeft="@dimen/padding_12"
+        android:src="@mipmap/defult_avatar"
+        app:border_color="@color/defult_color_transparent"
+        app:border_width="0dip" />
+
+    <TextView
+        android:id="@+id/tv_ServiceCarftsItem_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding_8"
+        android:layout_marginTop="@dimen/padding_4"
+        android:layout_toRightOf="@id/civl_ServiceCarftsItem_avatar"
+        android:text="新港国际花园"
+        android:textSize="@dimen/font_large" />
+
+    <TextView
+        android:id="@+id/tv_ServiceCarftsItem_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_ServiceCarftsItem_Name"
+        android:layout_marginBottom="@dimen/padding_8"
+        android:layout_marginRight="@dimen/padding_12"
+        android:layout_marginTop="@dimen/padding_15"
+        android:text="13333333333"
+        android:textColor="@color/Defult_Color_AppGreen" />
+
+    <TextView
+        android:id="@+id/tv_ServiceCarftsItem_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/padding_8"
+        android:layout_marginRight="@dimen/padding_12"
+        android:layout_marginTop="@dimen/padding_8"
+        android:ellipsize="end"
+        android:text="审核通过"
+        android:textColor="@color/defult_text_Shallowcolor" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:layout_below="@id/tv_ServiceCarftsItem_phone"
+        android:background="@color/Defult_Color_LineGrey"
+        android:visibility="visible" />
+
+</RelativeLayout>

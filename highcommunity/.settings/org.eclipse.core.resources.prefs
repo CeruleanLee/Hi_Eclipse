@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+encoding//src/cn/hi028/android/highcommunity=UTF-8
+encoding//src/cn/hi028/android/highcommunity/activity=UTF-8
+encoding//src/cn/hi028/android/highcommunity/activity/fragment=UTF-8
+encoding//src/cn/hi028/android/highcommunity/adapter=UTF-8
+encoding//src/cn/hi028/android/highcommunity/adapter/GoodsItemAdapter.java=UTF-8
+encoding//src/cn/hi028/android/highcommunity/adapter/MyBaseAdapter.java=GBK
+encoding//src/cn/hi028/android/highcommunity/bean=UTF-8
+encoding//src/cn/hi028/android/highcommunity/lisenter=UTF-8
+encoding//src/cn/hi028/android/highcommunity/params=UTF-8
+encoding//src/cn/hi028/android/highcommunity/receivers=UTF-8
+encoding//src/cn/hi028/android/highcommunity/utils=UTF-8
+encoding//src/cn/hi028/android/highcommunity/utils/ShareUtils.java=UTF-8
+encoding//src/cn/hi028/android/highcommunity/view/Auto_ScrollViewContainer.java=UTF-8
+encoding//src/cn/hi028/android/highcommunity/view/DownHint.java=UTF-8
+encoding//src/cn/hi028/android/highcommunity/view/MyGridView.java=UTF-8
+encoding/src=UTF-8
