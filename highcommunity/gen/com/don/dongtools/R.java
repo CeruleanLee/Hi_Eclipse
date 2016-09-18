@@ -18,27 +18,27 @@ public final class R {
 		public static final int wheel_val = 0x7f020133;
 	}
 	public static final class id {
-		public static final int Window_message = 0x7f070429;
-		public static final int Window_progress = 0x7f070428;
-		public static final int loading_message = 0x7f07038f;
-		public static final int pg_progress = 0x7f0700eb;
-		public static final int tag_first = 0x7f070016;
-		public static final int tag_second = 0x7f070017;
+		public static final int Window_message = 0x7f0b0429;
+		public static final int Window_progress = 0x7f0b0428;
+		public static final int loading_message = 0x7f0b038f;
+		public static final int pg_progress = 0x7f0b00eb;
+		public static final int tag_first = 0x7f0b0001;
+		public static final int tag_second = 0x7f0b0002;
 	}
 	public static final class layout {
 		public static final int progress = 0x7f0400d1;
 		public static final int waitting_popupwindow = 0x7f0400f7;
 	}
 	public static final class string {
-		public static final int RequestEnd = 0x7f0a001d;
-		public static final int RequestTimeout = 0x7f0a001c;
-		public static final int ShouldLogin = 0x7f0a001e;
-		public static final int app_name = 0x7f0a0011;
+		public static final int RequestEnd = 0x7f09001d;
+		public static final int RequestTimeout = 0x7f09001c;
+		public static final int ShouldLogin = 0x7f09001e;
+		public static final int app_name = 0x7f090011;
 	}
 	public static final class style {
-		public static final int AppBaseTheme = 0x7f0b0017;
-		public static final int AppTheme = 0x7f0b0018;
-		public static final int myProgressStyle = 0x7f0b0019;
+		public static final int AppBaseTheme = 0x7f0a0017;
+		public static final int AppTheme = 0x7f0a0018;
+		public static final int myProgressStyle = 0x7f0a0019;
 	}
 	public static final class styleable {
 		public static final int[] CircleImageView = { 0x7f01001a, 0x7f01001b };

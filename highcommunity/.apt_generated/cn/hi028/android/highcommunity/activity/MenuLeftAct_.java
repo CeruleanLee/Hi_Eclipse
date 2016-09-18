@@ -85,10 +85,10 @@ public final class MenuLeftAct_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
         mHight = hasViews.findViewById(id.title_secondTitle_Hight);
         mTitleLayout = hasViews.findViewById(id.title_menuleft_layout);
         tv_right_name = ((TextView) hasViews.findViewById(id.tv_right_name));
+        mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
         if (tv_right_name!= null) {
             tv_right_name.setOnClickListener(new OnClickListener() {
 

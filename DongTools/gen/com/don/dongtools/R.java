@@ -103,7 +103,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.don.dongtools:border_color
         */
-        public static final int CircleImageView_border_color = 1;
+        public static int CircleImageView_border_color = 1;
         /**
           <p>This symbol is the offset where the {@link com.don.dongtools.R.attr#border_width}
           attribute's value can be found in the {@link #CircleImageView} array.
@@ -119,6 +119,6 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.don.dongtools:border_width
         */
-        public static final int CircleImageView_border_width = 0;
+        public static int CircleImageView_border_width = 0;
     };
 }

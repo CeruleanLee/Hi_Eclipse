@@ -75,11 +75,11 @@ public final class MyCarftsFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mSearch = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_carftssearch_content));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_serviceCarfts);
-        mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_serviceCarfts_Nodata));
-        mTag = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_carftsearch_tag));
         mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_serviceCarfts_listView));
+        mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_serviceCarfts_Nodata));
+        mSearch = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_carftssearch_content));
+        mTag = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_carftsearch_tag));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_serviceCarfts);
         initView();
     }
 

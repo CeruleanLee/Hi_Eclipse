@@ -73,8 +73,8 @@ public final class MyCollectionSwitchFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mViewPager = ((ViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.vp_MyCollectionSwitch_viewpager));
         mRadioGroup = ((RadioGroup) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rg_MyCollectionSwitch));
+        mViewPager = ((ViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.vp_MyCollectionSwitch_viewpager));
         initView();
     }
 

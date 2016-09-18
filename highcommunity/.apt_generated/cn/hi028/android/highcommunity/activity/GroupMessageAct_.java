@@ -86,21 +86,9 @@ public final class GroupMessageAct_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mAvatar = ((CircleImageView) hasViews.findViewById(id.img_second_GoupHead));
         mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
         mHight = hasViews.findViewById(id.title_secondTitle_Hight);
-        if (mAvatar!= null) {
-            mAvatar.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    GroupMessageAct_.this.details();
-                }
-
-            }
-            );
-        }
+        mAvatar = ((CircleImageView) hasViews.findViewById(id.img_second_GoupHead));
         {
             View view = hasViews.findViewById(id.img_back);
             if (view!= null) {
@@ -115,6 +103,18 @@ public final class GroupMessageAct_
                 }
                 );
             }
+        }
+        if (mAvatar!= null) {
+            mAvatar.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    GroupMessageAct_.this.details();
+                }
+
+            }
+            );
         }
         initView();
     }

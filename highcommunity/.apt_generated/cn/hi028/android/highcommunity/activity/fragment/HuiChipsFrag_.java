@@ -74,8 +74,8 @@ public final class HuiChipsFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         gv_chips = ((GridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.gv_chips));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
         mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
         intView();
     }
 

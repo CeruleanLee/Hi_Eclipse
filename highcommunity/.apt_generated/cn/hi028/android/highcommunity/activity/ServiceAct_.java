@@ -86,9 +86,9 @@ public final class ServiceAct_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
         img_right = ((ImageView) hasViews.findViewById(id.img_right));
         mHight = hasViews.findViewById(id.title_secondTitle_Hight);
-        mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
         {
             View view = hasViews.findViewById(id.img_back);
             if (view!= null) {

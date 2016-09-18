@@ -76,22 +76,10 @@ public final class ActivityDetailsFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_ActivityDetails);
-        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ActivityDetails_Nodata));
         mReplay = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activitydetails_replay));
         mJoin = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activitydetails_join));
         mlistView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_activitydetails_listview));
-        if (mJoin!= null) {
-            mJoin.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    ActivityDetailsFrag_.this.join();
-                }
-
-            }
-            );
-        }
+        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ActivityDetails_Nodata));
         if (mReplay!= null) {
             mReplay.setOnClickListener(new OnClickListener() {
 
@@ -99,6 +87,18 @@ public final class ActivityDetailsFrag_
                 @Override
                 public void onClick(View view) {
                     ActivityDetailsFrag_.this.replay();
+                }
+
+            }
+            );
+        }
+        if (mJoin!= null) {
+            mJoin.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    ActivityDetailsFrag_.this.join();
                 }
 
             }

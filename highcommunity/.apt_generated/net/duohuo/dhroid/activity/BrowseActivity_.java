@@ -87,9 +87,9 @@ public final class BrowseActivity_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        tv_title_name = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
         webview = ((ProgressWebView) hasViews.findViewById(id.pw_browse));
         img_back = ((ImageView) hasViews.findViewById(id.img_back));
+        tv_title_name = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
         if (img_back!= null) {
             img_back.setOnClickListener(new OnClickListener() {
 
