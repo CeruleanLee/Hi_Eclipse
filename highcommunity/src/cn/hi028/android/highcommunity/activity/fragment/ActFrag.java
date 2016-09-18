@@ -66,6 +66,8 @@ public class ActFrag extends BaseFragment {
     List<ActiveBean> mlist;
     ActivityAdapter mAdapter;
 View layoutContainer;
+/** loadingView控制该容器显示与隐藏**/
+View layout_Container;
 private LoadingView mLoadingView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -84,6 +86,7 @@ private LoadingView mLoadingView;
         mFragmeView = LayoutInflater.from(getActivity()).inflate(
                 R.layout.frag_activity, null);
         layoutContainer=mFragmeView.findViewById(R.id.ll_act);
+        layout_Container=mFragmeView.findViewById(R.id.loadingview_Container);
         mLoadingView=(LoadingView)mFragmeView.findViewById(R.id.loadingView);
     	
         mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
@@ -154,7 +157,8 @@ private LoadingView mLoadingView;
             mAdapter.AddNewData(mlist);
             mLoadingView.loadSuccess();
 			LogUtil.d("-------------  initView   loadSuccess");
-			layoutContainer.setVisibility(View.VISIBLE);
+			layout_Container.setVisibility(View.VISIBLE);
+//			layoutContainer.setVisibility(View.VISIBLE);
 			LogUtil.d("-------------  initView   setVisibility");
             
 

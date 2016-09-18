@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.alipay.sdk.auth.AlipaySDK;
 import com.don.tools.BpiHttpHandler;
 import com.don.tools.GeneratedClassUtils;
 
@@ -37,7 +36,6 @@ import cn.hi028.android.highcommunity.bean.CertifiBean;
 import cn.hi028.android.highcommunity.utils.Constacts;
 import cn.hi028.android.highcommunity.utils.HTTPHelper;
 import cn.hi028.android.highcommunity.utils.HighCommunityUtils;
-import cn.hi028.android.highcommunity.utils.UrlHandler;
 import cn.hi028.android.highcommunity.view.ECAlertDialog;
 
 /**
@@ -121,25 +119,25 @@ public class ServicePaymentFrag extends BaseFragment {
 		ECAlertDialog.buildAlert(getActivity(), "你还未认证,是否去认证?", "去认证", "取消",
 				new DialogInterface.OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						startActivity(mPayDetail);
-						Intent mAuth = new Intent(getActivity(),
-								GeneratedClassUtils.get(ServiceSecondAct.class));
-						mAuth.putExtra(ServiceSecondAct.ACTIVITYTAG,
-								Constacts.SERVICE_SECOND_PERSONALAUTH);
-						startActivity(mAuth);
-					}
-				}, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				startActivity(mPayDetail);
+				Intent mAuth = new Intent(getActivity(),
+						GeneratedClassUtils.get(ServiceSecondAct.class));
+				mAuth.putExtra(ServiceSecondAct.ACTIVITYTAG,
+						Constacts.SERVICE_SECOND_PERSONALAUTH);
+				startActivity(mAuth);
+			}
+		}, new DialogInterface.OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
 
-					}
+			}
 
-				}).show();
+		}).show();
 	}
-final String payUrl="alipays://platformapi/startapp?appId=20000193&userId={0}";// 用户的alipay-userid
+	final String payUrl="alipays://platformapi/startapp?appId=20000193&userId={0}";// 用户的alipay-userid
 	View.OnClickListener mListener = new View.OnClickListener() {
 		@Override
 		public void onClick(View view) {
@@ -156,108 +154,108 @@ final String payUrl="alipays://platformapi/startapp?appId=20000193&userId={0}";/
 				mPayDetail.putExtra(ServiceSecondAct.INTENTTAG, "4");
 				break;
 			case R.id.tv_payment_service_water:
-				
+
 				if (!HighCommunityApplication.isAliPayInStalled()) {
 					LogUtil.d("------未安装支付宝");
 					showUnInstallPayDialog();
 				}else{
-					HighCommunityUtils.GetInstantiation().ShowToast("功能待完善", 0);
-//					String url=UrlHandler.handlUrl(payUrl, alipay_userid);
-//					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-//					final String qqUrl = "alipays://platformapi/startapp?appId=20000193";//&userId= 用户的alipay-userid
-					
-//					 BrowseActivity.toBrowseActivity(getActivity(), "公告", url + id);
-					
-//				AlipaySDK.auth(getActivity(), arg1)
+					final String Url = "alipays://platformapi/startapp?appId=20000193";
+					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Url)));
+					//					HighCommunityUtils.GetInstantiation().ShowToast("功能待完善", 0);
+					//					String url=UrlHandler.handlUrl(payUrl, alipay_userid);
+					//					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+					//					final String qqUrl = "alipays://platformapi/startapp?appId=20000193";//&userId= 用户的alipay-userid
+
+					//					 BrowseActivity.toBrowseActivity(getActivity(), "公告", url + id);
+
+					//				AlipaySDK.auth(getActivity(), arg1)
 				}
 
-//				 mPayDetail.putExtra(ServiceSecondAct.INTENTTAG, "2");
-//				 if (HighCommunityUtils.isLogin(getActivity())) {
-//				 HTTPHelper.GetRepairCertification(mIbpiRepairCeri,
-//				 HighCommunityApplication.mUserInfo.getId() + "");
-//				 }
-				 break;
+				//				 mPayDetail.putExtra(ServiceSecondAct.INTENTTAG, "2");
+				//				 if (HighCommunityUtils.isLogin(getActivity())) {
+				//				 HTTPHelper.GetRepairCertification(mIbpiRepairCeri,
+				//				 HighCommunityApplication.mUserInfo.getId() + "");
+				//				 }
+				break;
 			case R.id.tv_payment_service_dian:
 				if (!HighCommunityApplication.isAliPayInStalled()) {
 					LogUtil.d("------未安装支付宝");
 					showUnInstallPayDialog();
 				}else{
 					HighCommunityUtils.GetInstantiation().ShowToast("功能待完善", 0);
-//					String url=UrlHandler.handlUrl(payUrl, alipay_userid);
-//					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-//					final String qqUrl = "alipays://platformapi/startapp?appId=20000193";//&userId= 用户的alipay-userid
-					
-//					 BrowseActivity.toBrowseActivity(getActivity(), "公告", url + id);
-					
-					
+					final String Url = "alipays://platformapi/startapp?appId=20000193";
+					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Url)));
+					//					String url=UrlHandler.handlUrl(payUrl, alipay_userid);
+					//					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+					//					final String qqUrl = "alipays://platformapi/startapp?appId=20000193";//&userId= 用户的alipay-userid
+
+					//					 BrowseActivity.toBrowseActivity(getActivity(), "公告", url + id);
+
+
 				}
-//				 if (HighCommunityUtils.isLogin(getActivity())) {
-//				 HTTPHelper.GetRepairCertification(mIbpiRepairCeri,
-//				 HighCommunityApplication.mUserInfo.getId() + "");
-//				 }
-//				mPayDetail.putExtra(ServiceSecondAct.INTENTTAG, "1");
-				 break;
+				//				 if (HighCommunityUtils.isLogin(getActivity())) {
+				//				 HTTPHelper.GetRepairCertification(mIbpiRepairCeri,
+				//				 HighCommunityApplication.mUserInfo.getId() + "");
+				//				 }
+				//				mPayDetail.putExtra(ServiceSecondAct.INTENTTAG, "1");
+				break;
 			case R.id.tv_payment_service_qi:
-				
+
 				if (!HighCommunityApplication.isAliPayInStalled()) {
 					LogUtil.d("------未安装支付宝");
 					showUnInstallPayDialog();
 				}else{
-					HighCommunityUtils.GetInstantiation().ShowToast("功能待完善", 0);
-//					String url=UrlHandler.handlUrl(payUrl, alipay_userid);
-//					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-//					final String qqUrl = "alipays://platformapi/startapp?appId=20000193";//&userId= 用户的alipay-userid
-					
-//					 BrowseActivity.toBrowseActivity(getActivity(), "公告", url + id);
-					
-					
+					final String Url = "alipays://platformapi/startapp?appId=20000193";
+					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Url)));
+					//					HighCommunityUtils.GetInstantiation().ShowToast("功能待完善", 0);
+					//					String url=UrlHandler.handlUrl(payUrl, alipay_userid);
+					//					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+					//					final String qqUrl = "alipays://platformapi/startapp?appId=20000193";//&userId= 用户的alipay-userid
+
+					//					 BrowseActivity.toBrowseActivity(getActivity(), "公告", url + id);
 				}
-				
-				
-				
-				
-				
-//				
-//				if (url.startsWith("intent://")) {
-//					Intent intent;
-//					try {
-//					intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
-//					intent.addCategory("android.intent.category.BROWSABLE");
-//					intent.setComponent(null);
-//					intent.setSelector(null);
-//					getActivity().startActivity(intent);
-//					} catch (URISyntaxException e) {
-//					e.printStackTrace();
-//					}
-//					return true;
-//					} 
-//				 mPayDetail.putExtra(ServiceSecondAct.INTENTTAG, "3");
-//				 if (HighCommunityUtils.isLogin(getActivity())) {
-//				 HTTPHelper.GetRepairCertification(mIbpiRepairCeri,
-//				 HighCommunityApplication.mUserInfo.getId() + "");
-//				 }
-//				final String qqUrl = "alipays://platformapi/startapp?appId=20000193";
-//				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(qqUrl)));
+				//				if (url.startsWith("intent://")) {
+				//					Intent intent;
+				//					try {
+				//					intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
+				//					intent.addCategory("android.intent.category.BROWSABLE");
+				//					intent.setComponent(null);
+				//					intent.setSelector(null);
+				//					getActivity().startActivity(intent);
+				//					} catch (URISyntaxException e) {
+				//					e.printStackTrace();
+				//					}
+				//					return true;
+				//					} 
+
+
+				//				 mPayDetail.putExtra(ServiceSecondAct.INTENTTAG, "3");
+				//				 if (HighCommunityUtils.isLogin(getActivity())) {
+				//				 HTTPHelper.GetRepairCertification(mIbpiRepairCeri,
+				//				 HighCommunityApplication.mUserInfo.getId() + "");
+				//				 }
+				//				final String Url = "alipays://platformapi/startapp?appId=20000193";
+				//				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Url)));
 
 				break;
 			}
 		}
 	};
-	
-	
+
+
 	/****
 	 * 显示支付宝未安装弹窗
 	 */
 	public void showUnInstallPayDialog() {
 		ECAlertDialog dialog2=ECAlertDialog.buildAlert(getActivity(), "未安装支付宝，请前往安装。", "确定", "取消", new OnClickListener() {
-			
+
 			@Override
 			public void onClick(DialogInterface arg0, int arg1) {
-				BrowseActivity.toBrowseActivity(getActivity(), null, "https://www.alipay.com/");
-				
+				BrowseActivity.toBrowseActivity(getActivity(), null, "http://d.alipay.com");
+//				http://d.alipay.com
 			}
 		}, new OnClickListener() {
-			
+
 			@Override
 			public void onClick(DialogInterface arg0, int arg1) {
 				return;
@@ -265,7 +263,7 @@ final String payUrl="alipays://platformapi/startapp?appId=20000193&userId={0}";/
 		});
 		dialog2.show();
 	}
-//	Toast.makeText(MainActivity.this,"HighCommunityApplication.isAliPayInStalled()"+HighCommunityApplication.isAliPayInStalled(), 0).show();
+	//	Toast.makeText(MainActivity.this,"HighCommunityApplication.isAliPayInStalled()"+HighCommunityApplication.isAliPayInStalled(), 0).show();
 	/**
 	 * 预定报修
 	 */
@@ -288,25 +286,25 @@ final String payUrl="alipays://platformapi/startapp?appId=20000193&userId={0}";/
 				ECAlertDialog.buildAlert(getActivity(), "你还未认证,是否去认证?", "去认证",
 						"取消", new DialogInterface.OnClickListener() {
 
-							@Override
-							public void onClick(DialogInterface dialog,
-									int which) {
-								Intent mAuth = new Intent(getActivity(),
-										GeneratedClassUtils
-												.get(ServiceSecondAct.class));
-								mAuth.putExtra(ServiceSecondAct.ACTIVITYTAG,
-										Constacts.SERVICE_SECOND_PERSONALAUTH);
-								startActivity(mAuth);
-							}
-						}, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog,
+							int which) {
+						Intent mAuth = new Intent(getActivity(),
+								GeneratedClassUtils
+								.get(ServiceSecondAct.class));
+						mAuth.putExtra(ServiceSecondAct.ACTIVITYTAG,
+								Constacts.SERVICE_SECOND_PERSONALAUTH);
+						startActivity(mAuth);
+					}
+				}, new DialogInterface.OnClickListener() {
 
-							@Override
-							public void onClick(DialogInterface dialog,
-									int which) {
+					@Override
+					public void onClick(DialogInterface dialog,
+							int which) {
 
-							}
+					}
 
-						}).show();
+				}).show();
 			} else {
 				HighCommunityUtils.GetInstantiation().ShowToast(message, 0);
 			}

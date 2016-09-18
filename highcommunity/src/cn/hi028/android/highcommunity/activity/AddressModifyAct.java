@@ -21,7 +21,7 @@ import cn.hi028.android.highcommunity.R;
 import cn.hi028.android.highcommunity.activity.fragment.*;
 
 /**
- * @功能：地址操作<br>
+ * @功能：地址操作  新增 修改地址<br>
  * @作者： 李凌云<br>
  * @版本：1.0<br>
  * @时间：2016/1/21<br>

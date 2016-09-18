@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/Defult_Color_ShallowGrey"
-    android:layout_height="match_parent">
+    android:orientation="vertical" >
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dip"
@@ -13,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/defult_color_white"
-        android:paddingLeft="@dimen/padding_12">
+        android:paddingLeft="@dimen/padding_12" >
 
         <ImageView
             style="@style/et_login_defulttype"
@@ -33,6 +35,7 @@
             android:textColorHint="@color/Defult_Color_Grey"
             android:textSize="@dimen/font_small" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dip"
@@ -42,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/defult_color_white"
-        android:paddingLeft="@dimen/padding_12">
+        android:paddingLeft="@dimen/padding_12" >
 
         <ImageView
             style="@style/et_login_defulttype"
@@ -62,6 +65,7 @@
             android:textColorHint="@color/Defult_Color_Grey"
             android:textSize="@dimen/font_small" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dip"
@@ -71,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/defult_color_white"
-        android:paddingLeft="@dimen/padding_12">
+        android:paddingLeft="@dimen/padding_12" >
 
         <ImageView
             style="@style/et_login_defulttype"
@@ -97,11 +101,20 @@
         android:layout_height="0.5dip"
         android:background="@color/Defult_Color_LineGrey" />
 
-    <TextView
-        android:id="@+id/tv_modify"
-        style="@style/bt_appdefult_tyle"
-        android:layout_marginTop="@dimen/padding_36"
-        android:clickable="true"
-        android:text="修改"
-        android:textSize="@dimen/font_small" />
+    <cn.hi028.android.highcommunity.view.RevealLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+          android:layout_marginTop="@dimen/padding_36"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_modify"
+            style="@style/bt_appdefult_tyle"
+          
+            android:clickable="true"
+            android:text="修改"
+            android:textSize="@dimen/font_small" />
+    </cn.hi028.android.highcommunity.view.RevealLayout>
+
 </LinearLayout>

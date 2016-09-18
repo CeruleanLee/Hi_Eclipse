@@ -92,7 +92,7 @@
 
 
 
-
+//水波纹点击效果
  <cn.hi028.android.highcommunity.view.RevealLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

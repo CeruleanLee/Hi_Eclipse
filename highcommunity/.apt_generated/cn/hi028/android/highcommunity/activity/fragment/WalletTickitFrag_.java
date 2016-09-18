@@ -73,8 +73,8 @@ public final class WalletTickitFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mRecodeList = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletTickit_listView));
         mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletTickit_Nodata));
+        mRecodeList = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletTickit_listView));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_walletTickit);
         initView();
     }

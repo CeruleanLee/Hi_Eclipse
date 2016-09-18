@@ -411,7 +411,7 @@ public class AlipayUtils {
 			
 			@Override
 			public void onClick(DialogInterface arg0, int arg1) {
-				BrowseActivity.toBrowseActivity(act, null, "https://www.alipay.com/");
+				BrowseActivity.toBrowseActivity(act, null, "http://d.alipay.com");
 				
 			}
 		}, new OnClickListener() {

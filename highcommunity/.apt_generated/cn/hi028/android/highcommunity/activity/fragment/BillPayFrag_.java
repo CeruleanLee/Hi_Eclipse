@@ -77,29 +77,17 @@ public final class BillPayFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        btn_billpay_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_billpay_pay));
-        mDiscount = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_discount));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_billpay);
-        mWeixin = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rb_billpay_weixinpay));
-        mAlipay = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rb_billpay_alipay));
-        mSum = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_billpay_sum));
-        mWallet = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_wallet));
-        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_Nodata));
-        mRealPrice = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_realprice));
-        mPayTypeGroup = ((RadioGroup) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rb_billpay_group));
         mTotal = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_amount_pay));
-        if (btn_billpay_pay!= null) {
-            btn_billpay_pay.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    BillPayFrag_.this.pay();
-                }
-
-            }
-            );
-        }
+        mWallet = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_wallet));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_billpay);
+        btn_billpay_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_billpay_pay));
+        mAlipay = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rb_billpay_alipay));
+        mWeixin = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rb_billpay_weixinpay));
+        mPayTypeGroup = ((RadioGroup) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rb_billpay_group));
+        mSum = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_billpay_sum));
+        mRealPrice = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_realprice));
+        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_Nodata));
+        mDiscount = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_discount));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_billpay_discountLayout);
             if (view!= null) {
@@ -114,6 +102,18 @@ public final class BillPayFrag_
                 }
                 );
             }
+        }
+        if (btn_billpay_pay!= null) {
+            btn_billpay_pay.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    BillPayFrag_.this.pay();
+                }
+
+            }
+            );
         }
         initView();
     }

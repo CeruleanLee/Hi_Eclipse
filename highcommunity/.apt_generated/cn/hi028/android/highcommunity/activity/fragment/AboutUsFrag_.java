@@ -74,11 +74,35 @@ public final class AboutUsFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mContactUs = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_ContactUs));
-        mProtocol = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Protocol));
         mUpdateContent = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_UpdateContent));
-        mAppVersion = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_AppVersion));
-        mShare = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Share));
         mFunctionIntro = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_FunctionIntro));
+        mProtocol = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Protocol));
+        mShare = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Share));
+        mAppVersion = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_AppVersion));
+        if (mShare!= null) {
+            mShare.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    AboutUsFrag_.this.share();
+                }
+
+            }
+            );
+        }
+        if (mFunctionIntro!= null) {
+            mFunctionIntro.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    AboutUsFrag_.this.functionIntro();
+                }
+
+            }
+            );
+        }
         if (mContactUs!= null) {
             mContactUs.setOnClickListener(new OnClickListener() {
 
@@ -98,30 +122,6 @@ public final class AboutUsFrag_
                 @Override
                 public void onClick(View view) {
                     AboutUsFrag_.this.protocolTo();
-                }
-
-            }
-            );
-        }
-        if (mFunctionIntro!= null) {
-            mFunctionIntro.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    AboutUsFrag_.this.functionIntro();
-                }
-
-            }
-            );
-        }
-        if (mShare!= null) {
-            mShare.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    AboutUsFrag_.this.share();
                 }
 
             }

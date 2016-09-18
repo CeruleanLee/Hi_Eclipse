@@ -74,15 +74,15 @@ public final class ServiceCaftsDetailFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_servicecarftsDetail_image));
-        mCarftsMan = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_CarftsMan));
-        mIntro = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceIntro));
         mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_serviceCarftsDetails_Nodata));
-        address = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceIntro_address));
         mContact = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceContact));
-        mServiceName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceName));
         mPrice = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServicePrice));
+        mIntro = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceIntro));
+        mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_servicecarftsDetail_image));
+        address = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceIntro_address));
+        mServiceName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceName));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_serviceCarftsDetails);
+        mCarftsMan = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_CarftsMan));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceCall);
             if (view!= null) {
