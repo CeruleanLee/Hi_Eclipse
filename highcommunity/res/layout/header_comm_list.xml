@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/margin_8" >
+        android:paddingTop="0.5dp" >
 
         <com.don.view.CircleImageView
             android:id="@+id/civl_commDetails_avatar"
@@ -150,19 +150,23 @@
             android:layout_alignLeft="@+id/civl_commDetails_avatar"
             android:layout_alignRight="@+id/layout"
             android:layout_below="@id/layout"
-            android:gravity="center"
+          
             android:orientation="horizontal" >
 
             <LinearLayout
                 android:layout_width="48dp"
-                android:layout_height="wrap_content"
-                android:gravity="center" >
+                android:layout_height="30dp"
+                android:gravity="center"
+                 >
 
                 <ImageView
                     android:id="@+id/tv_commDetails_Assist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/tag_community_item_assist" />
+                    android:gravity="center"
+                    android:padding="5dp"
+                  
+                     />
             </LinearLayout>
 
             <com.handmark.pulltorefresh.library.PullToRefreshGridView
@@ -173,7 +177,7 @@
                 android:cacheColorHint="@android:color/transparent"
                 android:gravity="center"
                 android:listSelector="@android:color/transparent"
-                android:numColumns="7"
+                android:numColumns="8"
                 android:paddingLeft="-2dp"
                 android:smoothScrollbar="true"
                 android:stretchMode="columnWidth" />

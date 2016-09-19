@@ -43,7 +43,8 @@
                 android:id="@+id/tv_commDetilsItem_assist"
                 style="@style/tv_community_time"
                 android:layout_marginRight="@dimen/margin_8"
-                android:drawableLeft="@mipmap/tag_community_item_assist"
+                
+                android:drawableLeft="@drawable/bg_community_assist_selector"
                 android:drawablePadding="@dimen/margin_6" />
 
         </LinearLayout>

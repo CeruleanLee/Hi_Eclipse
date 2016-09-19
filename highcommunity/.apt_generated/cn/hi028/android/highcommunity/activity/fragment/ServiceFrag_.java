@@ -76,64 +76,19 @@ public final class ServiceFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mGridView = ((PullToRefreshGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrgv_service_thirdParty));
-        mScrollview = ((PullToRefreshScrollView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.service_scrollView_layout));
         viewPager = ((AutoScrollViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.view_pager));
+        mScrollview = ((PullToRefreshScrollView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.service_scrollView_layout));
+        mGridView = ((PullToRefreshGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrgv_service_thirdParty));
         vgcpi = ((CirclePageIndicator) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.home_cpi));
         {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_tenement);
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_notice_one);
             if (view!= null) {
                 view.setOnClickListener(new OnClickListener() {
 
 
                     @Override
                     public void onClick(View view) {
-                        ServiceFrag_.this.tenement();
-                    }
-
-                }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_tenement2);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        ServiceFrag_.this.tenement2();
-                    }
-
-                }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_research);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        ServiceFrag_.this.research();
-                    }
-
-                }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_payment);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        ServiceFrag_.this.payment();
+                        ServiceFrag_.this.one();
                     }
 
                 }
@@ -156,21 +111,6 @@ public final class ServiceFrag_
             }
         }
         {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_become_craftsman);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        ServiceFrag_.this.become();
-                    }
-
-                }
-                );
-            }
-        }
-        {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_guide);
             if (view!= null) {
                 view.setOnClickListener(new OnClickListener() {
@@ -186,14 +126,59 @@ public final class ServiceFrag_
             }
         }
         {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_notice_one);
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_research);
             if (view!= null) {
                 view.setOnClickListener(new OnClickListener() {
 
 
                     @Override
                     public void onClick(View view) {
-                        ServiceFrag_.this.one();
+                        ServiceFrag_.this.research();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_tenement);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        ServiceFrag_.this.tenement();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_become_craftsman);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        ServiceFrag_.this.become();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_voluntary);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        ServiceFrag_.this.voluntary();
                     }
 
                 }
@@ -216,14 +201,29 @@ public final class ServiceFrag_
             }
         }
         {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_voluntary);
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_tenement2);
             if (view!= null) {
                 view.setOnClickListener(new OnClickListener() {
 
 
                     @Override
                     public void onClick(View view) {
-                        ServiceFrag_.this.voluntary();
+                        ServiceFrag_.this.tenement2();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_service_payment);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        ServiceFrag_.this.payment();
                     }
 
                 }

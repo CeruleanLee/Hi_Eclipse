@@ -29,7 +29,7 @@ public class Frag_PicDetail extends BaseFragment implements OnClickListener{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		bundle2  = getArguments();
-		
+
 	}
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,35 +40,39 @@ public class Frag_PicDetail extends BaseFragment implements OnClickListener{
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		GoodsData goodsdata = (GoodsData) bundle2.get("data");
-		
-//		LogUtil.d("========== goodsdata  :"+goodsdata.toString());
-		String content = bundle2.getString("detail");
+
+		//		LogUtil.d("========== goodsdata  :"+goodsdata.toString());
+		String content =goodsdata.getDetail();
 		LogUtil.d("========="+content);
 		LogUtil.d("========="+goodsdata);
 		findVByID();
 		call.setOnClickListener(this);
 		telephone.setOnClickListener(this);
 		if (goodsdata!=null) {
-			
+
 			aboutCallService(goodsdata);
 		}
-		
-		
+
+
 		mSetting = mWebview.getSettings();
 
 		mSetting.setDefaultTextEncodingName("utf-8");
-		mSetting.setDisplayZoomControls(false);
-		mSetting.setUseWideViewPort(true);
-		mSetting.setLoadWithOverviewMode(true);
-//		mWebview.setWebViewClient(new WebViewClient() {
-//			public boolean shouldOverrideUrlLoading(WebView view, String url) { // 重写此方法表明点击网页里面的链接还是在当前的webview里跳转，不跳到浏览器那边
-//				view.loadUrl(url);
-//				return true;
-//			}
-//		});
-	
-		
+		//		mSetting.setDisplayZoomControls(false);
+		//		mSetting.setUseWideViewPort(true);
+		//		mSetting.setLoadWithOverviewMode(true);
+		//		mWebview.setWebViewClient(new WebViewClient() {
+		//			public boolean shouldOverrideUrlLoading(WebView view, String url) { // 重写此方法表明点击网页里面的链接还是在当前的webview里跳转，不跳到浏览器那边
+		//				view.loadUrl(url);
+		//				return true;
+		//			}
+		//		});
+
+
 		mWebview.setWebViewClient(new WebViewClient(){
+			public boolean shouldOverrideUrlLoading(WebView view, String url) { // 重写此方法表明点击网页里面的链接还是在当前的webview里跳转，不跳到浏览器那边
+				view.loadUrl(url);
+				return true;
+			}
 			@Override
 			public void onPageFinished(WebView view, String url) {
 				// TODO Auto-generated method stub
@@ -76,8 +80,8 @@ public class Frag_PicDetail extends BaseFragment implements OnClickListener{
 				layoutCall.setVisibility(View.VISIBLE);
 			}
 		});
+		LogUtil.d("----------准备loadUrl-------------："+content);
 		mWebview.loadUrl(content);
-//		setUi(content);
 	}
 	private void findVByID() {
 		telephone = (TextView) getActivity().findViewById(R.id.shop_detail_service_telephone);
@@ -91,7 +95,7 @@ public class Frag_PicDetail extends BaseFragment implements OnClickListener{
 		// webview.loadDataWithBaseURL(null, str, "text/html", "utf-8", null);
 		mWebview.loadUrl(str);
 	}
-	
+
 	private void aboutCallService(GoodsData msg) {
 		if (null != msg.getTel()) {
 			telephone.setText("客服电话：" + msg.getTel());
@@ -107,6 +111,6 @@ public class Frag_PicDetail extends BaseFragment implements OnClickListener{
 					+ telPhone));
 			startActivity(intent2);
 		}
-		
+
 	}
 }

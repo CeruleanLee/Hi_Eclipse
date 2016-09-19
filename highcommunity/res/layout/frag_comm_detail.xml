@@ -4,32 +4,20 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:focusable="false"
-    android:focusableInTouchMode="false">
+    android:focusableInTouchMode="false" >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <ListView
-            android:id="@+id/ptrlv_communitydetails_listview"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:divider="@color/Defult_Color_ShallowGrey"
-            android:dividerHeight="0.5dip"
-            android:fadingEdge="none"
-            android:scrollbars="none"
-            android:transcriptMode="normal" />
+        android:orientation="vertical" >
 
         <LinearLayout
             android:id="@+id/ll_communitydetails_spokerLayout"
             android:layout_width="match_parent"
             android:layout_height="45dip"
-            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
             android:background="@color/defult_color_white"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:orientation="vertical" >
 
             <View
                 android:layout_width="match_parent"
@@ -40,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal" >
 
                 <com.don.view.CircleImageView
                     android:id="@+id/civ_communitydetails_spokerImage"
@@ -66,24 +54,38 @@
                     android:src="@drawable/tag_speakerbutton_selector" />
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+
+        <ListView
+            
+            android:id="@+id/ptrlv_communitydetails_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/ll_communitydetails_spokerLayout"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/white"
+            android:divider="@color/Defult_Color_ShallowGrey"
+            android:dividerHeight="0.5dip"
+            android:fadingEdge="none"
+            android:scrollbars="none"
+            android:transcriptMode="normal" />
+    </RelativeLayout>
 
     <include
         android:id="@+id/ll_NoticeDetails_Progress"
-        layout="@layout/progress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/defult_color_white"
-        />
+        layout="@layout/progress"
+        android:background="@color/defult_color_white" />
 
     <TextView
         android:id="@+id/tv_NoticeDetails_noData"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:background="@color/defult_color_white"
+        android:gravity="center"
+        android:text="暂无数据"
         android:textColor="@color/Service_title_text_color"
         android:textSize="15dp"
-        android:text="暂无数据"
         android:visibility="gone" />
+
 </FrameLayout>

@@ -319,11 +319,12 @@ public class CommunityDetilsFrag extends BaseFragment {
 		mAdapter.AddNewData(mBean.getReplies());
 		if (mBean.getLike()>0) {
 			//        	mAssist.setChecked(true);
-			mAssist.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.tag_community_item_assist_h));
+			mAssist.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_zan2));
 			//        	mAssist.setImageResource(R.mipmap.tag_community_item_assist_h);
 		}else {
+			mAssist.setVisibility(View.GONE);
 			//			mAssist.setChecked(false);
-			mAssist.setImageDrawable(getResources().getDrawable(R.drawable.tag_community_item_assist));
+//			mAssist.setImageDrawable(getResources().getDrawable(R.drawable.tag_community_item_assist));
 			//			mAssist.setImageResource(R.mipmap.tag_community_item_assist);;
 		}
 

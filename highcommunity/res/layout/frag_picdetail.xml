@@ -6,7 +6,7 @@
    <WebView
         android:id="@+id/ac_good_detail_webview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         />
    <RelativeLayout
             android:id="@+id/layout1"

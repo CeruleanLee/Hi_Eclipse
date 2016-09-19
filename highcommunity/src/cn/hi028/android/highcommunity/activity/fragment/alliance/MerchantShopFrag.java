@@ -12,6 +12,7 @@ import cn.hi028.android.highcommunity.R;
 import cn.hi028.android.highcommunity.activity.MenuLeftSecondAct;
 import cn.hi028.android.highcommunity.activity.ShowPayActivity;
 import cn.hi028.android.highcommunity.activity.alliancegoods.GoodsDetailActivity2;
+import cn.hi028.android.highcommunity.activity.alliancegoods.GoodsDetailActivity3;
 import cn.hi028.android.highcommunity.adapter.MerchantGoodLeftAdapter;
 import cn.hi028.android.highcommunity.adapter.MerchantGoodRightAdapter;
 import cn.hi028.android.highcommunity.adapter.PayPopupListAdapter;
@@ -433,7 +434,7 @@ public class MerchantShopFrag extends BaseFragment implements OnClickListener,
 				break;
 			}
 		}
-		Intent intent = new Intent(getActivity(), GoodsDetailActivity2.class);
+		Intent intent = new Intent(getActivity(), GoodsDetailActivity3.class);
 		Bundle bundle = new Bundle();
 		bundle.putString("id", info.getGoods_id());
 		bundle.putInt("count", info.getCounts());

@@ -40,6 +40,7 @@ public class CommunityDetailAct extends BaseFragmentActivity {
     View mHight;
     String flag;
     CommunityDetilsFrag mDetails = null;
+    Boolean isMePra;
 
     @AfterViews
     void initView() {
@@ -50,6 +51,7 @@ public class CommunityDetailAct extends BaseFragmentActivity {
         FragmentTransaction ft = fm.beginTransaction();
         flag = getIntent().getStringExtra(ACTIVITYTAG);
         String name = getIntent().getStringExtra(INTENTTAG);
+        isMePra=getIntent().getBooleanExtra("isPra", false);
         if (!TextUtils.isEmpty(flag) && flag.equals("Details")) {
             mTitle.setText("帖子详情");
             mDetails = new CommunityDetilsFrag_();

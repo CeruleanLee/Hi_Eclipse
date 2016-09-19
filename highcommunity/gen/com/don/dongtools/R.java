@@ -12,10 +12,10 @@ public final class R {
 		public static final int border_width = 0x7f01001a;
 	}
 	public static final class drawable {
-		public static final int myprogress = 0x7f02007e;
-		public static final int popupwindow = 0x7f02009a;
-		public static final int progress = 0x7f02009b;
-		public static final int wheel_val = 0x7f020133;
+		public static final int myprogress = 0x7f020081;
+		public static final int popupwindow = 0x7f02009d;
+		public static final int progress = 0x7f02009e;
+		public static final int wheel_val = 0x7f020136;
 	}
 	public static final class id {
 		public static final int Window_message = 0x7f0b042a;
@@ -26,8 +26,8 @@ public final class R {
 		public static final int tag_second = 0x7f0b0002;
 	}
 	public static final class layout {
-		public static final int progress = 0x7f0400d1;
-		public static final int waitting_popupwindow = 0x7f0400f7;
+		public static final int progress = 0x7f0400d2;
+		public static final int waitting_popupwindow = 0x7f0400f8;
 	}
 	public static final class string {
 		public static final int RequestEnd = 0x7f09001d;

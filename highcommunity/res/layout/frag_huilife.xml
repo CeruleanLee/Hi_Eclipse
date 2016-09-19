@@ -25,14 +25,14 @@
                 style="@style/rb_huilife_style"
                 android:layout_marginRight="18dp"
                 android:checked="true"
-                android:text="物业直供" />
+                android:text="直供" />
 
             <RadioButton
                 android:id="@+id/rb_chips"
                 style="@style/rb_huilife_style"
                 android:layout_marginLeft="18dp"
                 android:checked="false"
-                android:text="厨房众筹" />
+                android:text="众筹" />
               <RadioButton
                 android:id="@+id/rb_shops"
                 style="@style/rb_huilife_style"

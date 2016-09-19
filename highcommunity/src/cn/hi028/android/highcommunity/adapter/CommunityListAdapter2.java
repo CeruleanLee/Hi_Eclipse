@@ -301,6 +301,7 @@ public class CommunityListAdapter2 extends BaseFragmentAdapter {
 					Intent mCommunity = new Intent(mContext, GeneratedClassUtils.get(CommunityDetailAct.class));
 					mCommunity.putExtra(CommunityDetailAct.ACTIVITYTAG, "Details");
 					mCommunity.putExtra(CommunityDetailAct.INTENTTAG, mBean.getMid());
+					mCommunity.putExtra("isPra", mBean.isPra());
 					mContext.startActivity(mCommunity);
 				}
 			}

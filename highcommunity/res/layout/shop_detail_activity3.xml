@@ -114,14 +114,12 @@
         android:background="@color/Defult_Color_LineGrey" />
 
     <cn.hi028.android.highcommunity.view.snap.McoySnapPageLayout
-          android:id="@+id/flipLayout"
+        android:id="@+id/flipLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/line"
         android:layout_below="@id/ac_shop_good_title_rl"
         android:background="#88F7FAF5" >
-
-       
     </cn.hi028.android.highcommunity.view.snap.McoySnapPageLayout>
 
 </RelativeLayout>

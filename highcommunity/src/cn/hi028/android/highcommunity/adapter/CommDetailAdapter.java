@@ -204,6 +204,8 @@ public class CommDetailAdapter extends BaseFragmentAdapter {
                             mWatingWindow.dismiss();
                         }
                         mBean.setComment_praise(mBean.getComment_praise() + 1);
+                        // TODO  这里应该要点赞图片变化的  但是接口没有数据可以判断你是不是点赞了  所以暂时先不处理自己点赞图片变化
+//                        mViewHolder.mAssist.setSelected(true);
                         notifyDataSetChanged();
                     }
 
