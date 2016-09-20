@@ -77,15 +77,15 @@ public final class HuiChipsDetailFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         tv_chips_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_chips_price));
-        tv_chips_time = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_chips_time));
         tv_info = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_info));
-        vgcpi = ((CirclePageIndicator) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.view_cpi));
-        tv_join_chips = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_join_chips));
-        tv_count = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_count));
-        lc_chips = ((LineChart) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.lc_chips));
-        viewPager = ((AutoScrollViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.view_pager));
-        tv_chips_person_num = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_chips_person_num));
         tv_name = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_name));
+        tv_join_chips = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_join_chips));
+        tv_chips_person_num = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_chips_person_num));
+        vgcpi = ((CirclePageIndicator) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.view_cpi));
+        lc_chips = ((LineChart) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.lc_chips));
+        tv_chips_time = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_chips_time));
+        tv_count = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_count));
+        viewPager = ((AutoScrollViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.view_pager));
         if (tv_join_chips!= null) {
             tv_join_chips.setOnClickListener(new OnClickListener() {
 

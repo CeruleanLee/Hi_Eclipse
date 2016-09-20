@@ -4,23 +4,26 @@
 
 package cn.hi028.android.highcommunity.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import net.duohuo.dhroid.util.ImageLoaderUtil;
 import net.duohuo.dhroid.util.ListUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lidroid.xutils.BitmapUtils;
+
 import cn.hi028.android.highcommunity.R;
 import cn.hi028.android.highcommunity.activity.fragment.HuiChipsFrag;
 import cn.hi028.android.highcommunity.bean.ChipsBean;
 import cn.hi028.android.highcommunity.utils.Constacts;
+import cn.hi028.android.highcommunity.utils.MBitmapHolder;
 
 /**
  *@功能：惠生活界面<br>
@@ -30,7 +33,7 @@ import cn.hi028.android.highcommunity.utils.Constacts;
  */
 public class HuiChipsAdapter extends BaseAdapter {
     HuiChipsFrag frag;
-
+    private BitmapUtils bitmapUtils;
     public List<ChipsBean> getData() {
         return data;
     }
@@ -41,7 +44,8 @@ public class HuiChipsAdapter extends BaseAdapter {
     }
 
     List<ChipsBean> data=new ArrayList<ChipsBean>();
-    public HuiChipsAdapter(HuiChipsFrag frag){
+    public HuiChipsAdapter(HuiChipsFrag frag,Context context){
+    	bitmapUtils = MBitmapHolder.getBitmapUtils(context);
         this.frag=frag;
     }
     @Override
@@ -80,7 +84,8 @@ public class HuiChipsAdapter extends BaseAdapter {
         viewHolder.tv_price.setText(data.get(position).getCurrent_price()+"元");
         viewHolder.tv_person.setText(data.get(position).getPeople_num()+"人");
         viewHolder.tv_name.setText(data.get(position).getR_name());
-        ImageLoaderUtil.disPlay(Constacts.IMAGEHTTP+data.get(position).getCover_pic(),viewHolder.img_pic,R.mipmap.default_no_pic,null);
+//        ImageLoaderUtil.disPlay(Constacts.IMAGEHTTP+data.get(position).getCover_pic(),viewHolder.img_pic,R.mipmap.default_no_pic,null);
+        bitmapUtils.display(viewHolder.img_pic, Constacts.IMAGEHTTP+data.get(position).getCover_pic());
         return convertView;
     }
     class ViewHolder{

@@ -105,6 +105,53 @@
 
 
 
+	@Override
+	public void onAttach(Activity activity) {
+		// TODO Auto-generated method stub
+		LogUtil.d(Tag+"onAttach");
+		super.onAttach(activity);
+	}
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		LogUtil.d(Tag+"onCreate");
+	}
+	@Override
+	public void onStart() {
+		LogUtil.d(Tag+"onStart");
+		super.onStart();
+	}
+	@Override
+	public void onPause() {
+		LogUtil.d(Tag+"onPause");
+		//        getActivity().unregisterReceiver(mReceiver);
+		super.onPause();
+	}
+
+	@Override
+	public void onStop() {
+		LogUtil.d(Tag+"onStop");
+		super.onStop();
+	}
+
+	@Override
+	public void onDestroy() {
+		LogUtil.d(Tag+"onDestroy");
+		super.onDestroy();
+	}
+	@Override
+	public void onDestroyView() {
+		LogUtil.d(Tag+"onDestroyView");
+		super.onDestroyView();
+	}
+	@Override
+	public void onDetach() {
+		LogUtil.d(Tag+"onDetach");
+		super.onDetach();
+	}
+
+
+
 
 
 

@@ -7,10 +7,8 @@ import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -22,7 +20,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.don.tools.BpiHttpHandler;
 import com.don.tools.GeneratedClassUtils;
@@ -51,7 +48,6 @@ import cn.hi028.android.highcommunity.activity.fragment.HuiLifeFrag;
 import cn.hi028.android.highcommunity.activity.fragment.HuiLifeFrag_;
 import cn.hi028.android.highcommunity.activity.fragment.NeighborFrag;
 import cn.hi028.android.highcommunity.activity.fragment.ServiceFrag;
-import cn.hi028.android.highcommunity.activity.fragment.ServiceFrag_;
 import cn.hi028.android.highcommunity.bean.UserCenterBean;
 import cn.hi028.android.highcommunity.utils.Constacts;
 import cn.hi028.android.highcommunity.utils.HTTPHelper;
@@ -584,7 +580,7 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
 			manager.popBackStackImmediate(null, 1);
 		}
 		neighborFrag = new NeighborFrag();
-		serviceFrag = new ServiceFrag_();
+		serviceFrag = new ServiceFrag();
 		huiLifeFrag = new HuiLifeFrag_();
 		actFrag = new ActFrag();
 		fragments.add(neighborFrag);

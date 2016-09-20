@@ -75,15 +75,15 @@ public final class GroupDetilsFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_groupdetils_avatar));
-        mAfter = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_transTitle_after));
-        mFirstName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_title));
-        mTitle = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_transTitle_name));
-        mBefore = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_transTitle_before));
-        mIntroduce = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_introduce));
-        mGrideView = ((PullToRefreshGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrgv_group_member_grideview));
-        mName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_name));
         mCreater = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_creater));
+        mIntroduce = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_introduce));
+        mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_groupdetils_avatar));
+        mBefore = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_transTitle_before));
+        mTitle = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_transTitle_name));
+        mFirstName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_title));
+        mAfter = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_transTitle_after));
+        mName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_name));
+        mGrideView = ((PullToRefreshGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrgv_group_member_grideview));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_message);
             if (view!= null) {

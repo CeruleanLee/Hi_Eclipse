@@ -6,6 +6,7 @@
     <RelativeLayout
         android:id="@+id/layoutContainer"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="match_parent" >
 
         <include
@@ -46,11 +47,11 @@
         </RelativeLayout>
     </RelativeLayout>
 
-    <include
+   <cn.hi028.android.highcommunity.view.LoadingView
+        android:id="@+id/loadingView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        layout="@layout/v_loadingview" />
+        android:layout_gravity="center" />
+
 
 </RelativeLayout>

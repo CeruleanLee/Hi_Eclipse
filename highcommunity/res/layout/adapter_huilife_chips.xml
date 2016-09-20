@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="192dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/default_no_pic" />
+        android:src="@drawable/ic_nopic_default" />
 
     <TextView
         android:id="@+id/tv_name"

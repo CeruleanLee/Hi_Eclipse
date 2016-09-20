@@ -5,8 +5,8 @@
 
     <LinearLayout
         android:id="@+id/layout_loading"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:orientation="vertical" 
         android:layout_centerInParent="true"
         android:background="@drawable/shape_loading_bg"
@@ -17,14 +17,20 @@
             android:layout_height="wrap_content" >
 
             <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_loading_logo" />
+
+            <ImageView
                 android:id="@+id/img_loading_progress"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" 
-                android:src="@drawable/ic_loading_wrapper_white"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" 
-                android:src="@drawable/ic_loading_inner_white"/>
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/ic_loading_wrapper_white" />
+
         </RelativeLayout>
         <TextView 
             android:layout_width="wrap_content"

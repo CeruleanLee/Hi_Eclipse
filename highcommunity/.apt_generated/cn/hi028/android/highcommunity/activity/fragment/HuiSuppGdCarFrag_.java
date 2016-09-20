@@ -77,12 +77,12 @@ public final class HuiSuppGdCarFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        img_goods_ch = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_goods_ch));
+        btn_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_pay));
+        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_gdcar_Nodata));
+        tv_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_price));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_gdcar_notice);
         mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_gdcar_listView));
-        btn_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_pay));
-        tv_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_price));
-        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_gdcar_Nodata));
-        img_goods_ch = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_goods_ch));
         ll_price = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_price));
         if (img_goods_ch!= null) {
             img_goods_ch.setOnClickListener(new OnClickListener() {

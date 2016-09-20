@@ -4,6 +4,11 @@ import cn.hi028.android.highcommunity.R;
 import android.os.Bundle;
 import android.view.View;
 
+/****
+ * 积分获取规则
+ * @author Administrator
+ *
+ */
 public class MyIntegralCore extends BaseFragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

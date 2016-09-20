@@ -199,7 +199,7 @@ public class HuiLifeFrag extends BaseFragment {
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		Log.e("renk", "onactivityresult>frag,hlf");
 		Log.e("renk", "onactivityresult>frag,hlf");
-		Toast.makeText(getActivity(), "onactivityresult>frag,hlf", 0).show();
+//		Toast.makeText(getActivity(), "onactivityresult>frag,hlf", 0).show();
 
 		super.onActivityResult(requestCode, resultCode, data);
 	}

@@ -22,7 +22,10 @@ import cn.hi028.android.highcommunity.activity.fragment.alliance.MerchantShopFra
 import cn.hi028.android.highcommunity.bean.Goods_info;
 import cn.hi028.android.highcommunity.lisenter.ShopAddSubListener;
 import cn.hi028.android.highcommunity.utils.Constacts;
-
+/**
+ * 联盟商家item点击frag商品 右边listvew 适配器
+ * @author Administrator
+ */
 public class MerchantGoodRightAdapter extends MyBaseAdapter<Goods_info>
 		implements OnClickListener {
 
@@ -40,14 +43,13 @@ public class MerchantGoodRightAdapter extends MyBaseAdapter<Goods_info>
 	}
 
 	@Override
-	public View getItemView(int position, View convertView,
-			MyBaseAdapter<Goods_info>.ViewHolder holder, ViewGroup parent) {
-		Goods_info info = data.get(position);
+	public View getItemView(int position, View convertView,MyBaseAdapter<Goods_info>.ViewHolder holder, ViewGroup parent) {
+		final Goods_info info = data.get(position);
 		LogUtil.d("----------info:"+info.toString());
 		TextView name = holder.getView(R.id.item_merchant_goods_list_name_tv);
 		TextView sales = holder.getView(R.id.item_merchant_goods_list_sale_tv);
 		TextView price = holder.getView(R.id.item_merchant_goods_list_price);
-		ImageView image = holder
+		final ImageView image = holder
 				.getView(R.id.item_merchant_goods_list_rigth_iv);
 		TextView sub = holder.getView(R.id.item_merchant_goods_right_sub_iv);
 		TextView add = holder.getView(R.id.item_merchant_goods_right_add_iv);
@@ -64,9 +66,21 @@ public class MerchantGoodRightAdapter extends MyBaseAdapter<Goods_info>
 		image.setTag(info.getGoods_id());
 		sub.setTag(info.getGoods_id());
 		add.setTag(info.getGoods_id());
-		image.setOnClickListener(this);
+//		image.setOnClickListener(this);
 		sub.setOnClickListener(this);
 		add.setOnClickListener(this);
+//		convertView.setTag(info.getGoods_id());
+		convertView.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				
+				shopListener.goDetail(Integer.parseInt((String) info.getGoods_id()));
+				
+				
+			}
+		});
 		return convertView;
 	}
 
@@ -74,9 +88,9 @@ public class MerchantGoodRightAdapter extends MyBaseAdapter<Goods_info>
 	public void onClick(View v) {
 		int count = Integer.parseInt((String) v.getTag());
 		switch (v.getId()) {
-		case R.id.item_merchant_goods_list_rigth_iv:
-			shopListener.goDetail(count);
-			break;
+//		case R.id.item_merchant_goods_list_rigth_iv:
+//			shopListener.goDetail(count);
+//			break;
 		case R.id.item_merchant_goods_right_sub_iv:
 			shopListener.sub(count);
 			break;

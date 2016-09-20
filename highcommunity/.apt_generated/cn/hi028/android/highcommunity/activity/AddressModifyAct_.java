@@ -87,8 +87,20 @@ public final class AddressModifyAct_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mDelete = ((ImageView) hasViews.findViewById(id.img_second_delete));
-        mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
         mHight = hasViews.findViewById(id.title_secondTitle_Hight);
+        mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
+        if (mDelete!= null) {
+            mDelete.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    AddressModifyAct_.this.delete();
+                }
+
+            }
+            );
+        }
         {
             View view = hasViews.findViewById(id.img_back);
             if (view!= null) {
@@ -103,18 +115,6 @@ public final class AddressModifyAct_
                 }
                 );
             }
-        }
-        if (mDelete!= null) {
-            mDelete.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    AddressModifyAct_.this.delete();
-                }
-
-            }
-            );
         }
         initView();
     }

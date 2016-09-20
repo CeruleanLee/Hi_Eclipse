@@ -442,4 +442,13 @@ public class CommunityListAdapter2 extends BaseFragmentAdapter {
 		}
 		notifyDataSetChanged();
 	}
+	
+	
+	  public boolean onBackPress() {
+	        if (mWindow != null && mWindow.isShowing()) {
+	            mWindow.dismiss();
+	            return true;
+	        }
+	        return false;
+	    }
 }

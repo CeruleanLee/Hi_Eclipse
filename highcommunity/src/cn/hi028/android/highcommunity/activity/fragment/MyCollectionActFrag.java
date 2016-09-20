@@ -37,7 +37,7 @@ import cn.hi028.android.highcommunity.utils.HTTPHelper;
  * @版本：1.0<br>
  * @时间：2016-2-18<br>
  */
-@EFragment(resName = "frag_activity")
+@EFragment(resName = "frag_mycollection_act")
 public class MyCollectionActFrag extends BaseFragment {
 
     public static final String FRAGMENTTAG = "MyCollectionActFrag";

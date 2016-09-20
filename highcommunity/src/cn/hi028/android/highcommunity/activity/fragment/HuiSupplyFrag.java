@@ -75,8 +75,7 @@ public class HuiSupplyFrag extends BaseFragment implements ViewPager.OnPageChang
 	PopupWindow waitPop;
 	View layoutContainer;
 	private LoadingView mLoadingView;
-	   private PopupWindow mWatingWindow;
-	   View loadingviewContainer;
+	private PopupWindow mWatingWindow;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		if (mFragmeView == null) {
@@ -88,24 +87,16 @@ public class HuiSupplyFrag extends BaseFragment implements ViewPager.OnPageChang
 			parent.removeView(mFragmeView);
 		return mFragmeView;
 	}
-@Override
-public void onActivityCreated(Bundle savedInstanceState) {
-	super.onActivityCreated(savedInstanceState);
-	initData();
-	
-	
-}
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+	}
 
 	public static final String Tag = "~~~zhigong~~~";
 	private int  childCount;
 	void initView() {
 		findView();
-		LogUtil.d(Tag+"initView   setOnLoadingViewListener");
-//		mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
-		LogUtil.d(Tag+" initView   startLoading");
-		//		mLoadingView.startLoading();
-		btn_order.setOnClickListener(mClickListener);
-		btn_pay.setOnClickListener(mClickListener);
+		registerListener();
 		initHeadView();
 		commentAdapter = new HuiSuppCommAdapter(this);
 		picAdapter = new HuiSuppPicAdapter(this.getActivity());
@@ -144,30 +135,33 @@ public void onActivityCreated(Bundle savedInstanceState) {
 		//                                        }
 		//        );
 
+		initData();
 
-		
 
 
+	}
+	private void registerListener() {
+		mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
+		btn_order.setOnClickListener(mClickListener);
+		btn_pay.setOnClickListener(mClickListener);
 	}
 
 	private void findView() {
 		mFragmeView = LayoutInflater.from(getActivity()).inflate(
 				R.layout.frag_hui_support, null);
-		
+
 		layoutContainer=mFragmeView.findViewById(R.id.layoutContainer);
-		loadingviewContainer=mFragmeView.findViewById(R.id.loadingviewContainer);
 		clv_comment = (PagerListView) mFragmeView.findViewById(R.id.clv_comment);
 		btn_order = (Button) mFragmeView.findViewById(R.id.btn_order);
 		btn_pay = (Button) mFragmeView.findViewById(R.id.btn_pay);
-
-		mLoadingView=(LoadingView) getActivity().findViewById(R.id.loadingView);
+		mLoadingView=(LoadingView) mFragmeView.findViewById(R.id.loadingView);
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
 		registNetworkReceiver();
-		initData();
+
 	}
 	/**
 	 * 监听 LoadingView 按钮的点击
@@ -178,15 +172,12 @@ public void onActivityCreated(Bundle savedInstanceState) {
 		public void onTryAgainClick() {
 			if(!isNoNetwork)
 				initData();
-			Toast.makeText(getActivity(), "------------OnLoadingViewListener", 0).show();
 		}
 	};
 	private void initData() {
-//		 mWatingWindow = HighCommunityUtils.GetInstantiation().ShowWaittingPopupWindow(getActivity(), mFragmeView, Gravity.CENTER);
 		mLoadingView.startLoading();
 		HTTPHelper.GetHuiSupportList(mIbpi);
 	}
-
 	View.OnClickListener mClickListener = new View.OnClickListener() {
 		@Override
 		public void onClick(View view) {
@@ -241,12 +232,7 @@ public void onActivityCreated(Bundle savedInstanceState) {
 				updateData();
 			}
 			mLoadingView.loadSuccess();
-			loadingviewContainer.setVisibility(View.GONE);
-//			mLoadingView.setVisibility(View.GONE);
-			LogUtil.d("-------------  initView   loadSuccess");
-//			mWatingWindow.dismiss();
 			layoutContainer.setVisibility(View.VISIBLE);
-			LogUtil.d("-------------  initView   setVisibility");
 		}
 
 		@Override
@@ -349,10 +335,10 @@ public void onActivityCreated(Bundle savedInstanceState) {
 		int picCount = viewPagerAdapter.getData().get(currentPositon).getPic().size();
 		picAdapter.setData(viewPagerAdapter.getData().get(currentPositon).getPic());
 		GridViewUtils.updateGridViewLayoutParams(cg_pic,7);
-		
-//		int childCount = cg_pic.getAdapter().getCount();
-//		LayoutParams params=new LayoutParams(3*70, 70);
-//		cg_pic.setLayoutParams(params);
+
+		//		int childCount = cg_pic.getAdapter().getCount();
+		//		LayoutParams params=new LayoutParams(3*70, 70);
+		//		cg_pic.setLayoutParams(params);
 		commentAdapter.setData(viewPagerAdapter.getData().get(currentPositon).getGoods_comment());
 	}
 
@@ -388,7 +374,7 @@ public void onActivityCreated(Bundle savedInstanceState) {
 
 					}
 					//有网络
-					Toast.makeText(getActivity(), "有网络", 0).show();
+					//					Toast.makeText(getActivity(), "有网络", 0).show();
 					LogUtils.d("有网络");
 					//					if(nextPage == 1){
 					initData();

@@ -76,20 +76,20 @@ public final class ServiceBeCarftsFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        agreeTxt = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_register_agree));
-        mIntro = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becomeworker_service_intro));
-        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_name));
-        agree = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.frag_cn_mb));
-        mPhone = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_constact));
-        mBack = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_idcard_back));
-        mPicture = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_idcard_withHands));
         mInside = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becomeworker_ziliao_inside));
-        mAvatar = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_avatar));
-        mCover = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_ziliao_cover));
-        mTitle = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becomeworker_service_title));
         mLocation = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_location));
+        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_name));
+        agreeTxt = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_register_agree));
+        mCover = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_ziliao_cover));
         mObverse = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_idcard_obverse));
+        mPhone = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_constact));
+        mPicture = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_idcard_withHands));
+        mIntro = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becomeworker_service_intro));
         mPrice = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becomeworker_service_price));
+        mAvatar = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_avatar));
+        mTitle = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becomeworker_service_title));
+        agree = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.frag_cn_mb));
+        mBack = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_becarfts_idcard_back));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_becarfts_submit);
             if (view!= null) {

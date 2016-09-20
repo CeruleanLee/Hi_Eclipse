@@ -32,6 +32,7 @@ import cn.hi028.android.highcommunity.activity.CommunityDetailAct;
 import cn.hi028.android.highcommunity.activity.MenuLeftAct;
 import cn.hi028.android.highcommunity.activity.VallageAct;
 import cn.hi028.android.highcommunity.adapter.CommunityListAdapter;
+import cn.hi028.android.highcommunity.adapter.CommunityListAdapter2;
 import cn.hi028.android.highcommunity.adapter.MyCommunityListAdapter;
 import cn.hi028.android.highcommunity.bean.CommunityBean;
 import cn.hi028.android.highcommunity.utils.Constacts;
@@ -47,9 +48,9 @@ import cn.hi028.android.highcommunity.utils.HighCommunityUtils;
 public class MyCollectionMessageFrag extends Fragment {
 
 	public static final String FRAGMENTTAG = "MyCollectionMessageFrag";
-	private View mFragmeView;
+	//	private View view;
 	private int mCount = -1;
-	MyCommunityListAdapter mAdapter;
+	CommunityListAdapter2 mAdapter;
 	private PullToRefreshListView mListView;
 	private ImageView mChange;
 	private TextView mNodata;
@@ -60,42 +61,47 @@ public class MyCollectionMessageFrag extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		if (mFragmeView == null) {
-			initView();
-		}
-		ViewGroup parent = (ViewGroup) mFragmeView.getParent();
+
+
+		View view = inflater.inflate(R.layout.frag_mycollection_message, null);
+		findView(view);
+
+		ViewGroup parent = (ViewGroup) view.getParent();
 		if (parent != null)
-			parent.removeView(mFragmeView);
-		return mFragmeView;
+			parent.removeView(view);
+		initView();
+		return view;
+
+
+
+	}
+
+	private void findView(View view) {
+		mListView = (PullToRefreshListView) view.findViewById(R.id.ptrlv_community_listview);
+		mChange = (ImageView) view.findViewById(R.id.iv_community_change);
+		mNodata = (TextView) view.findViewById(R.id.tv_community_Nodata);
+
 	}
 
 	private void initView() {
-		mFragmeView = LayoutInflater.from(getActivity()).inflate(
-				R.layout.frag_community_list, null);
 		vid = getActivity().getIntent().getStringExtra(FRAGMENTTAG);
-		mListView = (PullToRefreshListView) mFragmeView
-				.findViewById(R.id.ptrlv_community_listview);
-		mChange = (ImageView) mFragmeView
-				.findViewById(R.id.iv_community_change);
-		mNodata = (TextView) mFragmeView.findViewById(R.id.tv_community_Nodata);
-		mAdapter = new MyCommunityListAdapter((MenuLeftAct) getActivity());
+		mAdapter = new CommunityListAdapter2((MenuLeftAct) getActivity());
 		mListView.setAdapter(mAdapter);
 		mListView.setEmptyView(mNodata);
 		mListView.setMode(PullToRefreshBase.Mode.BOTH);
 		mChange.setVisibility(View.GONE);
 		mListView.setMode(PullToRefreshBase.Mode.DISABLED);
-		mListView
-				.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
-					@Override
-					public void onPullDownToRefresh(
-							PullToRefreshBase<ListView> refreshView) {
-					}
+		mListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+			@Override
+			public void onPullDownToRefresh(
+					PullToRefreshBase<ListView> refreshView) {
+			}
 
-					@Override
-					public void onPullUpToRefresh(
-							PullToRefreshBase<ListView> refreshView) {
-					}
-				});
+			@Override
+			public void onPullUpToRefresh(
+					PullToRefreshBase<ListView> refreshView) {
+			}
+		});
 		mChange.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -119,14 +125,15 @@ public class MyCollectionMessageFrag extends Fragment {
 				startActivityForResult(mCommunity, 1);
 			}
 		});
+
+		initDatas();
+
+
 	}
 
-	@Override
-	public void onResume() {
+	private void initDatas() {
 		mCount = -1;
-		HTTPHelper.GetMyCollectMessage(mIbpi,
-				HighCommunityApplication.mUserInfo.getId());
-		super.onResume();
+		HTTPHelper.GetMyCollectMessage(mIbpi,HighCommunityApplication.mUserInfo.getId());
 	}
 
 	BpiHttpHandler.IBpiHttpHandler mIbpi = new BpiHttpHandler.IBpiHttpHandler() {

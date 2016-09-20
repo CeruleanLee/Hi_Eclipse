@@ -46,9 +46,10 @@
             android:layout_width="85dip"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/bg_activity_replay_selector"
+           android:background="#aaaaaa"
             android:padding="10dip"
             android:src="@mipmap/img_activity_details_comment" />
     </LinearLayout>
+    <!--  android:background="@drawable/bg_activity_replay_selector" -->
 
 </LinearLayout>

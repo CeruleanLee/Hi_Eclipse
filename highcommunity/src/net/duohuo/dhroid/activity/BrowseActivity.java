@@ -69,7 +69,7 @@ public class BrowseActivity extends BaseFragmentActivity {
 	private void loadWeb2(String url2) {
 		LogUtil.d("loadUrl------loadWeb2");
 		webview.loadUrl(url2);
-//		webview.loadUrl(url);
+		//		webview.loadUrl(url);
 		MyWebViewClient myWebViewClient = new MyWebViewClient();
 		webview.setWebViewClient(myWebViewClient);
 	}
@@ -98,7 +98,7 @@ public class BrowseActivity extends BaseFragmentActivity {
 		webSettings.setBuiltInZoomControls(true);
 		webSettings.setDomStorageEnabled(true);
 		LogUtil.d("loadUrl------1"+url);
-		
+
 		webview.loadUrl(url);
 		MyWebViewClient myWebViewClient = new MyWebViewClient();
 		webview.setWebViewClient(myWebViewClient);
@@ -111,9 +111,9 @@ public class BrowseActivity extends BaseFragmentActivity {
 		@Override
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
 			LogUtil.d("loadUrl------2"+url);
-//			view.loadUrl(url);
-//			return true;
-return super.shouldOverrideUrlLoading(view, url);
+			//			view.loadUrl(url);
+			//			return true;
+			return super.shouldOverrideUrlLoading(view, url);
 		} 
 
 	}

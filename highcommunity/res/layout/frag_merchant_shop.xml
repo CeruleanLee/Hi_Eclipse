@@ -66,7 +66,7 @@
     <RelativeLayout
         android:id="@+id/frag_merchant_bottom_rl"
         android:layout_width="match_parent"
-        android:layout_height="55dp" >
+        android:layout_height="@dimen/go_pay_orange_bottom" >
 
         <FrameLayout
             android:id="@+id/ac_merchant_shop_car_fl"
@@ -115,7 +115,8 @@
                 android:text="0.0"
                 android:textColor="#FE0000" />
 
-              <!--   android:id="@+id/ac_merchant_shop_car_get" -->
+            <!-- android:id="@+id/ac_merchant_shop_car_get" -->
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -123,16 +124,23 @@
                 android:text="获取金额" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/ac_merchant_shop_car_go_pay"
+        <cn.hi028.android.highcommunity.view.RevealLayout
             android:layout_width="100dp"
-            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:background="#FFA52B"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="去支付"
-            android:textColor="@color/white" />
+            android:layout_height="match_parent" 
+            >
+
+            <Button
+                android:id="@+id/ac_merchant_shop_car_go_pay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                
+                android:background="#FFA52B"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="去支付"
+                android:textColor="@color/white" />
+        </cn.hi028.android.highcommunity.view.RevealLayout>
     </RelativeLayout>
 
 </LinearLayout>

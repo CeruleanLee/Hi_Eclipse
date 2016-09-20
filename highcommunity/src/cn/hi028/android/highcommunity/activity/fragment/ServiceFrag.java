@@ -6,10 +6,6 @@ import net.duohuo.dhroid.util.LogUtil;
 import net.duohuo.dhroid.view.AutoScrollViewPager;
 import net.duohuo.dhroid.view.CirclePageIndicator;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.ViewById;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -20,11 +16,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -48,10 +44,9 @@ import cn.hi028.android.highcommunity.view.LoadingView.OnLoadingViewListener;
 import com.don.tools.BpiHttpHandler;
 import com.don.tools.GeneratedClassUtils;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshGridView;
 import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
-import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.util.LogUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 /**
  * @功能：服务<br>
@@ -59,42 +54,81 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  * @版本：1.0<br>
  * @时间：2015-12-08<br>
  */
-@EFragment(resName = "frag_service")
-public class ServiceFrag extends BaseFragment {
+
+public class ServiceFrag extends BaseFragment implements OnClickListener {
 	public static final String Tag = "~~~ServiceFrag~~~";
 	public static final String FRAGMENTTAG = "ServiceFrag";
 	public ImagePagerAdapter pagerAdapter;
-	@ViewById(R.id.view_pager)
 	AutoScrollViewPager viewPager;
-	@ViewById(R.id.home_cpi)
 	CirclePageIndicator vgcpi;
-	@ViewById(R.id.ptrgv_service_thirdParty)
 	com.handmark.pulltorefresh.library.PullToRefreshGridView mGridView;
-	@ViewById(R.id.service_scrollView_layout)
 	PullToRefreshScrollView mScrollview;
+
+	LoadingView mLoadingView;
 	
-	@ViewInject(R.id.loadingView)
-	private LoadingView mLoadingView;
-	ViewGroup layoputContainer;
 	ThirdServiceAdapter mAdapter;
 	Intent mIntent;
-	@ViewInject(R.id.loadingviewContainer)
-View loadingviewContainer;
+	//租房  公告
+	LinearLayout  payment,tenement,notice,tenement2,guide,research,
+	voluntary,one,crafts,become;
+	ViewGroup tatalLayout;
+	
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		LogUtil.d(Tag+"onActivityCreated");
-		super.onActivityCreated(savedInstanceState);
-		mLoadingView.startLoading();
-		initDatas();
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		LogUtil.d(Tag+"onCreateView");
+		View view = inflater.inflate(R.layout.frag_service, null);
+		findView(view);
+		registerListener();
+		
+		if (mLoadingView == null) {
+			Log.e("test", "11111");
+		}
+		initView();
+		return view;
 	}
-	@AfterViews
+
+
+	private void registerListener() {
+		payment.setOnClickListener(this);
+		tenement.setOnClickListener(this);
+		notice.setOnClickListener(this);
+		tenement2.setOnClickListener(this);
+		guide.setOnClickListener(this);
+		research.setOnClickListener(this);
+		voluntary.setOnClickListener(this);
+		one.setOnClickListener(this);
+		crafts.setOnClickListener(this);
+		become.setOnClickListener(this);
+	}
+
+
+	private void findView(View view) {
+		payment=(LinearLayout) view.findViewById(R.id.ll_service_payment);
+		tenement=(LinearLayout) view.findViewById(R.id.ll_service_tenement);
+		notice=(LinearLayout) view.findViewById(R.id.ll_service_notice);
+		tenement2=(LinearLayout) view.findViewById(R.id.ll_service_tenement2);
+		guide=(LinearLayout) view.findViewById(R.id.ll_service_guide);
+		research=(LinearLayout) view.findViewById(R.id.ll_service_research);
+		voluntary=(LinearLayout) view.findViewById(R.id.ll_service_voluntary);
+		one=(LinearLayout) view.findViewById(R.id.ll_service_notice_one);
+		crafts=(LinearLayout) view.findViewById(R.id.ll_service_craftsman);
+		become=(LinearLayout) view.findViewById(R.id.ll_service_become_craftsman);
+		
+		tatalLayout=(ViewGroup) view.findViewById(R.id.service_scrollView_LinearLayoutContainer);
+		viewPager = (AutoScrollViewPager) view.findViewById(R.id.view_pager);
+		vgcpi = (CirclePageIndicator) view.findViewById(R.id.home_cpi);
+		mGridView = (PullToRefreshGridView) view.findViewById(R.id.ptrgv_service_thirdParty);
+		mScrollview = (PullToRefreshScrollView) view.findViewById(R.id.service_scrollView_layout);
+		mLoadingView = (LoadingView) view.findViewById(R.id.loadingView);
+		
+		
+	}
+
+	
 	void initView() {
 		LogUtil.d(Tag+"initView");
-		ViewUtils.inject(this, getView());
-		mLoadingView=(LoadingView) getActivity().findViewById(R.id.loadingView);
-		loadingviewContainer=getActivity().findViewById(R.id.loadingviewContainer);
-		//		mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
-//		LogUtil.d(Tag+" initView   startLoading");
+				mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
+		//		LogUtil.d(Tag+" initView   startLoading");
 		mScrollview.setMode(PullToRefreshBase.Mode.DISABLED);
 		initPager();
 		mIntent = new Intent(getActivity(),
@@ -102,24 +136,23 @@ View loadingviewContainer;
 		mAdapter = new ThirdServiceAdapter(getActivity());
 		mGridView.setMode(PullToRefreshBase.Mode.DISABLED);
 		mGridView.setOnItemClickListener(mItemClickListener);
-		layoputContainer=(ViewGroup) getActivity().findViewById(R.id.service_scrollView_LinearLayoutContainer);
-		mLoadingView.startLoading();
+		initDatas();
 	}
 	private void initDatas() {
 		LogUtil.d(Tag+"initDatas");
-		
+
 		mLoadingView.startLoading();
 		LogUtil.d(Tag+"---startLoading");
 		HTTPHelper.GetThirdService(mIbpi);
 		LogUtil.d(Tag+"---GetThirdService");
 	}
-	
+
 	/****
 	 * 初始化头部viewpager
 	 */
 	private void initPager() {
 		pagerAdapter = new ImagePagerAdapter(getActivity())
-				.setInfiniteLoop(true);
+		.setInfiniteLoop(true);
 		viewPager.setAdapter(pagerAdapter);
 		vgcpi.setViewPager(viewPager);
 		vgcpi.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -143,7 +176,7 @@ View loadingviewContainer;
 		public void onTryAgainClick() {
 			if(!isNoNetwork)
 				HTTPHelper.GetThirdService(mIbpi);
-			Toast.makeText(getActivity(), "------------OnLoadingViewListener", 0).show();
+//			Toast.makeText(getActivity(), "------------OnLoadingViewListener", 0).show();
 		}
 	};
 	BpiHttpHandler.IBpiHttpHandler mIbpi = new BpiHttpHandler.IBpiHttpHandler() {
@@ -166,13 +199,10 @@ View loadingviewContainer;
 			mGridView.setAdapter(mAdapter);
 			pagerAdapter.setImageIdList(mBean.getBanners());
 			HighCommunityUtils.GetInstantiation()
-					.setThirdServiceGridViewHeight(mGridView, mAdapter, 4);
+			.setThirdServiceGridViewHeight(mGridView, mAdapter, 4);
 			mLoadingView.loadSuccess();
-			loadingviewContainer.setVisibility(View.GONE);
-			
-			LogUtil.d("-------------  initView   loadSuccess");
-			layoputContainer.setVisibility(View.VISIBLE);
-			LogUtil.d("-------------  initView   setVisibility");
+			tatalLayout.setVisibility(View.VISIBLE);
+
 		}
 		@Override
 		public Object onResolve(String result) {
@@ -182,87 +212,71 @@ View loadingviewContainer;
 
 		@Override
 		public void setAsyncTask(AsyncTask asyncTask) {
-			
+
 		}
-		
+
 		@Override
 		public void cancleAsyncTask() {
 
 		}
 	};
 
-	@Click(R.id.ll_service_payment)
-	public void payment() {
-		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_PAYMENT);
-		startActivity(mIntent);
-	}
-	
-	@Click(R.id.ll_service_tenement)
-	void tenement() {
-		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_TENEMENT);
-		startActivity(mIntent);
-	}
-
-	// @Click(R.id.ll_service_repair)
-	// void repair() {
-	// mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_REPAIR);
-	// startActivity(mIntent);
-	// }
-
-	@Click(R.id.ll_service_notice)
-	void notice() {
-		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_NOTICE);
-		startActivity(mIntent);
-	}
-
-	/**
-	 * 此处处理社区
-	 */
-	@Click(R.id.ll_service_tenement2)
-	void tenement2() {
-		Intent i = new Intent(getActivity(), Service_AutonomousActivity.class);
-		startActivity(i);
-	}
-
-	@Click(R.id.ll_service_guide)
-	void guide() {
-		Intent i = new Intent(getActivity(), Service_ManageGuideActivity.class);
-		startActivity(i);
-
-	}
-
-	@Click(R.id.ll_service_research)
-	void research() {
-		Intent i = new Intent(getActivity(), Service_SurveyWorldActivity.class);
-		startActivity(i);
-	}
-
-	@Click(R.id.ll_service_voluntary)
-	void voluntary() {
-		Intent i = new Intent(getActivity(), Service_VoluntaryActivity.class);
-		startActivity(i);
-	}
-
-	@Click(R.id.ll_service_notice_one)
-	void one() {
-		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_NOTICE_ONE);
-		startActivity(mIntent);
-	}
-
-	@Click(R.id.ll_service_craftsman)
-	void crafts() {
-		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_CARFSMAN);
-		startActivity(mIntent);
-	}
-
-	@Click(R.id.ll_service_become_craftsman)
-	void become() {
-		if (HighCommunityUtils.GetInstantiation().isLogin(getActivity())) {
-			mIntent.putExtra(ServiceAct.ACTIVITYTAG,
-					Constacts.SERVICE_BECOME_CARFSMAN);
-			startActivity(mIntent);
-		}
-	}
+//	public void payment(View view) {
+//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_PAYMENT);
+//		startActivity(mIntent);
+//	}
+//
+//	void tenement(View view) {
+//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_TENEMENT);
+//		startActivity(mIntent);
+//	}
+//
+//	void notice(View view) {
+//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_NOTICE);
+//		startActivity(mIntent);
+//	}
+//
+//	/**
+//	 * 此处处理社区
+//	 */
+//	void tenement2(View view) {
+//		Intent i = new Intent(getActivity(), Service_AutonomousActivity.class);
+//		startActivity(i);
+//	}
+//
+//	void guide(View view) {
+//		Intent i = new Intent(getActivity(), Service_ManageGuideActivity.class);
+//		startActivity(i);
+//
+//	}
+//
+//	void research(View view) {
+//		Intent i = new Intent(getActivity(), Service_SurveyWorldActivity.class);
+//		startActivity(i);
+//	}
+//
+//	void voluntary(View view) {
+//		Intent i = new Intent(getActivity(), Service_VoluntaryActivity.class);
+//		startActivity(i);
+//	}
+//
+//	void one(View view) {
+//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_NOTICE_ONE);
+//		startActivity(mIntent);
+//	}
+//
+//	void crafts(View view) {
+//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_CARFSMAN);
+//		startActivity(mIntent);
+//	}
+//
+//	void become(View view) {
+//		if (HighCommunityUtils.GetInstantiation().isLogin(getActivity())) {
+//			mIntent.putExtra(ServiceAct.ACTIVITYTAG,
+//					Constacts.SERVICE_BECOME_CARFSMAN);
+//			startActivity(mIntent);
+//		}
+//	}
 
 	AdapterView.OnItemClickListener mItemClickListener = new AdapterView.OnItemClickListener() {
 		@Override
@@ -287,12 +301,12 @@ View loadingviewContainer;
 		super.onResume();
 		LogUtil.d(Tag+"onResume");
 		viewPager.startAutoScroll();
-//		mLoadingView.startLoading();
+		//		mLoadingView.startLoading();
 		registNetworkReceiver();
 	}
-	
-	
-	
+
+
+
 
 	/****
 	 * 与网络状态相关
@@ -326,63 +340,74 @@ View loadingviewContainer;
 
 					}
 					//有网络
-					Toast.makeText(getActivity(), "有网络", 0).show();
+//					Toast.makeText(getActivity(), "有网络", 0).show();
 					LogUtils.d("有网络");
-//					if(nextPage == 1){
+					//					if(nextPage == 1){
 					HTTPHelper.GetThirdService(mIbpi);
-//					}
+					//					}
 					isNoNetwork = false;
 				}else{
 					//没有网络
 					LogUtils.d("没有网络");
 					Toast.makeText(getActivity(), "没有网络", 0).show();
-//					if(nextPage == 1){
-						mLoadingView.noNetwork();
-//					}
+					//					if(nextPage == 1){
+					mLoadingView.noNetwork();
+					//					}
 					isNoNetwork = true;
 				}
 			}
 		}
 	}
 	private boolean isNoNetwork;
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		LogUtil.d(Tag+"onCreateView");
-		return super.onCreateView(inflater, container, savedInstanceState);
-	}
+	
+	
+
 
 	@Override
-	public void onDestroy() {
-		// TODO Auto-generated method stub
-		super.onDestroy();
-		LogUtil.d(Tag+"onDestroy");
-	}
-	@Override
-	public void onStart() {
-		// TODO Auto-generated method stub
-		super.onStart();
-		LogUtil.d(Tag+"onStart");
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.ll_service_payment:
+			mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_PAYMENT);
+			startActivity(mIntent);
+			break;
+		case R.id.ll_service_tenement:
+			mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_TENEMENT);
+			startActivity(mIntent);
+			break;
+		case R.id.ll_service_notice:
+			mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_NOTICE);
+			startActivity(mIntent);
+			break;
+		case R.id.ll_service_tenement2:
+			Intent i = new Intent(getActivity(), Service_AutonomousActivity.class);
+			startActivity(i);
+			break;
+		case R.id.ll_service_guide:
+			Intent i2 = new Intent(getActivity(), Service_ManageGuideActivity.class);
+			startActivity(i2);
+			break;
+		case R.id.ll_service_research:
+			Intent i3 = new Intent(getActivity(), Service_SurveyWorldActivity.class);
+			startActivity(i3);
+			break;
+		case R.id.ll_service_voluntary:
+			Intent i4 = new Intent(getActivity(), Service_VoluntaryActivity.class);
+			startActivity(i4);
+			break;
+		case R.id.ll_service_craftsman:
+			mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_CARFSMAN);
+			startActivity(mIntent);
+			break;
+		case R.id.ll_service_become_craftsman:
+			if (HighCommunityUtils.GetInstantiation().isLogin(getActivity())) {
+				mIntent.putExtra(ServiceAct.ACTIVITYTAG,
+						Constacts.SERVICE_BECOME_CARFSMAN);
+				startActivity(mIntent);
+			}
+			break;
+
+		}
 		
 	}
-	@Override
-	public void onStop() {
-		// TODO Auto-generated method stub
-		super.onStop();
-		LogUtil.d(Tag+"onStop");
-	}
-	
-	@Override
-	public void onAttach(Activity activity) {
-		// TODO Auto-generated method stub
-		super.onAttach(activity);
-		LogUtil.d(Tag+"onAttach");
-	}
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		LogUtil.d(Tag+"onCreate");
-		
-	}
-	
+
 }

@@ -10,17 +10,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.TextView;
 import cn.hi028.android.highcommunity.R.layout;
 import org.androidannotations.api.builder.FragmentBuilder;
 import org.androidannotations.api.view.HasViews;
-import org.androidannotations.api.view.OnViewChangedListener;
 import org.androidannotations.api.view.OnViewChangedNotifier;
 
 public final class HuiChipsFrag_
     extends cn.hi028.android.highcommunity.activity.fragment.HuiChipsFrag
-    implements HasViews, OnViewChangedListener
+    implements HasViews
 {
 
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
@@ -58,7 +55,6 @@ public final class HuiChipsFrag_
     }
 
     private void init_(Bundle savedInstanceState) {
-        OnViewChangedNotifier.registerOnViewChangedListener(this);
     }
 
     @Override
@@ -69,14 +65,6 @@ public final class HuiChipsFrag_
 
     public static HuiChipsFrag_.FragmentBuilder_ builder() {
         return new HuiChipsFrag_.FragmentBuilder_();
-    }
-
-    @Override
-    public void onViewChanged(HasViews hasViews) {
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
-        mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
-        gv_chips = ((GridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.gv_chips));
-        intView();
     }
 
     public static class FragmentBuilder_

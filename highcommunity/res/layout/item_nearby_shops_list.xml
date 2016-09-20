@@ -3,14 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="2dp"
-    android:background="#ffffff"
+    android:background="@drawable/bg_third_service_selector"
     android:orientation="vertical"
     android:padding="10dp" >
-
-    <cn.hi028.android.highcommunity.view.RevealLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -45,6 +40,7 @@
                     android:text="野生尖螺店"
                     android:textColor="@color/black2"
                     android:textSize="14sp"
+                    android:layout_marginTop="10dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -53,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="电话：188888888"
-                    android:textColor="@color/black2"
+                    android:textColor="#5F605E"
                     android:textSize="12sp" />
 
                 <TextView
@@ -62,7 +58,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:text="地址：成都市金开区琥珀庭院99号"
-                    android:textColor="@color/black2"
+                    android:textColor="#5F605E"
+                    android:layout_marginBottom="5dp"
                     android:textSize="12sp" />
 
                 <LinearLayout
@@ -88,6 +85,6 @@
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
-    </cn.hi028.android.highcommunity.view.RevealLayout>
+
 
 </LinearLayout>

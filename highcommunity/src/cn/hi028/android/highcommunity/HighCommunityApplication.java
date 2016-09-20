@@ -4,7 +4,10 @@
 
 package cn.hi028.android.highcommunity;
 
+import java.lang.reflect.Field;
 import java.util.List;
+
+import net.duohuo.dhroid.BaseApplication;
 
 import org.xutils.x;
 
@@ -13,26 +16,21 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.PopupWindow;
+import cn.hi028.android.highcommunity.bean.UserInfoBean;
+import cn.hi028.android.highcommunity.utils.Constacts;
+import cn.hi028.android.highcommunity.utils.HighCommunityUtils;
+import cn.hi028.android.highcommunity.view.ECAlertDialog;
+import cn.jpush.android.api.JPushInterface;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.don.tools.BpiHttpClient;
 import com.don.tools.MyImageDownloader;
-import com.umeng.update.UmengUpdateAgent;
-
-import net.duohuo.dhroid.BaseApplication;
-import cn.hi028.android.highcommunity.activity.alliancegoods.AllianceOderDetailActivity;
-import cn.hi028.android.highcommunity.bean.UserInfoBean;
-import cn.hi028.android.highcommunity.utils.Constacts;
-import cn.hi028.android.highcommunity.utils.HTTPHelper;
-import cn.hi028.android.highcommunity.utils.HighCommunityUtils;
-import cn.hi028.android.highcommunity.utils.login.UserInfo;
-import cn.hi028.android.highcommunity.view.ECAlertDialog;
-import cn.jpush.android.api.JPushInterface;
 
 /**
  * @功能：嗨社区application<br>
@@ -48,7 +46,7 @@ BDLocationListener {
 	public static int SoftKeyHight = 0;
 	public static UserInfoBean mUserInfo = new UserInfoBean();
 	HighCommunityUtils mDongUtils = null;
-
+	public static Typeface TypeFaceYaHei;
 	public static HighCommunityApplication getApp() {
 		return app;
 	}
@@ -66,6 +64,23 @@ BDLocationListener {
 		// NativeParametersFunc.c(this, getPackageName(), DOMAINNAME,
 		// DOMAINNAME,
 		// ":8888");
+		TypeFaceYaHei = Typeface.createFromAsset(getAssets(), "ltjianhei.ttf");
+		
+		try  
+		{  
+		    Field field = Typeface.class.getDeclaredField("SERIF");  
+		    field.setAccessible(true);  
+		    field.set(null, TypeFaceYaHei);  
+		}  
+		catch (NoSuchFieldException e)  
+		{  
+		    e.printStackTrace();  
+		}  
+		catch (IllegalAccessException e)  
+		{  
+		    e.printStackTrace();  
+		}
+		
 		mDongUtils = HighCommunityUtils.GetInstantiation();
 		BpiHttpClient.initCookies(this);
 		HighCommunityUtils.GetInstantiation().SetApplicationContext(this);

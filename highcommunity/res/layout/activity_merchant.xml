@@ -9,23 +9,29 @@
     <RelativeLayout
         android:id="@+id/ac_merchant_title_rl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:background="@color/Defult_Color_AppGreen" >
 
         <LinearLayout
             android:id="@+id/ll_ac_merchant_title_go_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp" >
+           >
 
             <ImageView
                 android:id="@+id/ac_merchant_title_go_back"
-                android:layout_width="16dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/img_back_nomal" />
+                  android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:layout_gravity="start"
+            android:clickable="true"
+            android:contentDescription="@string/app_name"
+            android:onClick="onBack"
+            android:scaleType="center"
+            android:src="@drawable/img_back_selector" />
         </LinearLayout>
-
+       
+        
+        
         <TextView
             android:id="@+id/ac_merchant_title_name"
             android:layout_width="wrap_content"

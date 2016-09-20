@@ -49,7 +49,7 @@ public class CommunityFrag extends Fragment {
 
 	public static final String FRAGMENTTAG = "CommunityFrag";
 	final String  Tag="------------CommunityFrag";
-	private View mFragmeView;
+	//	private View mFragmeView;
 	private int mCount = -1;
 	CommunityListAdapter2 mAdapter;
 	private PullToRefreshListView mListView;
@@ -64,21 +64,20 @@ public class CommunityFrag extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		LogUtil.d(Tag+"onCreateView");
-		if (mFragmeView == null) {
-			initView();
-		}
-		ViewGroup parent = (ViewGroup) mFragmeView.getParent();
+		//		if (mFragmeView == null) {
+		//			initView();
+		//		}
+		View view = inflater.inflate(R.layout.frag_community_list, null);
+		findView(view);
+
+		ViewGroup parent = (ViewGroup) view.getParent();
 		if (parent != null)
-			parent.removeView(mFragmeView);
+			parent.removeView(view);
 		initReceiver();
-		return mFragmeView;
+		initView();
+		return view;
 	}
-	@Override
-	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-		LogUtil.d(Tag+"onActivityCreated");
-		super.onActivityCreated(savedInstanceState);
-		initDatas();
-	}
+
 	private void initReceiver() {
 		IntentFilter mFilter = new IntentFilter();
 		mFilter.addAction(Constacts.BROADCAST);
@@ -93,12 +92,7 @@ public class CommunityFrag extends Fragment {
 	};
 	private void initView() {
 		LogUtil.d(Tag+"---initView");
-		mFragmeView = LayoutInflater.from(getActivity()).inflate(
-				R.layout.frag_community_list, null);
-		findView();
-//		mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
-		LogUtil.d(Tag+" initView   startLoading");
-		
+		mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
 		mAdapter = new CommunityListAdapter2((MainActivity) getActivity());
 		mListView.setAdapter(mAdapter);
 		mListView.setEmptyView(mNodata);
@@ -127,24 +121,24 @@ public class CommunityFrag extends Fragment {
 			}
 		});
 
-		//        RefreshData(1);
+		initDatas();
 	}
 
-	private void findView() {
-		mListView = (PullToRefreshListView) mFragmeView.findViewById(R.id.ptrlv_community_listview);
-		mChange = (ImageView) mFragmeView.findViewById(R.id.iv_community_change);
-		mNodata = (TextView) mFragmeView.findViewById(R.id.tv_community_Nodata);
-		mProgress = mFragmeView.findViewById(R.id.progress_Community);
-		layoutContainer=(RelativeLayout) mFragmeView.findViewById(R.id.layoutContainer);
-		mLoadingView=(LoadingView)mFragmeView.findViewById(R.id.loadingView);
+	private void findView(View view) {
+		mListView = (PullToRefreshListView) view.findViewById(R.id.ptrlv_community_listview);
+		mChange = (ImageView) view.findViewById(R.id.iv_community_change);
+		mNodata = (TextView) view.findViewById(R.id.tv_community_Nodata);
+		mProgress = view.findViewById(R.id.progress_Community);
+		layoutContainer=(RelativeLayout) view.findViewById(R.id.layoutContainer);
+		mLoadingView=(LoadingView)view.findViewById(R.id.loadingView);
 	}
 
 	OnLoadingViewListener onLoadingViewListener = new OnLoadingViewListener() {
 
 		@Override
 		public void onTryAgainClick() {
-			if(!isNoNetwork)
-				Toast.makeText(getActivity(), "------------OnLoadingViewListener", 0).show();
+			//			if(!isNoNetwork)
+			//				Toast.makeText(getActivity(), "------------OnLoadingViewListener", 0).show();
 		}
 	};
 	private void initDatas() {
@@ -162,7 +156,7 @@ public class CommunityFrag extends Fragment {
 	@Override
 	public void onResume() {
 		LogUtil.d(Tag+"---onResume");
-		initReceiver();
+		//		initReceiver();
 		//		mCount = -1;
 		//		//        if (isNeedRefresh) {
 		//		String time = "";
@@ -217,14 +211,12 @@ public class CommunityFrag extends Fragment {
 			}
 			HighCommunityUtils.GetInstantiation().ShowToast(message, 0);
 			//            if(!isNoNetwork){
-							mLoadingView.loadFailed();
+//			mLoadingView.loadFailed();
 			//			}
 		}
 
 		@Override
 		public void onSuccess(Object message) {
-			LogUtil.d(Tag+"onSuccess");
-
 			LogUtil.d(Tag+"onSuccess---"+message.toString());
 			mProgress.setVisibility(View.GONE);
 			Log.e("TAG", message.toString());
@@ -238,37 +230,27 @@ public class CommunityFrag extends Fragment {
 			} else if (mCount == -1) {
 				mAdapter.SetData(mList.getData());
 			}
+			mListView.onRefreshComplete();
 			mLoadingView.loadSuccess();
 			LogUtil.d("-------------  initView   loadSuccess");
 			layoutContainer.setVisibility(View.VISIBLE);
 			LogUtil.d("-------------  initView   setVisibility");
-			mListView.onRefreshComplete();
-
 
 		}
-
 		@Override
 		public Object onResolve(String result) {
 			return HTTPHelper.ResolveMessage(result);
 		}
-
 		@Override
 		public void setAsyncTask(AsyncTask asyncTask) {
 
 		}
-
 		@Override
 		public void cancleAsyncTask() {
 			mProgress.setVisibility(View.GONE);
 			mListView.onRefreshComplete();
 		}
 	};
-
-
-
-
-
-
 	/****
 	 * 与网络状态相关
 	 */
@@ -301,7 +283,7 @@ public class CommunityFrag extends Fragment {
 
 					}
 					//有网络
-					Toast.makeText(getActivity(), "有网络", 0).show();
+//					Toast.makeText(getActivity(), "有网络", 0).show();
 					LogUtils.d("有网络");
 					//					if(nextPage == 1){
 					//					  RefreshData(0);
@@ -312,7 +294,7 @@ public class CommunityFrag extends Fragment {
 					LogUtils.d("没有网络");
 					Toast.makeText(getActivity(), "没有网络", 0).show();
 					//					if(nextPage == 1){
-										mLoadingView.noNetwork();
+					mLoadingView.noNetwork();
 					//					}
 					isNoNetwork = true;
 				}
@@ -321,50 +303,6 @@ public class CommunityFrag extends Fragment {
 	}
 	private boolean isNoNetwork;
 
-	@Override
-	public void onAttach(Activity activity) {
-		// TODO Auto-generated method stub
-		LogUtil.d(Tag+"onAttach");
-		super.onAttach(activity);
-	}
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		LogUtil.d(Tag+"onCreate");
-	}
-	@Override
-	public void onStart() {
-		LogUtil.d(Tag+"onStart");
-		super.onStart();
-	}
-	@Override
-	public void onPause() {
-		LogUtil.d(Tag+"onPause");
-		//        getActivity().unregisterReceiver(mReceiver);
-		super.onPause();
-	}
 
-	@Override
-	public void onStop() {
-		LogUtil.d(Tag+"onStop");
-		super.onStop();
-	}
-
-	@Override
-	public void onDestroy() {
-		LogUtil.d(Tag+"onDestroy");
-		super.onDestroy();
-	}
-	@Override
-	public void onDestroyView() {
-		LogUtil.d(Tag+"onDestroyView");
-		super.onDestroyView();
-	}
-	@Override
-	public void onDetach() {
-		LogUtil.d(Tag+"onDetach");
-		super.onDetach();
-	}
-	
 
 }

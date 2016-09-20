@@ -50,7 +50,7 @@ public class LoadingView extends FrameLayout implements View.OnClickListener{
 	 * 开始加载的时候调用这个方法
 	 */
 	public  void startLoading(){
-		Toast.makeText(context, "进入startLoading", 0).show();
+//		Toast.makeText(context, "进入startLoading", 0).show();
 		mLoadingLayout.setVisibility(View.VISIBLE);
 		mFailedLayout.setVisibility(View.GONE);
 //		mLodingImg.post(new Runnable() {

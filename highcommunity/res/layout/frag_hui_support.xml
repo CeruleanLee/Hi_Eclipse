@@ -78,11 +78,10 @@
             </cn.hi028.android.highcommunity.view.RevealLayout>
         </FrameLayout>
     </FrameLayout>
-    <include
-        android:id="@+id/loadingviewContainer"
+    <cn.hi028.android.highcommunity.view.LoadingView
+        android:id="@+id/loadingView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        layout="@layout/v_loadingview" />
+        android:layout_gravity="center" />
 
 </RelativeLayout>

@@ -10,8 +10,8 @@
         android:id="@+id/service_scrollView_LinearLayoutContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-         android:visibility="gone"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:visibility="gone" >
 
         <com.handmark.pulltorefresh.library.PullToRefreshScrollView
             android:id="@+id/service_scrollView_layout"
@@ -24,8 +24,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical" >
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -123,6 +122,7 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
+                           
                             android:orientation="vertical" >
 
                             <ImageView
@@ -150,6 +150,7 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
+                           
                             android:orientation="vertical" >
 
                             <ImageView
@@ -177,6 +178,7 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
+                        
                             android:orientation="vertical" >
 
                             <ImageView
@@ -204,6 +206,7 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
+                        
                             android:orientation="vertical" >
 
                             <ImageView
@@ -258,6 +261,7 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
+                       
                             android:orientation="vertical"
                             android:visibility="visible" >
 
@@ -286,6 +290,7 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
+                         
                             android:orientation="vertical" >
 
                             <ImageView
@@ -313,6 +318,7 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
+                       
                             android:orientation="vertical" >
 
                             <ImageView
@@ -340,6 +346,7 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
+                    
                             android:orientation="vertical" >
 
                             <ImageView
@@ -389,6 +396,7 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
+               
                             android:orientation="vertical" >
 
                             <ImageView
@@ -416,6 +424,7 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
+                        
                             android:orientation="vertical" >
 
                             <ImageView
@@ -434,54 +443,6 @@
                             android:layout_width="0.5dip"
                             android:layout_height="match_parent"
                             android:background="@color/Defult_Color_LineGrey" />
-
-                        <!-- &lt;!&ndash; <LinearLayout -->
-                        <!-- android:layout_width="wrap_content" -->
-                        <!-- android:layout_height="match_parent" -->
-                        <!-- android:layout_weight="1" -->
-                        <!-- android:gravity="center" -->
-                        <!-- android:orientation="vertical" -->
-                        <!-- android:visibility="invisible"> -->
-
-
-                        <!-- <ImageView -->
-                        <!-- android:layout_width="wrap_content" -->
-                        <!-- android:layout_height="wrap_content" -->
-                        <!-- android:src="@mipmap/img_login_qq" /> -->
-
-
-                        <!-- <TextView -->
-                        <!-- android:layout_width="wrap_content" -->
-                        <!-- android:layout_height="wrap_content" -->
-                        <!-- android:text="缴费" /> -->
-                        <!-- </LinearLayout> -->
-
-
-                        <!-- <View -->
-                        <!-- android:layout_width="0.5dip" -->
-                        <!-- android:layout_height="match_parent" -->
-                        <!-- android:background="@color/Defult_Color_LineGrey" -->
-                        <!-- android:visibility="invisible" /> -->
-
-
-                        <!-- <LinearLayout -->
-                        <!-- android:layout_width="wrap_content" -->
-                        <!-- android:layout_height="" -->
-                        <!-- android:layout_weight="1" -->
-                        <!-- android:gravity="center" -->
-                        <!-- android:orientation="vertical" -->
-                        <!-- android:visibility="invisible"> -->
-
-
-                        <!-- <ImageView -->
-                        <!-- android:layout_width="wrap_content" -->
-                        <!-- android:layout_height="wrap_content" -->
-                        <!-- android:src="@mipmap/img_login_qq" /> -->
-                        <!-- <TextView -->
-                        <!-- android:layout_width="wrap_content" -->
-                        <!-- android:layout_height="wrap_content" -->
-                        <!-- android:text="缴费" /> -->
-                        <!-- </LinearLayout>&ndash;&gt; -->
                     </LinearLayout>
 
                     <View
@@ -497,12 +458,10 @@
         </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
     </RelativeLayout>
 
-    <include
-        android:id="@+id/loadingviewContainer"
+    <cn.hi028.android.highcommunity.view.LoadingView
+        android:id="@+id/loadingView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        layout="@layout/v_loadingview"
-     />
+        android:layout_gravity="center" />
 
 </RelativeLayout>

@@ -1,5 +1,7 @@
 package cn.hi028.android.highcommunity.view.snap;
 
+import cn.hi028.android.highcommunity.R;
+import cn.hi028.android.highcommunity.view.Mylistview;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -23,35 +25,37 @@ import android.widget.Scroller;
 public class McoySnapPageLayout extends ViewGroup {
 	private final String TAG = "McoySnapPageLayout";
 	private final boolean MCOY_DEBUG = true;
-	
+
 	private VelocityTracker mVelocityTracker;
-    private int mMaximumVelocity;
-    private static final int SNAP_VELOCITY = 1000;
-    
-    public static final int FLIP_DIRECTION_CUR = 0;
+	private int mMaximumVelocity;
+	private static final int SNAP_VELOCITY = 1000;
+
+	public static final int FLIP_DIRECTION_CUR = 0;
 	public static final int FLIP_DIRECTION_UP = -1;
 	public static final int FLIP_DIRECTION_DOWN = 1;
-	
+
 	private int mFlipDrection = FLIP_DIRECTION_CUR;
-	
+
 	private int mDataIndex = 0; // 当前View中的数据在总数据所在位置
 	private int mCurrentScreen = 0;
 	private int mNextDataIndex = 0;
-	
-	private float mLastMotionY;
+
+	private float mLastMotionY,mLastMotionX;
 	// 记录触摸状态
 	private final static int TOUCH_STATE_REST = 0;
 	private final static int TOUCH_STATE_SCROLLING = 1;
 	private int mTouchState = TOUCH_STATE_REST;
-	
+
 	private Scroller mScroller;  //mcoy add view滑动的矢量， 并没有真正滑动的功能
-	
+
 	private McoySnapPage mPageTop, mPageBottom;
 
 	private PageSnapedListener mPageSnapedListener;
-	
+
 	//这个值表示需要第一页和第二页之间的鸿沟
 	private int gapBetweenTopAndBottom;
+	
+	private Mylistview mCommentListview;
 
 	public interface McoySnapPage {
 		/**
@@ -84,15 +88,15 @@ public class McoySnapPageLayout extends ViewGroup {
 		 */
 		void onSnapedCompleted(int derection);
 	}
-	
+
 	public void setPageSnapListener(PageSnapedListener listener){
 		mPageSnapedListener = listener;
-    }
+	}
 
 	public McoySnapPageLayout(Context context, AttributeSet att) {
 		this(context, att, 0);
 	}
-	
+
 	public McoySnapPageLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		initViews();
@@ -100,11 +104,11 @@ public class McoySnapPageLayout extends ViewGroup {
 
 	private void initViews() {
 		mScroller = new Scroller(getContext());
-		
+
 		gapBetweenTopAndBottom = ViewConfiguration.get(getContext()).getScaledTouchSlop();
 		mMaximumVelocity = ViewConfiguration.get(getContext()).getScaledMaximumFlingVelocity();
 	}
-	
+
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
@@ -126,7 +130,7 @@ public class McoySnapPageLayout extends ViewGroup {
 	protected void onLayout(boolean arg0, int arg1, int arg2, int arg3, int arg4) {
 		int childTop = 0;
 		int count = getChildCount();
-//		 DLog.i(TAG, "onLayout mDataIndex = " + mDataIndex);
+		//		 DLog.i(TAG, "onLayout mDataIndex = " + mDataIndex);
 		// 设置布局，将子视图顺序竖屏排列
 		for (int i = 0; i < count; i++) {
 			final View child = getChildAt(i);
@@ -151,6 +155,7 @@ public class McoySnapPageLayout extends ViewGroup {
 	public void setSnapPages(McoySnapPage pageTop, McoySnapPage pageBottom) {
 		mPageTop = pageTop;
 		mPageBottom = pageBottom;
+		mCommentListview=(Mylistview) mPageBottom.getRootView().findViewById(R.id.ac_good_evaluation_listview);
 		addPagesAndRefresh();
 	}
 
@@ -162,7 +167,7 @@ public class McoySnapPageLayout extends ViewGroup {
 		addView(mPageBottom.getRootView());
 		postInvalidate();
 	}
-	
+
 	/**
 	 * @mcoy add
 	 * computeScroll方法会调用postInvalidate()方法， 而postInvalidate()方法中系统
@@ -177,35 +182,35 @@ public class McoySnapPageLayout extends ViewGroup {
 		if (mScroller.computeScrollOffset()) {
 			if (mScroller.getCurrY() == (mScroller.getFinalY())) {
 				if (mNextDataIndex > mDataIndex) {
-				    mFlipDrection = FLIP_DIRECTION_DOWN;
-				    makePageToNext(mNextDataIndex);
+					mFlipDrection = FLIP_DIRECTION_DOWN;
+					makePageToNext(mNextDataIndex);
 				} else if (mNextDataIndex < mDataIndex) {
-				    mFlipDrection = FLIP_DIRECTION_UP;
-				    makePageToPrev(mNextDataIndex);
+					mFlipDrection = FLIP_DIRECTION_UP;
+					makePageToPrev(mNextDataIndex);
 				}else{
-				    mFlipDrection = FLIP_DIRECTION_CUR;
+					mFlipDrection = FLIP_DIRECTION_CUR;
 				}
 				if(mPageSnapedListener != null){
 					mPageSnapedListener.onSnapedCompleted(mFlipDrection);
 				}
 			}
-			//这里调用View的scrollTo()完成实际的滚动
+//			//这里调用View的scrollTo()完成实际的滚动
 			scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
-			//必须调用该方法，否则不一定能看到滚动效果
+//			//必须调用该方法，否则不一定能看到滚动效果
 			postInvalidate();
 		}
 	}
-	
+
 	private void makePageToNext(int dataIndex) {
 		mDataIndex = dataIndex;
-        mCurrentScreen = getCurrentScreen();
+		mCurrentScreen = getCurrentScreen();
 	}
 
 	private void makePageToPrev(int dataIndex) {
 		mDataIndex = dataIndex;
-        mCurrentScreen = getCurrentScreen();
+		mCurrentScreen = getCurrentScreen();
 	}
-	
+
 	public int getCurrentScreen() {
 		for (int i = 0; i < getChildCount(); i++) {
 			if (getChildAt(i).getId() == mDataIndex) {
@@ -214,17 +219,18 @@ public class McoySnapPageLayout extends ViewGroup {
 		}
 		return mCurrentScreen;
 	}
-	
+
 	public View getCurrentView() {
 		for (int i = 0; i < getChildCount(); i++) {
 			if (getChildAt(i).getId() == mDataIndex) {
-			
+
 				return getChildAt(i);
 			}
 		}
 		return null;
 	}
-	
+
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -247,26 +253,60 @@ public class McoySnapPageLayout extends ViewGroup {
 		switch (action) {
 		case MotionEvent.ACTION_MOVE:
 			// 记录y与mLastMotionY差值的绝对值。
-            // yDiff大于gapBetweenTopAndBottom时就认为界面拖动了足够大的距离，屏幕就可以移动了。
+			// yDiff大于gapBetweenTopAndBottom时就认为界面拖动了足够大的距离，屏幕就可以移动了。
 			final int yDiff = (int)(y - mLastMotionY);
 			boolean yMoved = Math.abs(yDiff) > gapBetweenTopAndBottom;
+
+
 			if (yMoved) {
+
+
 				if(MCOY_DEBUG) {
 					Log.e(TAG, "yDiff is " + yDiff);
 					Log.e(TAG, "mPageTop.isFlipToBottom() is " + mPageTop.isAtBottom());
 					Log.e(TAG, "mCurrentScreen is " + mCurrentScreen);
 					Log.e(TAG, "mPageBottom.isFlipToTop() is " + mPageBottom.isAtTop());
 				}
-				if(yDiff < 0 && mPageTop.isAtBottom() && mCurrentScreen == 0 
-						|| yDiff > 0 && mPageBottom.isAtTop() && mCurrentScreen == 1){
-					Log.e("mcoy", "121212121212121212121212");
-					mTouchState = TOUCH_STATE_SCROLLING;
+
+
+//								if(yDiff < 0 && mPageTop.isAtBottom() && mCurrentScreen == 0 
+//										|| yDiff > 0 && mPageBottom.isAtTop() && mCurrentScreen == 1){
+//									Log.e("mcoy", "121212121212121212121212");
+//									mTouchState = TOUCH_STATE_SCROLLING;
+//								}
+
+
+				if(yDiff > 0 ){
+					
+					if(mPageBottom.isAtTop() && mCurrentScreen == 1){
+						
+						if(mCommentListview.getFirstVisiblePosition() == 0){
+							mTouchState = TOUCH_STATE_SCROLLING;
+						}else{
+							int moveX = (int) (x- mLastMotionX);
+							int moveY = (int) (y- mLastMotionY);
+							if (moveY > moveX+20) {
+								return false;
+							}
+						}
+						
+					}
+
 				}
+				
+
+				if(yDiff < 0 &&mPageTop.isAtBottom() && mCurrentScreen == 0){
+					mTouchState = TOUCH_STATE_SCROLLING;
+
+				}
+
+
 			}
 			break;
 		case MotionEvent.ACTION_DOWN:
 			// Remember location of down touch
 			mLastMotionY = y;
+			mLastMotionX= x;
 			Log.e("mcoy", "mScroller.isFinished() is " + mScroller.isFinished());
 			mTouchState = mScroller.isFinished() ? TOUCH_STATE_REST
 					: TOUCH_STATE_SCROLLING;
@@ -281,7 +321,7 @@ public class McoySnapPageLayout extends ViewGroup {
 		Log.e("mcoy", "McoySnapPageLayout---onInterceptTouchEvent return " + intercept);
 		return intercept;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -291,11 +331,11 @@ public class McoySnapPageLayout extends ViewGroup {
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
 		Log.e("mcoy", "onTouchEvent--" + System.currentTimeMillis());
-	    if (mVelocityTracker == null) {
-            mVelocityTracker = VelocityTracker.obtain();
-        }
-        mVelocityTracker.addMovement(ev);
-        
+		if (mVelocityTracker == null) {
+			mVelocityTracker = VelocityTracker.obtain();
+		}
+		mVelocityTracker.addMovement(ev);
+
 		final int action = ev.getAction();
 		final float x = ev.getX();
 		final float y = ev.getY();
@@ -306,107 +346,108 @@ public class McoySnapPageLayout extends ViewGroup {
 			}
 			break;
 		case MotionEvent.ACTION_MOVE:
-		    if(mTouchState != TOUCH_STATE_SCROLLING){
-                 // 记录y与mLastMotionY差值的绝对值。
-                 // yDiff大于gapBetweenTopAndBottom时就认为界面拖动了足够大的距离，屏幕就可以移动了。
-                final int yDiff = (int) Math.abs(y - mLastMotionY);
-                boolean yMoved = yDiff > gapBetweenTopAndBottom;
-                if (yMoved) {
-                	mTouchState = TOUCH_STATE_SCROLLING;
-                }
-            }
-            // 手指拖动屏幕的处理
-            if ((mTouchState == TOUCH_STATE_SCROLLING)) {
-                // Scroll to follow the motion event
-                final int deltaY = (int) (mLastMotionY - y);
-                mLastMotionY = y;
-                final int scrollY = getScrollY();
-                if(mCurrentScreen == 0){//显示第一页，只能上拉时使用
-                	if(mPageTop != null && mPageTop.isAtBottom()){
-                		scrollBy(0, Math.max(-1 * scrollY, deltaY));
-                	}
-                }else{
-                	if(mPageBottom != null && mPageBottom.isAtTop()){
-                		 scrollBy(0, deltaY);
-                	}
-                }
-            }
+			if(mTouchState != TOUCH_STATE_SCROLLING){
+				// 记录y与mLastMotionY差值的绝对值。
+				// yDiff大于gapBetweenTopAndBottom时就认为界面拖动了足够大的距离，屏幕就可以移动了。
+				final int yDiff = (int) Math.abs(y - mLastMotionY);
+				boolean yMoved = yDiff > gapBetweenTopAndBottom;
+				if (yMoved) {
+					mTouchState = TOUCH_STATE_SCROLLING;
+				}
+			}
+			// 手指拖动屏幕的处理
+			if ((mTouchState == TOUCH_STATE_SCROLLING)) {
+				// Scroll to follow the motion event
+				final int deltaY = (int) (mLastMotionY - y);
+				mLastMotionY = y;
+				final int scrollY = getScrollY();
+				if(mCurrentScreen == 0){//显示第一页，只能上拉时使用
+					if(mPageTop != null && mPageTop.isAtBottom()){
+						
+						scrollBy(0, Math.max(-1 * scrollY, deltaY));
+					}
+				}else{
+					if(mPageBottom != null && mPageBottom.isAtTop()){
+						scrollBy(0, deltaY);
+					}
+				}
+			}
 			break;
 		case MotionEvent.ACTION_CANCEL:
 		case MotionEvent.ACTION_UP:
 			// 弹起手指后，切换屏幕的处理
 			if (mTouchState == TOUCH_STATE_SCROLLING) {
-			    final VelocityTracker velocityTracker = mVelocityTracker;
-                velocityTracker.computeCurrentVelocity(1000, mMaximumVelocity);
-                int velocityY = (int) velocityTracker.getYVelocity();
-                if (Math.abs(velocityY) > SNAP_VELOCITY) {
-                    if( velocityY > 0 && mCurrentScreen == 1 && mPageBottom.isAtTop()){
-                        snapToScreen(mDataIndex-1);
-                    }else if(velocityY < 0  && mCurrentScreen == 0){
-                        snapToScreen(mDataIndex+1);
-                    }else{
-                        snapToScreen(mDataIndex);
-                    }
-                } else {
-                    snapToDestination();
-                }
-                if (mVelocityTracker != null) {
-                    mVelocityTracker.recycle();
-                    mVelocityTracker = null;
-                }
+				final VelocityTracker velocityTracker = mVelocityTracker;
+				velocityTracker.computeCurrentVelocity(1000, mMaximumVelocity);
+				int velocityY = (int) velocityTracker.getYVelocity();
+				if (Math.abs(velocityY) > SNAP_VELOCITY) {
+					if( velocityY > 0 && mCurrentScreen == 1 && mPageBottom.isAtTop()){
+						snapToScreen(mDataIndex-1);
+					}else if(velocityY < 0  && mCurrentScreen == 0){
+						snapToScreen(mDataIndex+1);
+					}else{
+						snapToScreen(mDataIndex);
+					}
+				} else {
+					snapToDestination();
+				}
+				if (mVelocityTracker != null) {
+					mVelocityTracker.recycle();
+					mVelocityTracker = null;
+				}
 			}else{
 			}
 			mTouchState = TOUCH_STATE_REST;
 			break;
-		
+
 		default:
 			break;
 		}
 		return true;
 	}
-	
+
 	private void clearOnTouchEvents(){
 		mTouchState = TOUCH_STATE_REST;
-		 if (mVelocityTracker != null) {
-             mVelocityTracker.recycle();
-             mVelocityTracker = null;
-         }
+		if (mVelocityTracker != null) {
+			mVelocityTracker.recycle();
+			mVelocityTracker = null;
+		}
 	}
 
-    private void snapToDestination() {
+	private void snapToDestination() {
 		// 计算应该去哪个屏
 		final int flipHeight = getHeight() / 8;
-        
-        int whichScreen = -1;
-        final int topEdge = getCurrentView().getTop();
 
-        if(topEdge < getScrollY() && (getScrollY()-topEdge) >= flipHeight && mCurrentScreen == 0){
-            //向下滑动    
-            whichScreen = mDataIndex + 1;
-        }else if(topEdge > getScrollY() && (topEdge - getScrollY()) >= flipHeight && mCurrentScreen == 1){
-            //向上滑动
-            whichScreen = mDataIndex - 1;
-        }else{
-            whichScreen = mDataIndex;
-        }
-        Log.e(TAG, "snapToDestination mDataIndex = " + mDataIndex);
-    	Log.e(TAG, "snapToDestination whichScreen = " + whichScreen);
-        snapToScreen(whichScreen);
+		int whichScreen = -1;
+		final int topEdge = getCurrentView().getTop();
+
+		if(topEdge < getScrollY() && (getScrollY()-topEdge) >= flipHeight && mCurrentScreen == 0){
+			//向下滑动    
+			whichScreen = mDataIndex + 1;
+		}else if(topEdge > getScrollY() && (topEdge - getScrollY()) >= flipHeight && mCurrentScreen == 1){
+			//向上滑动
+			whichScreen = mDataIndex - 1;
+		}else{
+			whichScreen = mDataIndex;
+		}
+		Log.e(TAG, "snapToDestination mDataIndex = " + mDataIndex);
+		Log.e(TAG, "snapToDestination whichScreen = " + whichScreen);
+		snapToScreen(whichScreen);
 	}
-	
+
 	private void snapToScreen(int dataIndex) {
-        if (!mScroller.isFinished())
-            return;
-       
-        final int direction = dataIndex - mDataIndex;
-        mNextDataIndex = dataIndex;
-        boolean changingScreens = dataIndex != mDataIndex;
-        View focusedChild = getFocusedChild();
-        if (focusedChild != null && changingScreens) {
-            focusedChild.clearFocus();
-        }
-        //在这里判断是否已到目标位置~
-        int newY = 0;
+		if (!mScroller.isFinished())
+			return;
+
+		final int direction = dataIndex - mDataIndex;
+		mNextDataIndex = dataIndex;
+		boolean changingScreens = dataIndex != mDataIndex;
+		View focusedChild = getFocusedChild();
+		if (focusedChild != null && changingScreens) {
+			focusedChild.clearFocus();
+		}
+		//在这里判断是否已到目标位置~
+		int newY = 0;
 		switch (direction) {
 		case 1:  //需要滑动到第二页
 			Log.e(TAG, "the direction is 1");
@@ -426,28 +467,28 @@ public class McoySnapPageLayout extends ViewGroup {
 		default:
 			break;
 		}
-        final int cy = getScrollY(); // 启动的位置
-        Log.e(TAG, "the newY is " + newY + " cy is " + cy);
-        final int delta = newY - cy; // 滑动的距离，正值是往左滑<—，负值是往右滑—>
-        mScroller.startScroll(0, cy, 0, delta, Math.abs(delta));
-        invalidate();
-    }
-	
+		final int cy = getScrollY(); // 启动的位置
+		Log.e(TAG, "the newY is " + newY + " cy is " + cy);
+		final int delta = newY - cy; // 滑动的距离，正值是往左滑<—，负值是往右滑—>
+		mScroller.startScroll(0, cy, 0, delta, Math.abs(delta));
+		invalidate();
+	}
+
 	public void snapToPrev(){
-    	if(mCurrentScreen == 1){
-    		 snapToScreen(0);
-    	}
-    }
-    
-    public void snapToNext(){
-        if(mCurrentScreen == 0){
-            snapToScreen(1);
-        }
-    }
-    
-    public void snapToCurrent(){
-        snapToScreen(mCurrentScreen);
-        clearOnTouchEvents();
-    }
+		if(mCurrentScreen == 1){
+			snapToScreen(0);
+		}
+	}
+
+	public void snapToNext(){
+		if(mCurrentScreen == 0){
+			snapToScreen(1);
+		}
+	}
+
+	public void snapToCurrent(){
+		snapToScreen(mCurrentScreen);
+		clearOnTouchEvents();
+	}
 
 }

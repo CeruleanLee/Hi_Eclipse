@@ -8,16 +8,23 @@
     <RelativeLayout
         android:id="@+id/ac_shop_good_title_rl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:background="@color/Defult_Color_AppGreen"
-        android:padding="10dp" >
+       >
 
         <ImageView
             android:id="@+id/ac_good_title_go_back"
-            android:layout_width="16dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/img_back_nomal" />
+                 android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:layout_gravity="start"
+            android:clickable="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="center"
+            android:src="@drawable/img_back_selector" />
+        
+  
+        
+        
 
         <TextView
             android:id="@+id/ac_good_title_name"
@@ -32,7 +39,7 @@
     <LinearLayout
         android:id="@+id/shop_deatil_bottom_pay_rl"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="@dimen/go_pay_orange_bottom"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
         android:gravity="center_vertical"

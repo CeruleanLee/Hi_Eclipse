@@ -3,8 +3,9 @@
 
     <item android:state_checked="true"><layer-list xmlns:android="http://schemas.android.com/apk/res/android">
             <item android:left="-2dp" android:right="-2dp" android:top="-2dp"><shape>
-                <solid android:color="@android:color/transparent"/>   
-                <stroke android:width="0.5dp" android:color="@color/Defult_Color_AppGreen" />
+                    <solid android:color="@android:color/transparent" />
+
+                    <stroke android:width="0.5dp" android:color="@color/Defult_Color_AppGreen" />
                 </shape></item>
         </layer-list></item>
 

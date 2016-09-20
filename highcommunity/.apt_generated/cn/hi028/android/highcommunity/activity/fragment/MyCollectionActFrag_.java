@@ -47,7 +47,7 @@ public final class MyCollectionActFrag_
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         contentView_ = super.onCreateView(inflater, container, savedInstanceState);
         if (contentView_ == null) {
-            contentView_ = inflater.inflate(layout.frag_activity, container, false);
+            contentView_ = inflater.inflate(layout.frag_mycollection_act, container, false);
         }
         return contentView_;
     }
@@ -74,10 +74,10 @@ public final class MyCollectionActFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_activity_notice);
         mCreate = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activity_create));
         mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_activity_listView));
         mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activity_Nodata));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_activity_notice);
         if (mCreate!= null) {
             mCreate.setOnClickListener(new OnClickListener() {
 

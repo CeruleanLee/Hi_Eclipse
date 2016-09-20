@@ -77,18 +77,30 @@ public final class HuiChipsPayFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        tv_total_pay = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_total_pay));
-        tv_reserve_phone = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_phone));
-        rg_huil_ife = ((RadioGroup) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rg_huil_ife));
-        tv_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_price));
-        edt_pay_num = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.edt_pay_num));
-        ll_NoticeDetails_Progress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
-        tv_coupon = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_coupon));
-        tv_reserve_address = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_address));
-        btn_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_pay));
-        cl_goods = ((CustomListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cl_goods));
         tv_reserve_name = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_name));
         tv_wallet = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_wallet));
+        rg_huil_ife = ((RadioGroup) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rg_huil_ife));
+        tv_coupon = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_coupon));
+        ll_NoticeDetails_Progress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
+        tv_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_price));
+        cl_goods = ((CustomListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cl_goods));
+        tv_reserve_address = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_address));
+        tv_total_pay = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_total_pay));
+        tv_reserve_phone = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_phone));
+        edt_pay_num = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.edt_pay_num));
+        btn_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_pay));
+        if (btn_pay!= null) {
+            btn_pay.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    HuiChipsPayFrag_.this.onPay();
+                }
+
+            }
+            );
+        }
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_ticket);
             if (view!= null) {
@@ -103,18 +115,6 @@ public final class HuiChipsPayFrag_
                 }
                 );
             }
-        }
-        if (btn_pay!= null) {
-            btn_pay.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    HuiChipsPayFrag_.this.onPay();
-                }
-
-            }
-            );
         }
         initView();
     }
