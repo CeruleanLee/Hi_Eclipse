@@ -4,22 +4,21 @@
 
 package cn.hi028.android.highcommunity.adapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import net.duohuo.dhroid.util.ImageLoaderUtil;
+import net.duohuo.dhroid.util.LogUtil;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.don.view.CircleImageView;
-
-import net.duohuo.dhroid.util.ImageLoaderUtil;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import cn.hi028.android.highcommunity.R;
 import cn.hi028.android.highcommunity.bean.CarftsBean;
 import cn.hi028.android.highcommunity.utils.Constacts;
+
+import com.don.view.CircleImageView;
 
 /**
  * @功能：手艺人列表适配器<br>
@@ -59,30 +58,34 @@ public class CarftsAdapter extends BaseFragmentAdapter {
 					R.layout.adapter_servicecarfts, null);
 			mViewHolder.mAvatar = (CircleImageView) convertView
 					.findViewById(R.id.civl_ServiceCarftsItem_avatar);
-			mViewHolder.mName = (TextView) convertView
-					.findViewById(R.id.tv_ServiceCarftsItem_Name);
-			mViewHolder.mPhone = (TextView) convertView
-					.findViewById(R.id.tv_ServiceCarftsItem_phone);
-			mViewHolder.mAdress = (TextView) convertView
+			mViewHolder.mTitle = (TextView) convertView
 					.findViewById(R.id.tv_ServiceCarftsItem_status);
+			mViewHolder.mPhone = (TextView) convertView
+					.findViewById(R.id.tv_ServiceCarftsItem_Name);
+			mViewHolder.mPrice = (TextView) convertView
+					.findViewById(R.id.tv_ServiceCarftsItem_phone);	
 			convertView.setTag(mViewHolder);
 		} else {
 			mViewHolder = (ViewHolder) convertView.getTag();
 		}
 		CarftsBean mBean = mList.get(position);
-		mViewHolder.mName.setText(mBean.getTitle());
+		LogUtil.d("---mBean---:"+mBean.toString());
+		mViewHolder.mTitle.setText(mBean.getTitle());
 		ImageLoaderUtil.disPlay(Constacts.IMAGEHTTP + mBean.getHead_pic(),
 				mViewHolder.mAvatar);
 		mViewHolder.mPhone.setText(mBean.getName() + ":" + mBean.getTel());
-		mViewHolder.mAdress.setText(mBean.getAddress());
+		
+		
+		
+//		mViewHolder.mPrice.setText(mBean.getAddress());
 		return convertView;
 	}
 
 	private class ViewHolder {
 		CircleImageView mAvatar;
-		TextView mName;
+		TextView mTitle;
 		TextView mPhone;
-		TextView mAdress;
+		TextView mPrice;
 	}
 
 	@Override

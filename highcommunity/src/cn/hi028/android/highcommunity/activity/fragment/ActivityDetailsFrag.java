@@ -1,7 +1,3 @@
-/***************************************************************************
- * Copyright (c) by raythinks.com, Inc. All Rights Reserved
- **************************************************************************/
-
 package cn.hi028.android.highcommunity.activity.fragment;
 
 import android.graphics.Color;
@@ -77,6 +73,7 @@ public class ActivityDetailsFrag extends BaseFragment {
     String aid = "";
     String ReplayContent = "";
     boolean isReplay = false;
+    boolean isReplayCanRepaly=false;
 
     AutoScrollViewPager mViewPage;
     CirclePageIndicator mDicator;
@@ -188,8 +185,9 @@ public class ActivityDetailsFrag extends BaseFragment {
                 mJoin.setText("参与活动");
                
                 mReplay.setBackgroundColor(Color.parseColor(replayBG_grey));
+                isReplayCanRepaly=false;
 //                mReplay.setBackgroundResource(R.color.Defult_Color_Grey);
-                mReplay.setClickable(false);
+//                mReplay.setClickable(false);
             } else {
                 UnJoin.setVisibility(View.GONE);
                 mJoinedLayout.setVisibility(View.VISIBLE);
@@ -201,7 +199,9 @@ public class ActivityDetailsFrag extends BaseFragment {
                 mJoin.setText("已参与该活动");
                
                 mReplay.setBackgroundColor(Color.parseColor(replayBG_blue));
-                mReplay.setClickable(true);
+                isReplayCanRepaly=true;
+                
+//                mReplay.setClickable(true);
             }
             mContent.setText(mBean.getDetail().get(0).getContent());
             mAssistPicAdapter.AddNewData(mBean.getMembers());
@@ -227,11 +227,11 @@ public class ActivityDetailsFrag extends BaseFragment {
 
     @Click(R.id.tv_activitydetails_replay)
     void replay() {
-    	if (mReplay.isClickable()) {
+    	if (isReplayCanRepaly) {
 			
     		setToWho("", null);
 		}else {
-			Toast.makeText(getActivity(), "要参与活动才能参与回复哟~", 0).show();
+			Toast.makeText(getActivity(), "参与活动才能参与回复哟~", 0).show();
 		}
     }
 
@@ -375,9 +375,10 @@ public class ActivityDetailsFrag extends BaseFragment {
             mBean.getDetail().get(0).setIsJoin("1");
             mJoin.setClickable(false);
             mJoin.setText("已参与该活动");
-            mReplay.setClickable(true);
+//            mReplay.setClickable(true);
 //            mReplay.setBackgroundColor(Color.parseColor("#545BDD"));
-            mReplay.setBackgroundResource(Color.parseColor(replayBG_blue));
+//            mReplay.setBackgroundResource(Color.parseColor(replayBG_blue));
+            isReplayCanRepaly=true;
             HighCommunityUtils.GetInstantiation().ShowToast("成功加入该活动", 0);
             HTTPHelper.ActivityDetail(mIbpi, HighCommunityApplication.mUserInfo.getId() + "", aid);
             if (mBean.getDetail().get(0).getIsJoin().equals("1")) {

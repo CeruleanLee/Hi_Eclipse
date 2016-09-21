@@ -1,6 +1,7 @@
 package cn.hi028.android.highcommunity.view.snap;
 
 import cn.hi028.android.highcommunity.R;
+import cn.hi028.android.highcommunity.aaatest.ScrollWebView;
 import cn.hi028.android.highcommunity.view.Mylistview;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Scroller;
+import android.widget.Toast;
 
 /**
  * @author jiangxinxing---mcoy in English
@@ -54,8 +56,10 @@ public class McoySnapPageLayout extends ViewGroup {
 
 	//这个值表示需要第一页和第二页之间的鸿沟
 	private int gapBetweenTopAndBottom;
-	
+
 	private Mylistview mCommentListview;
+
+	ScrollWebView mPicDetailWebview;
 
 	public interface McoySnapPage {
 		/**
@@ -156,6 +160,7 @@ public class McoySnapPageLayout extends ViewGroup {
 		mPageTop = pageTop;
 		mPageBottom = pageBottom;
 		mCommentListview=(Mylistview) mPageBottom.getRootView().findViewById(R.id.ac_good_evaluation_listview);
+		mPicDetailWebview=(ScrollWebView) mPageBottom.getRootView().findViewById(R.id.ac_good_detail_webview);
 		addPagesAndRefresh();
 	}
 
@@ -194,9 +199,9 @@ public class McoySnapPageLayout extends ViewGroup {
 					mPageSnapedListener.onSnapedCompleted(mFlipDrection);
 				}
 			}
-//			//这里调用View的scrollTo()完成实际的滚动
+			//			//这里调用View的scrollTo()完成实际的滚动
 			scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
-//			//必须调用该方法，否则不一定能看到滚动效果
+			//			//必须调用该方法，否则不一定能看到滚动效果
 			postInvalidate();
 		}
 	}
@@ -267,33 +272,42 @@ public class McoySnapPageLayout extends ViewGroup {
 					Log.e(TAG, "mCurrentScreen is " + mCurrentScreen);
 					Log.e(TAG, "mPageBottom.isFlipToTop() is " + mPageBottom.isAtTop());
 				}
-
-
-//								if(yDiff < 0 && mPageTop.isAtBottom() && mCurrentScreen == 0 
-//										|| yDiff > 0 && mPageBottom.isAtTop() && mCurrentScreen == 1){
-//									Log.e("mcoy", "121212121212121212121212");
-//									mTouchState = TOUCH_STATE_SCROLLING;
-//								}
-
+				//								if(yDiff < 0 && mPageTop.isAtBottom() && mCurrentScreen == 0 
+				//										|| yDiff > 0 && mPageBottom.isAtTop() && mCurrentScreen == 1){
+				//									Log.e("mcoy", "121212121212121212121212");
+				//									mTouchState = TOUCH_STATE_SCROLLING;
+				//								}
 
 				if(yDiff > 0 ){
-					
 					if(mPageBottom.isAtTop() && mCurrentScreen == 1){
-						
-						if(mCommentListview.getFirstVisiblePosition() == 0){
-							mTouchState = TOUCH_STATE_SCROLLING;
-						}else{
-							int moveX = (int) (x- mLastMotionX);
-							int moveY = (int) (y- mLastMotionY);
-							if (moveY > moveX+20) {
-								return false;
+						if (mCommentListview.getVisibility()==View.VISIBLE) {
+							if(mCommentListview.getFirstVisiblePosition() == 0){
+								mTouchState = TOUCH_STATE_SCROLLING;
+							}else{
+								int moveX = (int) (x- mLastMotionX);
+								int moveY = (int) (y- mLastMotionY);
+								if (moveY > moveX+20) {
+									return false;
+								}
 							}
 						}
-						
+						if(mPicDetailWebview.getVisibility()==View.VISIBLE){
+							if (mPicDetailWebview.isWebviewOnTop) {
+//								Toast.makeText(getContext(), "WebviewOnTop", 0).show();
+								mTouchState = TOUCH_STATE_SCROLLING;
+							}else{
+								int moveX = (int) (x- mLastMotionX);
+								int moveY = (int) (y- mLastMotionY);
+								if (moveY > moveX+20) {
+									return false;
+								}
+							}
+						}
+
 					}
 
 				}
-				
+
 
 				if(yDiff < 0 &&mPageTop.isAtBottom() && mCurrentScreen == 0){
 					mTouchState = TOUCH_STATE_SCROLLING;
@@ -363,7 +377,7 @@ public class McoySnapPageLayout extends ViewGroup {
 				final int scrollY = getScrollY();
 				if(mCurrentScreen == 0){//显示第一页，只能上拉时使用
 					if(mPageTop != null && mPageTop.isAtBottom()){
-						
+
 						scrollBy(0, Math.max(-1 * scrollY, deltaY));
 					}
 				}else{

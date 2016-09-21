@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
+import android.widget.GridView;
 import android.widget.TextView;
 import cn.hi028.android.highcommunity.R.layout;
 import org.androidannotations.api.builder.FragmentBuilder;
@@ -74,12 +74,8 @@ public final class ReportFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mType4 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type4));
-        mType2 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type2));
-        mType1 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type1));
-        mType5 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type5));
+        mGridView = ((GridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.report_radiobut_gv));
         submit = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_report_submit));
-        mType3 = ((CheckBox) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cb_reportResone_type3));
         if (submit!= null) {
             submit.setOnClickListener(new OnClickListener() {
 

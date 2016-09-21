@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.duohuo.dhroid.util.LogUtil;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
@@ -102,6 +103,8 @@ public class Service_VoluntaryActivity extends Activity {
 		setContentView(R.layout.activity_community);
 		init();
 		// 这里就是在加载页面
+		LogUtil.d("~~~~~~志愿服务点击链接："+"http://028hi.cn/community/volunteer/index.html?token="
+				+ HighCommunityApplication.mUserInfo.getToken());
 		mWebView.loadUrl("http://028hi.cn/community/volunteer/index.html?token="
 				+ HighCommunityApplication.mUserInfo.getToken());// loadurl这个方法是直接加载链接地址
 		// mWebView.loadDataWithBaseURL(null,

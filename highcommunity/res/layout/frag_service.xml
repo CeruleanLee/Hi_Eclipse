@@ -59,7 +59,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="0.5dip"
+                        android:layout_height="0.25dip"
                         android:background="@color/Defult_Color_LineGrey" />
 
                     <TextView
@@ -104,7 +104,7 @@
 
                     <View
                         android:layout_width="wrap_content"
-                        android:layout_height="0.5dip"
+                        android:layout_height="0.25dip"
                         android:background="@color/Defult_Color_LineGrey" />
 
                     <LinearLayout
@@ -122,7 +122,6 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
-                           
                             android:orientation="vertical" >
 
                             <ImageView
@@ -137,11 +136,6 @@
                                 android:text="自治大厅" />
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="0.5dip"
-                            android:layout_height="match_parent"
-                            android:background="@color/Defult_Color_LineGrey" />
-
                         <LinearLayout
                             android:id="@+id/ll_service_payment"
                             android:layout_width="0dp"
@@ -150,7 +144,6 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
-                           
                             android:orientation="vertical" >
 
                             <ImageView
@@ -165,10 +158,6 @@
                                 android:text="缴费" />
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="0.5dip"
-                            android:layout_height="match_parent"
-                            android:background="@color/Defult_Color_LineGrey" />
 
                         <LinearLayout
                             android:id="@+id/ll_service_tenement"
@@ -178,7 +167,6 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
-                        
                             android:orientation="vertical" >
 
                             <ImageView
@@ -193,10 +181,6 @@
                                 android:text="租房" />
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="0.5dip"
-                            android:layout_height="match_parent"
-                            android:background="@color/Defult_Color_LineGrey" />
 
                         <LinearLayout
                             android:id="@+id/ll_service_notice"
@@ -206,7 +190,6 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
-                        
                             android:orientation="vertical" >
 
                             <ImageView
@@ -221,15 +204,11 @@
                                 android:text="公告" />
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="0.5dip"
-                            android:layout_height="match_parent"
-                            android:background="@color/Defult_Color_LineGrey" />
                     </LinearLayout>
 
                     <View
                         android:layout_width="wrap_content"
-                        android:layout_height="0.5dip"
+                        android:layout_height="0.25dip"
                         android:background="@color/Defult_Color_LineGrey" />
 
                     <TextView
@@ -243,7 +222,7 @@
 
                     <View
                         android:layout_width="wrap_content"
-                        android:layout_height="0.5dip"
+                        android:layout_height="0.25dip"
                         android:background="@color/Defult_Color_LineGrey" />
 
                     <LinearLayout
@@ -261,7 +240,6 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
-                       
                             android:orientation="vertical"
                             android:visibility="visible" >
 
@@ -276,11 +254,6 @@
                                 android:text="志愿服务" />
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="0.5dip"
-                            android:layout_height="match_parent"
-                            android:background="@color/Defult_Color_LineGrey"
-                            android:visibility="visible" />
 
                         <LinearLayout
                             android:id="@+id/ll_service_guide"
@@ -290,7 +263,6 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
-                         
                             android:orientation="vertical" >
 
                             <ImageView
@@ -305,10 +277,6 @@
                                 android:text="办事指南" />
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="0.5dip"
-                            android:layout_height="match_parent"
-                            android:background="@color/Defult_Color_LineGrey" />
 
                         <LinearLayout
                             android:id="@+id/ll_service_research"
@@ -318,7 +286,6 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
-                       
                             android:orientation="vertical" >
 
                             <ImageView
@@ -333,11 +300,6 @@
                                 android:text="调查天地" />
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="0.5dip"
-                            android:layout_height="match_parent"
-                            android:background="@color/Defult_Color_LineGrey" />
-
                         <LinearLayout
                             android:id="@+id/ll_service_notice_one"
                             android:layout_width="0dp"
@@ -346,7 +308,6 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
-                    
                             android:orientation="vertical" >
 
                             <ImageView
@@ -364,7 +325,7 @@
 
                     <View
                         android:layout_width="wrap_content"
-                        android:layout_height="0.5dip"
+                        android:layout_height="0.25dip"
                         android:background="@color/Defult_Color_LineGrey" />
 
                     <TextView
@@ -378,7 +339,7 @@
 
                     <View
                         android:layout_width="wrap_content"
-                        android:layout_height="0.5dip"
+                        android:layout_height="0.25dip"
                         android:background="@color/Defult_Color_LineGrey" />
 
                     <LinearLayout
@@ -396,7 +357,6 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
-               
                             android:orientation="vertical" >
 
                             <ImageView
@@ -411,11 +371,6 @@
                                 android:text="    手艺人    " />
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="0.5dip"
-                            android:layout_height="match_parent"
-                            android:background="@color/Defult_Color_LineGrey" />
-
                         <LinearLayout
                             android:id="@+id/ll_service_become_craftsman"
                             android:layout_width="0dp"
@@ -424,7 +379,6 @@
                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
-                        
                             android:orientation="vertical" >
 
                             <ImageView
@@ -439,15 +393,11 @@
                                 android:text="成为手艺人" />
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="0.5dip"
-                            android:layout_height="match_parent"
-                            android:background="@color/Defult_Color_LineGrey" />
                     </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="0.5dip"
+                        android:layout_height="0.25dip"
                         android:background="@color/Defult_Color_LineGrey" />
 
                     <View

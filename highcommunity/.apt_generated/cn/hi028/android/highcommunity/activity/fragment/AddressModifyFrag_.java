@@ -75,19 +75,19 @@ public final class AddressModifyFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_addressModify);
+        mIsDefult = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AddressModify_SetDefult));
+        mPhone = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_addressModify_phone));
+        isDefult = mIsDefult;
+        mDefultLayout = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_AddressModify_DefultLayout));
         mBuild = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_addressModify_build));
         mXiaoqu = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_addressModify_xiaoqu));
-        mQuxian = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_addressModify_quxian));
-        mUnit = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_addressModify_unit));
-        mPhone = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_addressModify_phone));
         mCity = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_addressModify_city));
-        mDoorNumber = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_addressModify_doorNumber));
         mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_addressModify_Nodata));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_addressModify);
+        mUnit = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_addressModify_unit));
+        mDoorNumber = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_addressModify_doorNumber));
+        mQuxian = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_addressModify_quxian));
         mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_addressModify_name));
-        mIsDefult = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AddressModify_SetDefult));
-        mDefultLayout = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_AddressModify_DefultLayout));
-        isDefult = mIsDefult;
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_addressModify_submit);
             if (view!= null) {

@@ -5,7 +5,7 @@
     android:fitsSystemWindows="true"
     android:focusable="false"
     android:focusableInTouchMode="false" >
-
+<!-- 帖子详情布局 不是item-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

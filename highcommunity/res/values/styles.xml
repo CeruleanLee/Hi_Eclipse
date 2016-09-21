@@ -217,7 +217,7 @@
         <item name="android:paddingTop">1dp</item>
         <item name="android:paddingBottom">1dp</item>
         <item name="android:button">@null</item>
-        <item name="android:drawablePadding">4dip</item>
+        <item name="android:drawablePadding">0dp</item>
         <item name="android:drawableLeft">@drawable/tag_sex_selector</item>
         <item name="android:textColor">@color/defult_color_white</item>
         <item name="android:textSize">@dimen/font_extra_small_half</item>

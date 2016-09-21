@@ -74,4 +74,12 @@ public class CarftsBean extends BaseBean {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	@Override
+	public String toString() {
+		return "CarftsBean [id=" + id + ", head_pic=" + head_pic + ", title="
+				+ title + ", name=" + name + ", tel=" + tel + ", status="
+				+ status + ", address=" + address + "]";
+	}
+	
 }

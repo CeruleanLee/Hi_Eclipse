@@ -29,6 +29,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.hi028.android.highcommunity.R;
+import cn.hi028.android.highcommunity.aaatest.ScrollWebView;
+import cn.hi028.android.highcommunity.aaatest.ScrollWebView.OnScrollChangeListener;
 import cn.hi028.android.highcommunity.activity.BaseFragmentActivity;
 import cn.hi028.android.highcommunity.activity.GoodImageDetailOrEvaluationActivity;
 import cn.hi028.android.highcommunity.activity.ShowPayActivity;
@@ -91,7 +93,7 @@ OnClickListener, PayPop2FragFace {
 	private McoyProductContentPage bottomPage = null;
 	private McoyProductDetailInfoPage topPage = null;
 	View top_view,bottom_View;
-	WebView mWebview;
+	ScrollWebView mWebview;
 	Mylistview mCommentListview;
 
 	@Override
@@ -125,7 +127,18 @@ OnClickListener, PayPop2FragFace {
 
 			}
 		});
-
+		mWebview.setOnScrollChangeListener(new OnScrollChangeListener() {
+			
+			@Override
+			public void onScrollChanged(int l, int t, int oldl, int oldt) {
+			}
+			@Override
+			public void onPageTop(int l, int t, int oldl, int oldt) {
+			}
+			@Override
+			public void onPageEnd(int l, int t, int oldl, int oldt) {
+			}
+		});
 	}
 	private void getDatas() {
 		Bundle bundle = getIntent().getExtras();
@@ -220,7 +233,7 @@ OnClickListener, PayPop2FragFace {
 		edible = (TextView) top_view.findViewById(R.id.ac_shop_edible_tv);
 		mPicDetail=(RadioButton) bottom_View.findViewById(R.id.ac_shopdetail_mypicdetail);
 		mCommentDetail=(RadioButton) bottom_View.findViewById(R.id.ac_shopdetail_mycommentdetail);
-		mWebview=(WebView) bottom_View.findViewById(R.id.ac_good_detail_webview);
+		mWebview=(ScrollWebView) bottom_View.findViewById(R.id.ac_good_detail_webview);
 		mCommentListview=(Mylistview) bottom_View.findViewById(R.id.ac_good_evaluation_listview);
 
 		viewline1 = top_view.findViewById(R.id.view11);
@@ -349,12 +362,12 @@ OnClickListener, PayPop2FragFace {
 	private void loadPicDetail(GoodsData msg) {
 		contentdetail = msg.getDetail();
 		WebSettings mSetting = mWebview.getSettings();
-
+		mSetting.setJavaScriptEnabled(true); 
 		mSetting.setDefaultTextEncodingName("utf-8");
-		mSetting.setDisplayZoomControls(false);
+//		mSetting.setDisplayZoomControls(false);
 		mSetting.setUseWideViewPort(true);
 		mSetting.setLoadWithOverviewMode(true);
-		mSetting.setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);  //就是这句
+		mSetting.setLayoutAlgorithm(LayoutAlgorithm.NARROW_COLUMNS); 
 		mWebview.setWebViewClient(new WebViewClient(){
 			public boolean shouldOverrideUrlLoading(WebView view, String url) { // 重写此方法表明点击网页里面的链接还是在当前的webview里跳转，不跳到浏览器那边
 				view.loadUrl(url);

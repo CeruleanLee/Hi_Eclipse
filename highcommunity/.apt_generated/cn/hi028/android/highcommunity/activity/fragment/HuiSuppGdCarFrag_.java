@@ -78,24 +78,12 @@ public final class HuiSuppGdCarFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         img_goods_ch = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_goods_ch));
-        btn_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_pay));
-        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_gdcar_Nodata));
         tv_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_price));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_gdcar_notice);
-        mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_gdcar_listView));
         ll_price = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_price));
-        if (img_goods_ch!= null) {
-            img_goods_ch.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    HuiSuppGdCarFrag_.this.checkClick();
-                }
-
-            }
-            );
-        }
+        btn_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_pay));
+        mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_gdcar_listView));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_gdcar_notice);
+        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_gdcar_Nodata));
         if (btn_pay!= null) {
             btn_pay.setOnClickListener(new OnClickListener() {
 
@@ -103,6 +91,18 @@ public final class HuiSuppGdCarFrag_
                 @Override
                 public void onClick(View view) {
                     HuiSuppGdCarFrag_.this.payClick();
+                }
+
+            }
+            );
+        }
+        if (img_goods_ch!= null) {
+            img_goods_ch.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    HuiSuppGdCarFrag_.this.checkClick();
                 }
 
             }

@@ -75,15 +75,15 @@ public final class GroupFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mHot = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_hot));
-        mNew = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_new));
         mSearch = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_search));
-        mCreate = ((DrawableCenterTextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_create));
-        mMine = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_mine));
-        mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_group_listview));
-        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_nodata));
-        mKeywords = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_groupclass_search));
+        mNew = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_new));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.pg_grouplayout_progress);
+        mCreate = ((DrawableCenterTextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_create));
+        mHot = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_hot));
+        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_nodata));
+        mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_group_listview));
+        mMine = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_mine));
+        mKeywords = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_groupclass_search));
         initView();
     }
 

@@ -75,23 +75,11 @@ public final class ActivityDetailsFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mReplay = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activitydetails_replay));
-        mJoin = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activitydetails_join));
-        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ActivityDetails_Nodata));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_ActivityDetails);
         mlistView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_activitydetails_listview));
-        if (mReplay!= null) {
-            mReplay.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    ActivityDetailsFrag_.this.replay();
-                }
-
-            }
-            );
-        }
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_ActivityDetails);
+        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ActivityDetails_Nodata));
+        mJoin = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activitydetails_join));
+        mReplay = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activitydetails_replay));
         if (mJoin!= null) {
             mJoin.setOnClickListener(new OnClickListener() {
 
@@ -99,6 +87,18 @@ public final class ActivityDetailsFrag_
                 @Override
                 public void onClick(View view) {
                     ActivityDetailsFrag_.this.join();
+                }
+
+            }
+            );
+        }
+        if (mReplay!= null) {
+            mReplay.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    ActivityDetailsFrag_.this.replay();
                 }
 
             }

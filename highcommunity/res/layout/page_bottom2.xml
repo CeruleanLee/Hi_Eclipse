@@ -55,7 +55,7 @@
             android:layout_height="0dp"
             android:layout_weight="1" >
 
-            <WebView
+          <cn.hi028.android.highcommunity.aaatest.ScrollWebView
                 android:id="@+id/ac_good_detail_webview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

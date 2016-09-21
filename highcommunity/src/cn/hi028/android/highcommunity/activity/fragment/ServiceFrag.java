@@ -391,6 +391,7 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 			startActivity(i3);
 			break;
 		case R.id.ll_service_voluntary:
+			LogUtil.d("~~~~~~点击了志愿服务");
 			Intent i4 = new Intent(getActivity(), Service_VoluntaryActivity.class);
 			startActivity(i4);
 			break;
