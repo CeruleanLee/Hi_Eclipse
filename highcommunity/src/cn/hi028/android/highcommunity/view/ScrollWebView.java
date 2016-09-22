@@ -1,4 +1,4 @@
-package cn.hi028.android.highcommunity.aaatest;
+package cn.hi028.android.highcommunity.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -34,11 +34,11 @@
                 android:layout_marginTop="@dimen/padding_4"
                 android:cacheColorHint="#00000000"
                 android:divider="@color/Defult_Color_ShallowGrey"
-                android:dividerHeight="5dip"
-                android:listSelector="@drawable/ll_leftmenu_bg_selector"
+                android:dividerHeight="10dip"
+            
                 android:scrollbars="none" />
         </LinearLayout>
-
+<!--      android:listSelector="@drawable/ll_leftmenu_bg_selector"-->
         <TextView
             android:id="@+id/tv_activity_create"
             android:layout_width="wrap_content"

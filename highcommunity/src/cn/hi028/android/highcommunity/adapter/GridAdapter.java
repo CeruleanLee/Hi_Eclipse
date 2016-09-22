@@ -31,53 +31,53 @@ import photo.util.PublicWay;
  */
 public class GridAdapter extends BaseFragmentAdapter {
 
-    Context mConstext;
-    private LayoutInflater inflater;
-    private int selectedPosition = -1;
+	Context mConstext;
+	private LayoutInflater inflater;
+	private int selectedPosition = -1;
 
-    public GridAdapter(Context context) {
-        mConstext = context;
-        inflater = LayoutInflater.from(context);
-    }
+	public GridAdapter(Context context) {
+		mConstext = context;
+		inflater = LayoutInflater.from(context);
+	}
 
-    public int getCount() {
-        if (Bimp.tempSelectBitmap.size() > PublicWay.num) {
-            return PublicWay.num;
-        } else {
-            return Bimp.tempSelectBitmap.size();
-        }
-    }
+	public int getCount() {
+		if (Bimp.tempSelectBitmap.size() > PublicWay.num) {
+			return PublicWay.num;
+		} else {
+			return Bimp.tempSelectBitmap.size();
+		}
+	}
 
-    public String getItem(int arg0) {
-        return Bimp.tempSelectBitmap.get(arg0).getImagePath();
-    }
+	public String getItem(int arg0) {
+		return Bimp.tempSelectBitmap.get(arg0).getImagePath();
+	}
 
-    public long getItemId(int arg0) {
-        return 0;
-    }
+	public long getItemId(int arg0) {
+		return 0;
+	}
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
-        if (convertView == null) {
-            convertView = inflater.inflate(R.layout.item_published_grida,
-                    parent, false);
-            holder = new ViewHolder();
-            holder.image = (ImageView) convertView
-                    .findViewById(R.id.item_grida_image);
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
-        }
-        if (Bimp.tempSelectBitmap.get(position).getImagePath().startsWith("drawable://")) {
-            ImageLoaderUtil.disPlay(Bimp.tempSelectBitmap.get(position).getImagePath(), holder.image);
-        } else {
-            ImageLoaderUtil.disPlay("file://" + Bimp.tempSelectBitmap.get(position).getImagePath(), holder.image);
-        }
-        return convertView;
-    }
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		ViewHolder holder = null;
+		if (convertView == null) {
+			convertView = inflater.inflate(R.layout.item_published_grida,
+					parent, false);
+			holder = new ViewHolder();
+			holder.image = (ImageView) convertView
+					.findViewById(R.id.item_grida_image);
+			convertView.setTag(holder);
+		} else {
+			holder = (ViewHolder) convertView.getTag();
+		}
+		if (Bimp.tempSelectBitmap.get(position).getImagePath().startsWith("drawable://")) {
+			ImageLoaderUtil.disPlay(Bimp.tempSelectBitmap.get(position).getImagePath(), holder.image);
+		} else {
+			ImageLoaderUtil.disPlay("file://" + Bimp.tempSelectBitmap.get(position).getImagePath(), holder.image);
+		}
+		return convertView;
+	}
 
-    public class ViewHolder {
-        public ImageView image;
-    }
+	public class ViewHolder {
+		public ImageView image;
+	}
 }

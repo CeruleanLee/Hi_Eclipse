@@ -74,8 +74,8 @@ public final class ReportFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mGridView = ((GridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.report_radiobut_gv));
         submit = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_report_submit));
+        mGridView = ((GridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.report_radiobut_gv));
         if (submit!= null) {
             submit.setOnClickListener(new OnClickListener() {
 

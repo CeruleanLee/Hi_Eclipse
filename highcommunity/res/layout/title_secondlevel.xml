@@ -20,7 +20,7 @@
             android:layout_gravity="start"
             android:clickable="true"
             android:contentDescription="@string/app_name"
-            android:onClick="onBack"
+            
             android:scaleType="center"
             android:src="@drawable/img_back_selector" />
 

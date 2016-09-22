@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ import cn.hi028.android.highcommunity.view.AllianceItemView;
 
 /**
  * Created by Administrator on 2016/8/10.
+ * 
  */
 public class AllianceOrderAdapter extends BaseFragmentAdapter {
 
@@ -178,6 +180,8 @@ public class AllianceOrderAdapter extends BaseFragmentAdapter {
 				@Override
 				public void onClick(View v) {
 					HTTPHelper.ConfirmOrder(mIbpiConfirm, mBean.getOrder_num());
+//					Toast.makeText(mContext, "确认收货成功，快去评价吧~", 0).show();
+					notifyDataSetChanged();
 				}
 			});
 		} else if (statuStr.equals("已收货")) {
@@ -310,7 +314,7 @@ public class AllianceOrderAdapter extends BaseFragmentAdapter {
 
 		@Override
 		public void onSuccess(Object message) {
-			HighCommunityUtils.GetInstantiation().ShowToast("确认收货成功", 0);
+			HighCommunityUtils.GetInstantiation().ShowToast("确认收货成功,快去评价吧~", 0);
 			if (mListener != null) {
 				mListener.onRefresh();
 			}

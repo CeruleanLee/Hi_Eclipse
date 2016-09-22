@@ -29,8 +29,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.hi028.android.highcommunity.R;
-import cn.hi028.android.highcommunity.aaatest.ScrollWebView;
-import cn.hi028.android.highcommunity.aaatest.ScrollWebView.OnScrollChangeListener;
 import cn.hi028.android.highcommunity.activity.BaseFragmentActivity;
 import cn.hi028.android.highcommunity.activity.GoodImageDetailOrEvaluationActivity;
 import cn.hi028.android.highcommunity.activity.ShowPayActivity;
@@ -44,6 +42,8 @@ import cn.hi028.android.highcommunity.utils.Constacts;
 import cn.hi028.android.highcommunity.utils.HTTPHelper;
 import cn.hi028.android.highcommunity.view.Mylistview;
 import cn.hi028.android.highcommunity.view.PaylistPopupWindow;
+import cn.hi028.android.highcommunity.view.ScrollWebView;
+import cn.hi028.android.highcommunity.view.ScrollWebView.OnScrollChangeListener;
 import cn.hi028.android.highcommunity.view.snap.McoyProductContentPage;
 import cn.hi028.android.highcommunity.view.snap.McoyProductDetailInfoPage;
 import cn.hi028.android.highcommunity.view.snap.McoySnapPageLayout;
@@ -54,7 +54,7 @@ import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 /**
- * 联盟商家商品详情
+ * 就是我用的联盟商家商品详情
  * @author Administrator
  *
  */

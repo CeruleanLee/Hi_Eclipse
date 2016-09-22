@@ -61,7 +61,7 @@
                     android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:drawableTop="@drawable/tab_second_selector"
-                    android:gravity="center"
+                   android:gravity="bottom|center_horizontal"
                     android:text="@string/tb_third"
                     android:textColor="@color/defult_color_white" />
                 <!-- 惠生活 -->
@@ -72,7 +72,7 @@
                     android:layout_height="match_parent"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                     android:gravity="center"
+                   android:gravity="bottom|center_horizontal"
                     android:drawableTop="@drawable/tab_third_selector"
                     android:text="@string/tb_fourth"
                     android:textColor="@color/defult_color_white" />
@@ -89,7 +89,7 @@
                     style="@style/tb_tv"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                     android:gravity="center"
+                    android:gravity="bottom|center_horizontal"
                     android:layout_height="match_parent"
                     android:drawableTop="@drawable/tab_first_selector"
                     android:text="@string/tb_first"
@@ -100,7 +100,7 @@
                     style="@style/tb_tv"
                      android:layout_width="0dp"
                     android:layout_weight="1"
-                     android:gravity="center"
+                     android:gravity="bottom|center_horizontal"
                     android:layout_height="match_parent"
                     android:drawableTop="@drawable/tab_fourth_selector"
                     android:text="@string/tb_five"

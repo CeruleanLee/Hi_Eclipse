@@ -10,10 +10,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import cn.hi028.android.highcommunity.R.layout;
-import com.don.view.DrawableCenterTextView;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import org.androidannotations.api.builder.FragmentBuilder;
 import org.androidannotations.api.view.HasViews;
@@ -75,15 +75,14 @@ public final class GroupFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mSearch = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_search));
-        mNew = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_new));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.pg_grouplayout_progress);
-        mCreate = ((DrawableCenterTextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_create));
-        mHot = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_hot));
         mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_nodata));
-        mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_group_listview));
+        mHot = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_hot));
+        mCreate = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_create));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.pg_grouplayout_progress);
+        mNew = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_new));
         mMine = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_mine));
-        mKeywords = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_groupclass_search));
+        mKeywords = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_groupclass_search));
+        mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_group_listview));
         initView();
     }
 

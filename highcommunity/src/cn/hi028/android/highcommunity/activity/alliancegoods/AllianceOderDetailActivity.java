@@ -27,9 +27,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -63,11 +65,13 @@ public class AllianceOderDetailActivity extends BaseFragmentActivity {
 	Alli_Root data;
 	PopupWindow waitPop;
 	String order_num;
+	ViewGroup userinfroCantainer;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_order_detail);	
-		
+
+
 		LogUtil.d("------act-onCreate");
 		setView();
 		initView();
@@ -92,7 +96,7 @@ public class AllianceOderDetailActivity extends BaseFragmentActivity {
 		tv_goods_name=(TextView) findViewById(R.id.tv_goods_name);
 		img_goods_pic = (ImageView) findViewById(R.id.img_goods_pic);
 		ll_NoticeDetails_Progress = findViewById(R.id.ll_NoticeDetails_Progress);
-
+		userinfroCantainer=(ViewGroup) findViewById(R.id.order_userinfro);
 	}
 
 	void initView() {
@@ -165,41 +169,11 @@ public class AllianceOderDetailActivity extends BaseFragmentActivity {
 		int str=bean.getStatus();
 		LogUtil.d("------str" +str);
 		if (bean.getStatus()==0) {
-			tv_order_operate1.setText("取消订单");
-			tv_order_operate2.setText("付款");
-			tv_order_operate1.setVisibility(View.VISIBLE);
-			tv_order_operate2.setVisibility(View.VISIBLE);
-			tv_order_operate1.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-//					Toast.makeText(AllianceOderDetailActivity.this,"点击了取消", 0).show();
-//					HTTPHelper.CancelOrder(mIbpiCancel,
-//							bean.getOrder_num());
-					
-					
-					cancelOrder(v, "取消订单", bean);
-				}
-			});
-			tv_order_operate2.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-//					Toast.makeText(AllianceOderDetailActivity.this,"点击了付款", 0).show();
-					LogUtil.d("-----付款点击---0");
-
-					HTTPHelper.GoPay(mIbpiGoPay, bean.getOrder_num());
-					LogUtil.d("-----付款点击---1");
-				}
-			});
+			//未支付
+			status0Unpay(bean);
 		} else if (bean.getStatus() == 1 || bean.getStatus() == 2) {
-			tv_order_operate2.setText("确认收货");
-			tv_order_operate1.setVisibility(View.INVISIBLE);
-			tv_order_operate2.setVisibility(View.VISIBLE);
-			tv_order_operate2.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					HTTPHelper.ConfirmOrder(mIbpiConfirm, bean.getOrder_num());
-				}
-			});
+			//已支付或已发货
+			status1PayedOr2Sended(bean);
 		} else if (bean.getStatus() == 3) {
 			tv_order_operate2.setText("评价");
 			tv_order_operate1.setVisibility(View.INVISIBLE);
@@ -207,10 +181,12 @@ public class AllianceOderDetailActivity extends BaseFragmentActivity {
 			tv_order_operate2.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(final View v) {
-//					Toast.makeText(AllianceOderDetailActivity.this,"点击了评论", 0).show();
-										Intent mIntent = new Intent(AllianceOderDetailActivity.this, GeneratedClassUtils.get(MyGoodsEvluateActivity.class));
-										mIntent.putExtra("order_num", bean.getOrder_num());
-										startActivity(mIntent);
+					//					Toast.makeText(AllianceOderDetailActivity.this,"点击了评论", 0).show();
+					//										Intent mIntent = new Intent(AllianceOderDetailActivity.this, GeneratedClassUtils.get(MyGoodsEvluateActivity.class));
+					Intent mIntent = new Intent(AllianceOderDetailActivity.this,MyGoodsEvluateActivity.class);
+
+					mIntent.putExtra("order_num", out_trade_no);
+					startActivity(mIntent);
 				}
 			});
 		} else if (bean.getStatus() == -1) {
@@ -220,7 +196,7 @@ public class AllianceOderDetailActivity extends BaseFragmentActivity {
 			tv_order_operate2.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(final View v) {
-//					Toast.makeText(AllianceOderDetailActivity.this,"点击了取消", 0).show();
+					//					Toast.makeText(AllianceOderDetailActivity.this,"点击了取消", 0).show();
 					cancelOrder(v, "取消订单", bean);
 				}
 			});
@@ -231,11 +207,46 @@ public class AllianceOderDetailActivity extends BaseFragmentActivity {
 			tv_order_operate2.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-//					Toast.makeText(AllianceOderDetailActivity.this,"点击了删除", 0).show();
+					//					Toast.makeText(AllianceOderDetailActivity.this,"点击了删除", 0).show();
 					cancelOrder(v, "删除订单", bean);
 				}
 			});
 		}
+	}
+
+	private void status1PayedOr2Sended(final Alli_Root bean) {
+		tv_order_operate2.setText("确认收货");
+		tv_order_operate1.setVisibility(View.INVISIBLE);
+		tv_order_operate2.setVisibility(View.VISIBLE);
+		tv_order_operate2.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				HTTPHelper.ConfirmOrder(mIbpiConfirm, bean.getOrder_num());
+			}
+		});
+	}
+
+	private void status0Unpay(final Alli_Root bean) {
+		tv_order_operate1.setText("取消订单");
+		tv_order_operate2.setText("付款");
+		tv_order_operate1.setVisibility(View.VISIBLE);
+		tv_order_operate2.setVisibility(View.VISIBLE);
+		tv_order_operate1.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//					Toast.makeText(AllianceOderDetailActivity.this,"点击了取消", 0).show();
+				//					HTTPHelper.CancelOrder(mIbpiCancel,
+				//							bean.getOrder_num());
+				cancelOrder(v, "取消订单", bean);
+			}
+		});
+		tv_order_operate2.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				LogUtil.d("-----付款点击---0");
+				HTTPHelper.GoPay(mIbpiGoPay, bean.getOrder_num());
+			}
+		});
 	}
 	/**
 	 *为控件设置数据 part1
@@ -248,9 +259,14 @@ public class AllianceOderDetailActivity extends BaseFragmentActivity {
 		tv_goods_num.setText(bean.getGoods_info().get(0).getNumber());
 		tv_goods_price.setText(bean.getGoods_info().get(0).getGoods_price());
 		tv_goods_name.setText(bean.getGoods_info().get(0).getGoods_name());
-		tv_reserve_name.setText(bean.getConsign());
-		tv_reserve_phone.setText(bean.getTel());
-		tv_reserve_address.setText(bean.getAddress());
+		if (TextUtils.isEmpty(bean.getConsign())&&TextUtils.isEmpty(bean.getTel())&&TextUtils.isEmpty(bean.getAddress())) {
+			userinfroCantainer.setVisibility(View.GONE);
+		}else{
+
+			tv_reserve_name.setText(bean.getConsign());
+			tv_reserve_phone.setText(bean.getTel());
+			tv_reserve_address.setText(bean.getAddress());
+		}
 		//TODO
 		//这里需要改
 		tv_coupon.setText(bean.getTicket_value() + "");
@@ -301,7 +317,7 @@ public class AllianceOderDetailActivity extends BaseFragmentActivity {
 					public void cancleAsyncTask() {
 					}
 				};
-				
+
 				HTTPHelper.CancelOrder(mIbpiCancel,bean.getOrder_num());
 				waitPop.dismiss();
 
@@ -420,7 +436,7 @@ public class AllianceOderDetailActivity extends BaseFragmentActivity {
 		@Override
 		public void onSuccess(Object message) {
 			HighCommunityUtils.GetInstantiation().ShowToast("确认收货成功", 0);
-
+			update();
 		}
 
 		@Override
@@ -441,7 +457,14 @@ public class AllianceOderDetailActivity extends BaseFragmentActivity {
 	};
 
 
+	private void update() {
+		HTTPHelper.getOderDetail(mIbpiOrder, out_trade_no);
 
+	}
+@Override
+protected void onResume() {
+	update();
+	super.onResume();
+}
 
-	
 }

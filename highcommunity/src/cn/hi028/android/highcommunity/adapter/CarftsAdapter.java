@@ -74,7 +74,7 @@ public class CarftsAdapter extends BaseFragmentAdapter {
 		ImageLoaderUtil.disPlay(Constacts.IMAGEHTTP + mBean.getHead_pic(),
 				mViewHolder.mAvatar);
 		mViewHolder.mPhone.setText(mBean.getName() + ":" + mBean.getTel());
-		
+		mViewHolder.mPrice.setText(mBean.getPrice() + "元/次");
 		
 		
 //		mViewHolder.mPrice.setText(mBean.getAddress());

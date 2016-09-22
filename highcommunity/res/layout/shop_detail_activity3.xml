@@ -33,7 +33,7 @@
             android:layout_centerInParent="true"
             android:text="商品详情"
             android:textColor="@color/white"
-            android:textSize="21sp" />
+            android:textSize="@dimen/common_title_size" />
     </RelativeLayout>
 
     <LinearLayout
@@ -116,7 +116,7 @@
     <View
         android:id="@+id/line"
         android:layout_width="match_parent"
-        android:layout_height="1dip"
+        android:layout_height="0.5dip"
         android:layout_above="@id/shop_deatil_bottom_pay_rl"
         android:background="@color/Defult_Color_LineGrey" />
 
@@ -126,7 +126,7 @@
         android:layout_height="match_parent"
         android:layout_above="@id/line"
         android:layout_below="@id/ac_shop_good_title_rl"
-        android:background="#88F7FAF5" >
+      >
     </cn.hi028.android.highcommunity.view.snap.McoySnapPageLayout>
 
 </RelativeLayout>

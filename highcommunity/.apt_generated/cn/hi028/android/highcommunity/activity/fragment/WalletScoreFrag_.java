@@ -75,13 +75,13 @@ public final class WalletScoreFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mSubmit = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_exChange));
-        mRecodeList = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_recode));
-        mRules = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_rules));
-        mScore = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_score));
-        mMoney = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_money));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_walletScore);
+        mScore = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_score));
+        mRules = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_rules));
+        mMoney = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_money));
+        mSubmit = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_exChange));
         mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletScore_Nodata));
+        mRecodeList = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_recode));
         mNumber = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_inputNumber));
         if (mRules!= null) {
             mRules.setOnClickListener(new OnClickListener() {

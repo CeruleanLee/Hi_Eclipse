@@ -12,6 +12,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:background="#ffffff"
         android:paddingBottom="5dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
@@ -59,7 +60,9 @@
     <EditText
         android:id="@+id/ac_evluate_edit_text"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
         android:background="@color/white"
         android:gravity="start"
         android:hint="写下对产品的评价吧，对其他人帮助很大哟！"
@@ -67,15 +70,10 @@
         android:paddingLeft="5dp"
         android:textSize="12sp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
     <TextView
         android:id="@+id/ac_evaluate_send_tv"
-        android:layout_width="85dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
         android:layout_gravity="end"
         android:background="@color/Defult_Color_AppGreen"
         android:gravity="center"

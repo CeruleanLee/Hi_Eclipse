@@ -12,6 +12,7 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
 import com.don.tools.BpiHttpHandler.IBpiHttpHandler;
+import com.google.gson.Gson;
 
 import android.app.Activity;
 import android.content.Context;
@@ -28,9 +29,12 @@ import cn.hi028.android.highcommunity.activity.fragment.alliance.MerchantShopFra
 import cn.hi028.android.highcommunity.adapter.OderDetailsProductAdapter;
 import cn.hi028.android.highcommunity.bean.GoodsOrderSubmitBean;
 import cn.hi028.android.highcommunity.bean.NearbyOrderDetailBean;
+import cn.hi028.android.highcommunity.bean.NearbyOrderdetail2.NearbyOrderDeatai_Root;
+import cn.hi028.android.highcommunity.bean.NearbyOrderdetail2.Root_Data;
 import cn.hi028.android.highcommunity.utils.CommonUtils;
 import cn.hi028.android.highcommunity.utils.HTTPHelper;
 import cn.hi028.android.highcommunity.utils.TimeUtil;
+import net.duohuo.dhroid.util.LogUtil;
 import net.duohuo.dhroid.view.CustomListView;
 /**
  * 商家订单详情
@@ -71,7 +75,7 @@ public class ShangJiaOrderDetailAct extends Activity implements OnClickListener{
 	@ViewInject(R.id.cl_goods)
 	CustomListView cl_goods;
 	
-	
+//	tv_order_operate2
 	OderDetailsProductAdapter adapter;
 	List<GoodsOrderSubmitBean> goods_info = new ArrayList<GoodsOrderSubmitBean>();
 	NearbyOrderDetailBean data;
@@ -82,8 +86,11 @@ public class ShangJiaOrderDetailAct extends Activity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		LogUtil.d("~~~jinru商家订单");
 		x.view().inject(this);
 		out_trade_no = getIntent().getStringExtra("out_trade_no");
+		LogUtil.d("~~~传递过来的订单号为："+out_trade_no);
+		
 		initViews();
 		
 	}
@@ -91,13 +98,15 @@ public class ShangJiaOrderDetailAct extends Activity implements OnClickListener{
 	public void initViews() {
 		back = (ImageView) findViewById(R.id.img_back);
 		back.setOnClickListener(this);
+		tv_order_operate2.setOnClickListener(this);
 		adapter = new OderDetailsProductAdapter(this, goods_info);
 		cl_goods.setAdapter(adapter);
 		HTTPHelper.getOderDetail(mIbpi, out_trade_no);
 		
 	}
-	
+String orderSendToDeatailAct;
 	public void updateData(NearbyOrderDetailBean bean) {
+		orderSendToDeatailAct=bean.getOrder_num();
 		tv_order_id.setText("订单号：" + bean.getOrder_num());
 		tv_order_time.setText("下单时间：" + TimeUtil.getDayAllTime(bean.getCreate_time()));
 		tv_reserve_name.setText(bean.getConsign());
@@ -116,6 +125,8 @@ public class ShangJiaOrderDetailAct extends Activity implements OnClickListener{
 	
 	IBpiHttpHandler mIbpi = new IBpiHttpHandler() {
 		
+		private NearbyOrderDeatai_Root nearbyOrderDeatai_Root;
+
 		@Override
 		public void setAsyncTask(AsyncTask asyncTask) {
 			
@@ -125,7 +136,10 @@ public class ShangJiaOrderDetailAct extends Activity implements OnClickListener{
 		public void onSuccess(Object message) {
 			if (message != null) {
 			}
+			LogUtil.d("~~~ 获取商家联盟订单详情：message:"+message.toString());
+//			nearbyOrderDeatai_Root = new Gson().fromJson(message.toString(), NearbyOrderDeatai_Root.class);
 			data = (NearbyOrderDetailBean) message;
+			LogUtil.d("~~~ 获取商家联盟订单详情：data:"+data.toString());
 			updateData(data);
 			
 		}
@@ -152,7 +166,13 @@ public class ShangJiaOrderDetailAct extends Activity implements OnClickListener{
 		case R.id.img_back:
 			finish();
 			break;
+		case R.id.tv_order_operate2:
+			Intent intent =new Intent(ShangJiaOrderDetailAct.this,AllianceOderDetailActivity.class);
+			intent.putExtra("order_num", orderSendToDeatailAct);
+			startActivity(intent);
+			break;
 		}
+		
 		
 	}
 	

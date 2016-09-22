@@ -3,6 +3,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import net.duohuo.dhroid.util.LogUtil;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.hi028.android.highcommunity.R;
+import cn.hi028.android.highcommunity.activity.alliancegoods.AllianceOderDetailActivity;
 import cn.hi028.android.highcommunity.activity.alliancegoods.ShangJiaOrderDetailAct;
 import cn.hi028.android.highcommunity.adapter.ShowPayAdapter;
 import cn.hi028.android.highcommunity.bean.AddressBean;
@@ -40,8 +42,13 @@ import cn.hi028.android.highcommunity.utils.wchatpay.WchatPayUtils;
 import com.don.tools.BpiHttpHandler.IBpiHttpHandler;
 import com.don.tools.GeneratedClassUtils;
 
+/**
+ * 联盟商品详情 支付跳转过来的界面
+ * @author Administrator
+ *
+ */
 public class ShowPayActivity extends BaseFragmentActivity implements
-		View.OnClickListener, OnItemClickListener {
+View.OnClickListener, OnItemClickListener {
 	private static final int WECHAT = 1;
 	private static final int ALIPAY = 2;
 	ListView listview;
@@ -174,8 +181,8 @@ public class ShowPayActivity extends BaseFragmentActivity implements
 
 		mBtnWeiXin.setChecked(true);// 设置默认微信选中img_payment_checked
 		witchType = WECHAT;
-//		mBtnWeiXin.setBackgroundResource(isChecked);
-//		mBtnAli.setBackgroundResource(isNotChecked);
+		//		mBtnWeiXin.setBackgroundResource(isChecked);
+		//		mBtnAli.setBackgroundResource(isNotChecked);
 
 		mBtnWeiXin.setOnClickListener(new OnClickListener() {
 
@@ -183,8 +190,8 @@ public class ShowPayActivity extends BaseFragmentActivity implements
 			public void onClick(View v) {
 				mBtnWeiXin.setChecked(true);
 				mBtnAli.setChecked(false);
-//				mBtnWeiXin.setBackgroundResource(isChecked);
-//				mBtnAli.setBackgroundResource(isNotChecked);
+				//				mBtnWeiXin.setBackgroundResource(isChecked);
+				//				mBtnAli.setBackgroundResource(isNotChecked);
 
 				Toast.makeText(ShowPayActivity.this, "微信支付选中",
 						Toast.LENGTH_SHORT).show();
@@ -198,17 +205,17 @@ public class ShowPayActivity extends BaseFragmentActivity implements
 			public void onClick(View v) {
 				mBtnWeiXin.setChecked(false);
 				mBtnAli.setChecked(true);
-//				mBtnAli.setBackgroundResource(isChecked);
-//				mBtnWeiXin.setBackgroundResource(isNotChecked);
-				
+				//				mBtnAli.setBackgroundResource(isChecked);
+				//				mBtnWeiXin.setBackgroundResource(isNotChecked);
+
 				Toast.makeText(ShowPayActivity.this, "支付宝支付选中",
 						Toast.LENGTH_SHORT).show();
-				
+
 			}
 		});
-		
+
 	}
-	
+
 	private AddressOrderBean convert(AddressModel addressModel) {
 		AddressOrderBean bean = new AddressOrderBean();
 		bean.setAddress(addressModel.getAddress());
@@ -224,12 +231,13 @@ public class ShowPayActivity extends BaseFragmentActivity implements
 		case R.id.ac_show_pay_tv:
 			if (TextUtils.isEmpty(recipient.getText().toString().trim())
 					&& TextUtils
-							.isEmpty(addressDtl.getText().toString().trim())) {
+					.isEmpty(addressDtl.getText().toString().trim())) {
 				Toast.makeText(ShowPayActivity.this, "请填写收货地址",
 						Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if (TextUtils.isEmpty(mOrderNumber)) {
+				Toast.makeText(ShowPayActivity.this, "订单异常",Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if (addr == null) {
@@ -267,7 +275,7 @@ public class ShowPayActivity extends BaseFragmentActivity implements
 
 	public void goBack(View v) {
 		onBackPressed();
-		
+
 	}
 
 	@Override
@@ -294,20 +302,20 @@ public class ShowPayActivity extends BaseFragmentActivity implements
 				return;
 			switch (witchType) {
 			case WECHAT:
-				
+
 				mWechatBean = (WechatParamBean) message;
 				Log.d("------=-====------",mWechatBean.getOut_trade_no());
 				if (mWechatBean != null) {
 					WchatPayUtils
-							.getInstance()
-							.init(ShowPayActivity.this)
-							.apay(ShowPayActivity.this, mWechatBean.getAppid(),
-									mWechatBean.getPartnerid(),
-									mWechatBean.getPrepayid(),
-									mWechatBean.getNoncestr(),
-									mWechatBean.getPackages(),
-									mWechatBean.getSign(),
-									mWechatBean.getTimestamp());
+					.getInstance()
+					.init(ShowPayActivity.this)
+					.apay(ShowPayActivity.this, mWechatBean.getAppid(),
+							mWechatBean.getPartnerid(),
+							mWechatBean.getPrepayid(),
+							mWechatBean.getNoncestr(),
+							mWechatBean.getPackages(),
+							mWechatBean.getSign(),
+							mWechatBean.getTimestamp());
 				} else {
 					Toast.makeText(ShowPayActivity.this, "支付失败请重试",
 							Toast.LENGTH_LONG).show();
@@ -321,58 +329,58 @@ public class ShowPayActivity extends BaseFragmentActivity implements
 							mAliBean.getNotify_url(), mAliBean.getSubject(),
 							mAliBean.getBody(), mAliBean.getTotal_fee(),
 							mAliBean.getOut_trade_no(), new onPayListener() {
-									
-								@Override
-								public void onPay(PayResult payResult) {
-									// 这里就是你支付过后返回的消息 成功or失败
-									
-									payResult.getResult();
-									String resultStatus = payResult
-											.getResultStatus();
-									// 判断resultStatus
-									// 为“9000”则代表支付成功，具体状态码代表含义可参考接口文档
-									if (TextUtils.equals(resultStatus, "9000")) {
-										Toast.makeText(ShowPayActivity.this,
-												"支付成功", Toast.LENGTH_SHORT)
-												.show();									
-										// TODO支付成功后跳转，并传递相应的数据过去
-										if (isAllianceOrder) {
-											finish();
-										} else {
-											Intent intent = new Intent(
-													ShowPayActivity.this,
-													ShangJiaOrderDetailAct.class);
-											intent.putExtra("out_trade_no",
-													mAliBean.getOut_trade_no());
-											ShowPayActivity.this.startActivityForResult(intent, 1010);
-											finish();
-										}
-									} else {
-										// 判断resultStatus 为非"9000"则代表可能支付失败
-										// "8000"代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
-										if (TextUtils.equals(resultStatus,
-												"8000")) {
-											Toast.makeText(
-													ShowPayActivity.this,
-													"支付结果确认中",
-													Toast.LENGTH_SHORT).show();
 
-										} else {
-											// 其他值就可以判断为支付失败，包括用户主动取消支付，或者系统返回的错误
-											Toast.makeText(
-													ShowPayActivity.this,
-													"支付失败", Toast.LENGTH_SHORT)
-													.show();
-										}
-									}
-									
+						@Override
+						public void onPay(PayResult payResult) {
+							// 这里就是你支付过后返回的消息 成功or失败
+
+							payResult.getResult();
+							String resultStatus = payResult
+									.getResultStatus();
+							// 判断resultStatus
+							// 为“9000”则代表支付成功，具体状态码代表含义可参考接口文档
+							if (TextUtils.equals(resultStatus, "9000")) {
+								Toast.makeText(ShowPayActivity.this,
+										"支付成功", Toast.LENGTH_SHORT)
+										.show();									
+								// TODO支付成功后跳转，并传递相应的数据过去
+								if (isAllianceOrder) {
+									finish();
+								} else {
+									Intent intent = new Intent(ShowPayActivity.this,
+											ShangJiaOrderDetailAct.class);
+									intent.putExtra("out_trade_no",
+											mAliBean.getOut_trade_no());
+									LogUtil.d("~~~联盟商品详情页支付成功，传递订单号到商家订单详情页：订单号为："+mAliBean.getOut_trade_no());
+									startActivityForResult(intent, 1010);
+									finish();
 								}
-							});
+							} else {
+								// 判断resultStatus 为非"9000"则代表可能支付失败
+								// "8000"代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
+								if (TextUtils.equals(resultStatus,
+										"8000")) {
+									Toast.makeText(
+											ShowPayActivity.this,
+											"支付结果确认中",
+											Toast.LENGTH_SHORT).show();
+
+								} else {
+									// 其他值就可以判断为支付失败，包括用户主动取消支付，或者系统返回的错误
+									Toast.makeText(
+											ShowPayActivity.this,
+											"支付失败", Toast.LENGTH_SHORT)
+											.show();
+								}
+							}
+
+						}
+					});
 				} else {
 					Toast.makeText(ShowPayActivity.this, "支付失败请重试",
 							Toast.LENGTH_LONG).show();
 				}
-				
+
 				break;
 			default:
 				Toast.makeText(ShowPayActivity.this, "支付失败请重试",
@@ -391,19 +399,13 @@ public class ShowPayActivity extends BaseFragmentActivity implements
 			default:
 				return "";
 			}
-
 		}
-
 		@Override
 		public void onError(int id, String message) {
-			// TODO Auto-generated method stub
-
 		}
 
 		@Override
 		public void cancleAsyncTask() {
-			// TODO Auto-generated method stub
-
 		}
 	};
 
@@ -411,12 +413,13 @@ public class ShowPayActivity extends BaseFragmentActivity implements
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		// TODO 跳转到activity
-		Intent intent = new Intent(this, ShowPayActivity.class);
-		Bundle bundle = new Bundle();
-		bundle.putSerializable("onItemClick.addr", mOrderBean.getAddress());
-		bundle.putSerializable("onItemClick.good", mOrderBean.getGoods_info()
-				.get(position));
-		intent.putExtras(bundle);
+		Intent intent = new Intent(this, AllianceOderDetailActivity.class);
+		intent.putExtra("order_num", mOrderNumber);
+//		Bundle bundle = new Bundle();
+//		bundle.putSerializable("onItemClick.addr", mOrderBean.getAddress());
+//		bundle.putSerializable("onItemClick.good", mOrderBean.getGoods_info()
+//				.get(position));
+//		intent.putExtras(bundle);
 		startActivity(intent);
 	}
 
@@ -436,7 +439,7 @@ public class ShowPayActivity extends BaseFragmentActivity implements
 			showAddress.setVisibility(View.VISIBLE);
 			noAddress.setVisibility(View.GONE);
 		}
-		
+
 		if(requestCode == 1010){
 			finish();
 		}

@@ -28,6 +28,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 
+ * @author Administrator
+ *
+ */
 public class MyGoodsEvluateActivity extends Activity implements OnClickListener {
 
 	List<OnEvaluateBean> BeanList;
@@ -38,7 +43,7 @@ public class MyGoodsEvluateActivity extends Activity implements OnClickListener 
 	int type = 0;
 	TextView titlename;
 	String id;
-
+ImageView goBack;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -53,8 +58,10 @@ public class MyGoodsEvluateActivity extends Activity implements OnClickListener 
 		comit = (TextView) findViewById(R.id.ac_evaluate_send_tv);
 		content = (EditText) findViewById(R.id.ac_evluate_edit_text);
 		titlename = (TextView) findViewById(R.id.tv_secondtitle_name);
+		goBack=(ImageView) findViewById(R.id.img_back);
 		titlename.setText("评价");
 		comit.setOnClickListener(this);
+		goBack.setOnClickListener(this);
 		HTTPHelper.GetEvaluate(mIbpi, id);
 	}
 
@@ -123,6 +130,8 @@ public class MyGoodsEvluateActivity extends Activity implements OnClickListener 
 					e.printStackTrace();
 				}
 			}
+		}else if (v==goBack) {
+			onBackPressed();
 		}
 	}
 }

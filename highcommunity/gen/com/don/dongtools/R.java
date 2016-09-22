@@ -12,16 +12,16 @@ public final class R {
 		public static final int border_width = 0x7f01001a;
 	}
 	public static final class drawable {
-		public static final int myprogress = 0x7f020084;
-		public static final int popupwindow = 0x7f0200a0;
-		public static final int progress = 0x7f0200a1;
-		public static final int wheel_val = 0x7f02013b;
+		public static final int myprogress = 0x7f020087;
+		public static final int popupwindow = 0x7f0200a3;
+		public static final int progress = 0x7f0200a4;
+		public static final int wheel_val = 0x7f02013e;
 	}
 	public static final class id {
 		public static final int Window_message = 0x7f0b043b;
 		public static final int Window_progress = 0x7f0b043a;
 		public static final int loading_message = 0x7f0b0393;
-		public static final int pg_progress = 0x7f0b00eb;
+		public static final int pg_progress = 0x7f0b00ed;
 		public static final int tag_first = 0x7f0b0001;
 		public static final int tag_second = 0x7f0b0002;
 	}

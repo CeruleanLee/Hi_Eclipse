@@ -75,12 +75,12 @@ public final class EditPersonalFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mIntro = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_EditPersonal_UserIntro));
-        mAge = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_UserAge));
-        mSex = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_UserSex));
         mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_EditPersonal_Avatar));
-        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_NickName));
         tvAuth = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_AuthZiliao));
+        mSex = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_UserSex));
+        mIntro = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_EditPersonal_UserIntro));
+        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_NickName));
+        mAge = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_UserAge));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_submit);
             if (view!= null) {

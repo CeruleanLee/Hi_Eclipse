@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/defult_color_white"
+    android:background="@drawable/bg_third_service_selector"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/iv_activityitem_image"
         android:layout_width="match_parent"
-        android:layout_height="155dip"
+        android:layout_height="180dip"
         android:contentDescription="图片"
         android:scaleType="centerCrop" />
 

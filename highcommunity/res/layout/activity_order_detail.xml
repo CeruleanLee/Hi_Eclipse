@@ -150,6 +150,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/order_userinfro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/defult_color_white"

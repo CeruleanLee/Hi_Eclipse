@@ -4,6 +4,7 @@ import java.util.List;
 
 public class NearbyOrderDetailBean extends BaseBean {
 	private String out_trade_no;// string 订单号
+	private String order_num;
 	private long create_time;// int 下单时间
 	private int pay_time;// 支付时间
 	private long finished_time; // 支付时间
@@ -16,12 +17,20 @@ public class NearbyOrderDetailBean extends BaseBean {
 	private float total_price;// float 商品总价
 	private List<GoodsOrderSubmitBean> goods_info;
 
-	public String getOrder_num() {
+	public String getOut_trade_no() {
 		return out_trade_no;
 	}
 
+	public void setOut_trade_no(String out_trade_no) {
+		this.out_trade_no = out_trade_no;
+	}
+
+	public String getOrder_num() {
+		return order_num;
+	}
+
 	public void setOrder_num(String order_num) {
-		this.out_trade_no = order_num;
+		this.order_num = order_num;
 	}
 	
 	public long getCreate_time() {

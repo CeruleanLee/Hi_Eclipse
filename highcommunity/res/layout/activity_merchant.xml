@@ -41,7 +41,7 @@
             android:layout_marginTop="10dp"
             android:text="商家联盟"
             android:textColor="@color/white"
-            android:textSize="21sp" />
+            android:textSize="@dimen/common_title_size" />
     </RelativeLayout>
 
     <RadioGroup

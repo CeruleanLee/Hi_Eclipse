@@ -18,6 +18,16 @@ public class CarftsBean extends BaseBean {
 	String tel;
 	String status;
 	String address;
+	String price;
+	
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
 
 	public String getAddress() {
 		return address;

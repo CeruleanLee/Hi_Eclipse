@@ -115,9 +115,9 @@ public class CommunityDetilsFrag extends BaseFragment {
 		view=LayoutInflater.from(getActivity()).inflate(R.layout.frag_comm_detail, null);
 		return view;
 	}
-	
-	
-	
+
+
+
 	@AfterViews
 	void initView() {
 		mProgress.setVisibility(View.VISIBLE);
@@ -137,7 +137,7 @@ public class CommunityDetilsFrag extends BaseFragment {
 		mid = getActivity().getIntent().getIntExtra(CommunityDetailAct.INTENTTAG, 0);
 		boolean flag = getActivity().getIntent().getBooleanExtra(FRAGMENTTAG, false);
 		if (mid != 0)
-//			waitWindow2=HighCommunityUtils.GetInstantiation().ShowWaittingPopupWindow(getActivity(), view, Gravity.CENTER);
+			//			waitWindow2=HighCommunityUtils.GetInstantiation().ShowWaittingPopupWindow(getActivity(), view, Gravity.CENTER);
 			HTTPHelper.GetMessageDetails(mIbpi, mid);
 		if (flag) {
 			InputMethodManager mManager = (InputMethodManager) mSpeakerContent.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -163,9 +163,9 @@ public class CommunityDetilsFrag extends BaseFragment {
 			@Override
 			public void onClick(View v) {
 				initSpoker();
-
-
-
+				mSpeakerContent.requestFocus();
+				InputMethodManager iManager=(InputMethodManager) mSpeakerContent.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+				iManager.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
 			}
 		});
 
@@ -324,7 +324,7 @@ public class CommunityDetilsFrag extends BaseFragment {
 		}else {
 			mAssist.setVisibility(View.GONE);
 			//			mAssist.setChecked(false);
-//			mAssist.setImageDrawable(getResources().getDrawable(R.drawable.tag_community_item_assist));
+			//			mAssist.setImageDrawable(getResources().getDrawable(R.drawable.tag_community_item_assist));
 			//			mAssist.setImageResource(R.mipmap.tag_community_item_assist);;
 		}
 
