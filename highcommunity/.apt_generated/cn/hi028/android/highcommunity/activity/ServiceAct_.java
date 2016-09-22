@@ -89,18 +89,6 @@ public final class ServiceAct_
         mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
         mHight = hasViews.findViewById(id.title_secondTitle_Hight);
         img_right = ((ImageView) hasViews.findViewById(id.img_right));
-        if (img_right!= null) {
-            img_right.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    ServiceAct_.this.onClick();
-                }
-
-            }
-            );
-        }
         {
             View view = hasViews.findViewById(id.img_back);
             if (view!= null) {
@@ -115,6 +103,18 @@ public final class ServiceAct_
                 }
                 );
             }
+        }
+        if (img_right!= null) {
+            img_right.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    ServiceAct_.this.onClick();
+                }
+
+            }
+            );
         }
         initView();
     }

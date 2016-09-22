@@ -75,25 +75,10 @@ public final class CreateGroupFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mTitle = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_secondtitle_name));
-        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_creategroup_name));
-        mIntro = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_creategrpu_intro));
         mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_creategroup_avatar));
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_back);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        CreateGroupFrag_.this.back();
-                    }
-
-                }
-                );
-            }
-        }
+        mIntro = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_creategrpu_intro));
+        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_creategroup_name));
+        mTitle = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_secondtitle_name));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_creategroup_submit);
             if (view!= null) {
@@ -103,6 +88,21 @@ public final class CreateGroupFrag_
                     @Override
                     public void onClick(View view) {
                         CreateGroupFrag_.this.submit();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_back);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        CreateGroupFrag_.this.back();
                     }
 
                 }

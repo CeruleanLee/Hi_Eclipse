@@ -74,20 +74,20 @@ public final class HuiChipOrderDetailFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        tv_order_time = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_order_time));
         cl_goods = ((CustomListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cl_goods));
-        tv_reserve_name = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_name));
-        tv_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_price));
         tv_order_operate1 = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_order_operate1));
-        tv_order_operate2 = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_order_operate2));
-        tv_coupon = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_coupon));
-        tv_order_id = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_order_id));
-        tv_reserve_wallet = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_wallet));
-        tv_total_pay = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_total_pay));
-        ll_NoticeDetails_Progress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
         fl_order_op = ((FrameLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_order_op));
-        tv_reserve_address = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_address));
+        tv_order_operate2 = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_order_operate2));
+        tv_total_pay = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_total_pay));
         tv_reserve_phone = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_phone));
+        tv_reserve_name = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_name));
+        tv_order_time = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_order_time));
+        tv_order_id = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_order_id));
+        tv_reserve_address = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_address));
+        tv_coupon = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_coupon));
+        tv_reserve_wallet = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_reserve_wallet));
+        tv_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_price));
+        ll_NoticeDetails_Progress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
         initView();
     }
 

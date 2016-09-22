@@ -86,9 +86,21 @@ public final class ActiveAct_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mShare = ((ImageView) hasViews.findViewById(id.img_second_share));
         mHight = hasViews.findViewById(id.title_secondTitle_Hight);
+        mShare = ((ImageView) hasViews.findViewById(id.img_second_share));
         mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
+        if (mShare!= null) {
+            mShare.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    ActiveAct_.this.share();
+                }
+
+            }
+            );
+        }
         {
             View view = hasViews.findViewById(id.img_back);
             if (view!= null) {
@@ -103,18 +115,6 @@ public final class ActiveAct_
                 }
                 );
             }
-        }
-        if (mShare!= null) {
-            mShare.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    ActiveAct_.this.share();
-                }
-
-            }
-            );
         }
         initView();
     }
