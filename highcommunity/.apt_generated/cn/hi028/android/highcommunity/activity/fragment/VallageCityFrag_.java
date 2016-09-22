@@ -78,16 +78,16 @@ public final class VallageCityFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        tv_dialog = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_dialog));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
-        mHight = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.title_secondTitle_Hight);
-        mLetter = ((MyLetterListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.mlv_village_Letter));
-        fl_vallage_search = ((FrameLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_vallage_search));
         tv_secondtitle_name = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_secondtitle_name));
-        img_back = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_back));
-        mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
-        lv_vallage = ((ListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.lv_vallage));
+        mLetter = ((MyLetterListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.mlv_village_Letter));
         ll_village = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_village));
+        fl_vallage_search = ((FrameLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_vallage_search));
+        mHight = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.title_secondTitle_Hight);
+        mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
+        img_back = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_back));
+        lv_vallage = ((ListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.lv_vallage));
+        tv_dialog = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_dialog));
         if (fl_vallage_search!= null) {
             fl_vallage_search.setOnClickListener(new OnClickListener() {
 

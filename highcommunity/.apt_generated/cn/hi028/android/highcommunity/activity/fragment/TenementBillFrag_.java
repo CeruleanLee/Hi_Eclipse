@@ -73,8 +73,8 @@ public final class TenementBillFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        rg = ((RadioGroup) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rg_tenement_bill));
         mPager = ((ViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.vp_tenement_ViewPager));
+        rg = ((RadioGroup) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rg_tenement_bill));
         initView();
     }
 

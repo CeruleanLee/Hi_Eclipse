@@ -74,26 +74,11 @@ public final class ServicePaymentFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        wuguan = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_wuguan));
-        qi = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_qi));
         water = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_water));
         dian = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_dian));
+        qi = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_qi));
         img_seri_repair_order = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repair_order));
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repairr_jj);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        ServicePaymentFrag_.this.onClickJJ();
-                    }
-
-                }
-                );
-            }
-        }
+        wuguan = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_wuguan));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repair_record);
             if (view!= null) {
@@ -120,6 +105,21 @@ public final class ServicePaymentFrag_
 
             }
             );
+        }
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repairr_jj);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        ServicePaymentFrag_.this.onClickJJ();
+                    }
+
+                }
+                );
+            }
         }
         initView();
     }

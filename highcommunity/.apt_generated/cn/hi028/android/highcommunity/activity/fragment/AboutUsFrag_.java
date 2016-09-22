@@ -73,19 +73,19 @@ public final class AboutUsFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        mAppVersion = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_AppVersion));
+        mProtocol = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Protocol));
+        mContactUs = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_ContactUs));
+        mFunctionIntro = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_FunctionIntro));
         mUpdateContent = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_UpdateContent));
         mShare = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Share));
-        mContactUs = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_ContactUs));
-        mAppVersion = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_AppVersion));
-        mFunctionIntro = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_FunctionIntro));
-        mProtocol = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Protocol));
-        if (mFunctionIntro!= null) {
-            mFunctionIntro.setOnClickListener(new OnClickListener() {
+        if (mShare!= null) {
+            mShare.setOnClickListener(new OnClickListener() {
 
 
                 @Override
                 public void onClick(View view) {
-                    AboutUsFrag_.this.functionIntro();
+                    AboutUsFrag_.this.share();
                 }
 
             }
@@ -103,6 +103,18 @@ public final class AboutUsFrag_
             }
             );
         }
+        if (mFunctionIntro!= null) {
+            mFunctionIntro.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    AboutUsFrag_.this.functionIntro();
+                }
+
+            }
+            );
+        }
         if (mContactUs!= null) {
             mContactUs.setOnClickListener(new OnClickListener() {
 
@@ -110,18 +122,6 @@ public final class AboutUsFrag_
                 @Override
                 public void onClick(View view) {
                     AboutUsFrag_.this.constactUs();
-                }
-
-            }
-            );
-        }
-        if (mShare!= null) {
-            mShare.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    AboutUsFrag_.this.share();
                 }
 
             }

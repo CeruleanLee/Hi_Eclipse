@@ -76,12 +76,12 @@ public final class SeriRepairOrderFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         tv_repair_address = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_repair_address));
+        cg_add_pic = ((CustomGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cg_add_pic));
+        edt_repair_name = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.edt_repair_name));
         tv_repair_time = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_repair_time));
         tv_order = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_order));
-        edt_repair_content = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.edt_repair_content));
         edt_repair_phone = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.edt_repair_phone));
-        edt_repair_name = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.edt_repair_name));
-        cg_add_pic = ((CustomGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.cg_add_pic));
+        edt_repair_content = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.edt_repair_content));
         if (tv_order!= null) {
             tv_order.setOnClickListener(new OnClickListener() {
 

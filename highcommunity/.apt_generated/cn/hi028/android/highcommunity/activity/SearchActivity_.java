@@ -88,9 +88,9 @@ public final class SearchActivity_
     public void onViewChanged(HasViews hasViews) {
         lv_search = ((ListView) hasViews.findViewById(id.lv_search));
         mHight = hasViews.findViewById(id.title_searchTitle_Hight);
+        tv_cancel = ((TextView) hasViews.findViewById(id.tv_cancel));
         tv_billpay_Nodata = ((TextView) hasViews.findViewById(id.tv_billpay_Nodata));
         edt_search = ((EditText) hasViews.findViewById(id.edt_search));
-        tv_cancel = ((TextView) hasViews.findViewById(id.tv_cancel));
         initView();
     }
 

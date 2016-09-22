@@ -74,15 +74,15 @@ public final class ServiceCaftsDetailFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mCarftsMan = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_CarftsMan));
-        address = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceIntro_address));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_serviceCarftsDetails);
-        mIntro = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceIntro));
-        mServiceName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceName));
         mContact = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceContact));
-        mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_servicecarftsDetail_image));
         mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_serviceCarftsDetails_Nodata));
+        mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_servicecarftsDetail_image));
+        address = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceIntro_address));
+        mServiceName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceName));
         mPrice = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServicePrice));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_serviceCarftsDetails);
+        mCarftsMan = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_CarftsMan));
+        mIntro = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceIntro));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ServiceCarftsDetail_ServiceCall);
             if (view!= null) {
