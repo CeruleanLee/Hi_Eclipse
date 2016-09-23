@@ -22,7 +22,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import net.duohuo.dhroid.util.ImageLoaderUtil;
-
+import net.duohuo.dhroid.util.LogUtil;
 import cn.hi028.android.highcommunity.HighCommunityApplication;
 import cn.hi028.android.highcommunity.R;
 import cn.hi028.android.highcommunity.activity.CommunityDetailAct;
@@ -46,7 +46,7 @@ import cn.hi028.android.highcommunity.utils.HighCommunityUtils;
 public class GroupMessageFrag extends Fragment {
 
     public static final String FRAGMENTTAG = "GroupMessageFrag";
-    private View mFragmeView;
+//    private View mFragmeView;
     private int mCount = -1;
     GroupMessageListAdapter mAdapter;
     private PullToRefreshListView mListView;
@@ -59,23 +59,23 @@ public class GroupMessageFrag extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (mFragmeView == null) {
-            initView();
-        }
-        ViewGroup parent = (ViewGroup) mFragmeView.getParent();
-        if (parent != null)
-            parent.removeView(mFragmeView);
-        return mFragmeView;
+        	View view=inflater.inflate(R.layout.frag_groupmessage_list, null);
+            initView(view);
+        
+//        ViewGroup parent = (ViewGroup) view.getParent();
+//        if (parent != null)
+//            parent.removeView(view);
+        return view;
     }
 
-    private void initView() {
-        mFragmeView = LayoutInflater.from(getActivity()).inflate(
-                R.layout.frag_groupmessage_list, null);
+    private void initView(View view) {
+//        mFragmeView = LayoutInflater.from(getActivity()).inflate(
+//                R.layout.frag_groupmessage_list, null);
         vid = getActivity().getIntent().getStringExtra(GroupMessageAct.INTENTTAG);
-        mProgess = mFragmeView.findViewById(R.id.progress_GroupMessage);
-        mListView = (PullToRefreshListView) mFragmeView.findViewById(R.id.ptrlv_GroupMessage_listview);
-        mChange = (ImageView) mFragmeView.findViewById(R.id.iv_GroupMessage_change);
-        mNodata = (TextView) mFragmeView.findViewById(R.id.tv_GroupMessage_Nodata);
+        mProgess = view.findViewById(R.id.progress_GroupMessage);
+        mListView = (PullToRefreshListView) view.findViewById(R.id.ptrlv_GroupMessage_listview);
+        mChange = (ImageView) view.findViewById(R.id.iv_GroupMessage_change);
+        mNodata = (TextView) view.findViewById(R.id.tv_GroupMessage_Nodata);
         mAdapter = new GroupMessageListAdapter((GroupMessageAct) getActivity());
         mListView.setAdapter(mAdapter);
         mListView.setEmptyView(mNodata);
@@ -111,23 +111,29 @@ public class GroupMessageFrag extends Fragment {
                 startActivityForResult(mCommunity, 1);
             }
         });
+        initData();
     }
 
-    @Override
-    public void onResume() {
-        mCount = -1;
-        HTTPHelper.GetGroupMessage(mIbpi, HighCommunityApplication.mUserInfo.getId(), vid);
-        super.onResume();
-    }
+    
+    
+    private void initData() {
+		// TODO Auto-generated method stub
+    	mCount = -1;
+		
+    	HTTPHelper.GetGroupMessage(mIbpi, HighCommunityApplication.mUserInfo.getId(), vid);
+	}
+
 
     private void RefreshData(int type) {
         String time = "";
         if (type == 0) {
+        	//平常贴
             mCount = 0;
             if (mList.getData() != null && mList.getData().size() > 0) {
                 time = mList.getData().get(0).getCreate_time();
             }
         } else {
+        	//群组贴
             mCount = 1;
             if (mList.getData() != null && mList.getData().size() > 0) {
                 time = mList.getData().get(mList.getData().size() - 1).getCreate_time();
@@ -145,6 +151,9 @@ public class GroupMessageFrag extends Fragment {
 
         @Override
         public void onSuccess(Object message) {
+        	LogUtil.d("---群组消息返回数据：---"+message.toString());
+        	
+        	
             if (null == message)
                 return;
             mList = (CommunityListBean) message;
@@ -173,5 +182,14 @@ public class GroupMessageFrag extends Fragment {
             mListView.onRefreshComplete();
         }
     };
+
+	@Override
+	public void onResume() {
+		
+		mAdapter.ClearData();
+		
+		
+		super.onResume();
+	}
 
 }

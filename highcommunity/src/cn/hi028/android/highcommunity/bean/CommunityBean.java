@@ -209,4 +209,30 @@ public class CommunityBean extends BaseBean {
         isPra = pra;
     }
 
+	@Override
+	public String toString() {
+		return "CommunityBean [mid=" + mid + ", isPra=" + isPra + ", vid="
+				+ vid + ", title=" + title + ", pic=" + pic + ", create_time="
+				+ create_time + ", village_name=" + village_name + ", g_name="
+				+ g_name + ", uid=" + uid + ", head_pic=" + head_pic
+				+ ", nick=" + nick + ", sex=" + sex + ", age=" + age
+				+ ", d_count=" + d_count + ", p_count=" + p_count + ", id="
+				+ id + ", content=" + content + ", type=" + type + ", label="
+				+ label + ", welcome=" + welcome + ", ag_pic=" + ag_pic
+				+ ", getAg_pic()=" + getAg_pic() + ", getId()=" + getId()
+				+ ", getLabel()=" + getLabel() + ", getWelcome()="
+				+ getWelcome() + ", getMid()=" + getMid() + ", getType()="
+				+ getType() + ", getContent()=" + getContent()
+				+ ", getTitle()=" + getTitle() + ", getPic()=" + getPic()
+				+ ", getCreate_time()=" + getCreate_time()
+				+ ", getVillage_name()=" + getVillage_name() + ", getUid()="
+				+ getUid() + ", getHead_pic()=" + getHead_pic()
+				+ ", getG_name()=" + getG_name() + ", getSex()=" + getSex()
+				+ ", getNick()=" + getNick() + ", getAge()=" + getAge()
+				+ ", getD_count()=" + getD_count() + ", getP_count()="
+				+ getP_count() + ", getVid()=" + getVid() + ", isPra()="
+				+ isPra() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
+	}
+
 }

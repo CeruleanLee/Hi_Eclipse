@@ -29,4 +29,9 @@ public class CommunityListBean extends BaseBean {
         this.data = data;
     }
 
+	@Override
+	public String toString() {
+		return "CommunityListBean [data=" + data + "]";
+	}
+
 }

@@ -75,15 +75,15 @@ public final class ActivityCreateFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mEndTime = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_EndTime));
-        mGridView = ((PullToRefreshGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrgv_activityCreate_PostImage));
-        mLocation = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_Location));
-        mQQ = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_QQ));
+        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_name));
         mContent = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_activityContent));
         mPhone = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_Phone));
+        mEndTime = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_EndTime));
+        mQQ = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_QQ));
         mStartTime = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_StartTime));
         mWeixin = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_Weixin));
-        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_name));
+        mGridView = ((PullToRefreshGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrgv_activityCreate_PostImage));
+        mLocation = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_Location));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activityCreate_submit);
             if (view!= null) {

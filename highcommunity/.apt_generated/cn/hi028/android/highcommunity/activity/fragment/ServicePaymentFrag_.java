@@ -74,11 +74,26 @@ public final class ServicePaymentFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        qi = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_qi));
-        img_seri_repair_order = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repair_order));
         dian = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_dian));
         wuguan = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_wuguan));
+        qi = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_qi));
+        img_seri_repair_order = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repair_order));
         water = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_water));
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repairr_jj);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        ServicePaymentFrag_.this.onClickJJ();
+                    }
+
+                }
+                );
+            }
+        }
         if (img_seri_repair_order!= null) {
             img_seri_repair_order.setOnClickListener(new OnClickListener() {
 
@@ -100,21 +115,6 @@ public final class ServicePaymentFrag_
                     @Override
                     public void onClick(View view) {
                         ServicePaymentFrag_.this.onClickRecord();
-                    }
-
-                }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repairr_jj);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        ServicePaymentFrag_.this.onClickJJ();
                     }
 
                 }

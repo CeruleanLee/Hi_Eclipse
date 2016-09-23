@@ -78,13 +78,13 @@ public final class CommunityDetilsFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mSpeakerImage = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_communitydetails_spokerImage));
-        mSpeakerButton = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ev_communitydetails_spokerButton));
+        mList = ((ListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_communitydetails_listview));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
         mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
-        mList = ((ListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_communitydetails_listview));
-        mSpeakerContent = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ev_communitydetails_spokerContent));
+        mSpeakerImage = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_communitydetails_spokerImage));
         mSpeakerLayout = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_communitydetails_spokerLayout));
+        mSpeakerButton = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ev_communitydetails_spokerButton));
+        mSpeakerContent = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ev_communitydetails_spokerContent));
         if (mSpeakerButton!= null) {
             mSpeakerButton.setOnClickListener(new OnClickListener() {
 
