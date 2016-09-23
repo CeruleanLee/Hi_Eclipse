@@ -40,6 +40,7 @@ public class MerchantActivity extends BaseFragmentActivity implements
 	MerchantDetailFrag detail;
 
 	LinearLayout back;
+	ImageView gobackIMG;
 	private String id;
 	RadioButton shoprb, evaluationrb, detailrb;
 	ArrayList<BaseFragment> fragments;
@@ -60,6 +61,7 @@ public class MerchantActivity extends BaseFragmentActivity implements
 	private void init() {
 		content = (LinearLayout) findViewById(R.id.ac_merchant_content_ll);
 		back = (LinearLayout) findViewById(R.id.ll_ac_merchant_title_go_back);
+		gobackIMG=(ImageView) findViewById(R.id.ac_merchant_title_go_back);
 		shoprb = (RadioButton) findViewById(R.id.ac_merchant_shop_rb);
 		evaluationrb = (RadioButton) findViewById(R.id.ac_merchant_evaluation_rb);
 		detailrb = (RadioButton) findViewById(R.id.ac_merchant_detail_rb);
@@ -77,7 +79,7 @@ public class MerchantActivity extends BaseFragmentActivity implements
 		shop.setMyId(id, shopName);
 		evaluation.setMyId(id);
 		detail.setMyId(id);
-
+		gobackIMG.setOnClickListener(this);
 		back.setOnClickListener(this);
 		shoprb.setOnCheckedChangeListener(this);
 		shoprb.setChecked(true);
@@ -106,9 +108,10 @@ public class MerchantActivity extends BaseFragmentActivity implements
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.ll_ac_merchant_title_go_back:
-			finish();
+		onBackPressed();
 			break;
-		default:
+		case R.id.ac_merchant_title_go_back:
+			onBackPressed();
 			break;
 		}
 		/*

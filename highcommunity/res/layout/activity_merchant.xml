@@ -15,23 +15,19 @@
         <LinearLayout
             android:id="@+id/ll_ac_merchant_title_go_back"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-           >
+            android:layout_height="wrap_content" >
 
             <ImageView
                 android:id="@+id/ac_merchant_title_go_back"
-                  android:layout_width="@dimen/title_height"
-            android:layout_height="@dimen/title_height"
-            android:layout_gravity="start"
-            android:clickable="true"
-            android:contentDescription="@string/app_name"
-            android:onClick="onBack"
-            android:scaleType="center"
-            android:src="@drawable/img_back_selector" />
+                android:layout_width="@dimen/title_height"
+                android:layout_height="@dimen/title_height"
+                android:layout_gravity="start"
+                android:clickable="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="center"
+                android:src="@drawable/img_back_selector" />
         </LinearLayout>
-       
-        
-        
+
         <TextView
             android:id="@+id/ac_merchant_title_name"
             android:layout_width="wrap_content"

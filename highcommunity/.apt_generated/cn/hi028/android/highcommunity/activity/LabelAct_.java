@@ -89,26 +89,14 @@ public final class LabelAct_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mMainLayout = ((LinearLayout) hasViews.findViewById(id.ll_labellayout_mainlayout));
-        mGridView = ((PullToRefreshGridView) hasViews.findViewById(id.iv_label_gridview));
-        mPublish = ((TextView) hasViews.findViewById(id.tv_label_RightnMenu));
-        mTitle = ((TextView) hasViews.findViewById(id.tv_label_title));
         mContent = ((EditText) hasViews.findViewById(id.tv_label_PostContent));
-        mContentLayout = ((RelativeLayout) hasViews.findViewById(id.rl_labellaout_contentlayout));
         mPostImage = ((PullToRefreshGridView) hasViews.findViewById(id.ptrgv_label_PostImage));
+        mMainLayout = ((LinearLayout) hasViews.findViewById(id.ll_labellayout_mainlayout));
+        mContentLayout = ((RelativeLayout) hasViews.findViewById(id.rl_labellaout_contentlayout));
         mLocation = ((TextView) hasViews.findViewById(id.tv_label_Postlocation));
-        if (mPublish!= null) {
-            mPublish.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    LabelAct_.this.publish();
-                }
-
-            }
-            );
-        }
+        mPublish = ((TextView) hasViews.findViewById(id.tv_label_RightnMenu));
+        mGridView = ((PullToRefreshGridView) hasViews.findViewById(id.iv_label_gridview));
+        mTitle = ((TextView) hasViews.findViewById(id.tv_label_title));
         {
             View view = hasViews.findViewById(id.iv_label_back);
             if (view!= null) {
@@ -123,6 +111,18 @@ public final class LabelAct_
                 }
                 );
             }
+        }
+        if (mPublish!= null) {
+            mPublish.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    LabelAct_.this.publish();
+                }
+
+            }
+            );
         }
         initView();
     }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -80,10 +81,27 @@ public class MyNineGridView extends NineGridView {
         mBigPhoto.putExtra("data", mUrls);
         mBigPhoto.putExtra("ID", position);
         mContext.startActivity(mBigPhoto);
-        ((Activity) mContext).overridePendingTransition(R.anim.dyn_pic_scan_miss, R.anim.dyn_pic_scan_miss_no);
-    
-    
-    
-    
+        scanForActivity(mContext).overridePendingTransition(R.anim.dyn_pic_scan_miss, R.anim.dyn_pic_scan_miss_no);
+		
+//        if (mContext==null) {
+//			return;
+//		}else if (mContext instanceof Activity) {
+//			
+//			((Activity) mContext).overridePendingTransition(R.anim.dyn_pic_scan_miss, R.anim.dyn_pic_scan_miss_no);
+//		}else if (mContext instanceof ContextWrapper) {
+//			((ContextWrapper) mContext).getBaseContext()).overridePendingTransition(R.anim.dyn_pic_scan_miss, R.anim.dyn_pic_scan_miss_no);
+//		}
+
     }
+    
+    private static Activity scanForActivity(Context cont) {  
+        if (cont == null)  
+            return null;  
+        else if (cont instanceof Activity)  
+            return (Activity) cont;  
+        else if (cont instanceof ContextWrapper)  
+            return scanForActivity(((ContextWrapper) cont).getBaseContext());  
+      
+        return null;  
+    } 
 }
