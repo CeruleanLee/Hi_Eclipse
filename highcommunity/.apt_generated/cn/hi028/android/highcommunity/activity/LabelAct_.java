@@ -89,26 +89,14 @@ public final class LabelAct_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mPostImage = ((PullToRefreshGridView) hasViews.findViewById(id.ptrgv_label_PostImage));
+        mLocation = ((TextView) hasViews.findViewById(id.tv_label_Postlocation));
+        mTitle = ((TextView) hasViews.findViewById(id.tv_label_title));
+        mGridView = ((PullToRefreshGridView) hasViews.findViewById(id.iv_label_gridview));
+        mPublish = ((TextView) hasViews.findViewById(id.tv_label_RightnMenu));
+        mContent = ((EditText) hasViews.findViewById(id.tv_label_PostContent));
         mContentLayout = ((RelativeLayout) hasViews.findViewById(id.rl_labellaout_contentlayout));
         mMainLayout = ((LinearLayout) hasViews.findViewById(id.ll_labellayout_mainlayout));
-        mPublish = ((TextView) hasViews.findViewById(id.tv_label_RightnMenu));
-        mTitle = ((TextView) hasViews.findViewById(id.tv_label_title));
-        mLocation = ((TextView) hasViews.findViewById(id.tv_label_Postlocation));
-        mContent = ((EditText) hasViews.findViewById(id.tv_label_PostContent));
-        mGridView = ((PullToRefreshGridView) hasViews.findViewById(id.iv_label_gridview));
-        if (mPublish!= null) {
-            mPublish.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    LabelAct_.this.publish();
-                }
-
-            }
-            );
-        }
+        mPostImage = ((PullToRefreshGridView) hasViews.findViewById(id.ptrgv_label_PostImage));
         {
             View view = hasViews.findViewById(id.iv_label_back);
             if (view!= null) {
@@ -123,6 +111,18 @@ public final class LabelAct_
                 }
                 );
             }
+        }
+        if (mPublish!= null) {
+            mPublish.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    LabelAct_.this.publish();
+                }
+
+            }
+            );
         }
         initView();
     }

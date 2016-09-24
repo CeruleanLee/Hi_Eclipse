@@ -74,8 +74,8 @@ public final class ModifyPsdFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         edt_old_psd = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.edt_old_psd));
-        edt_conform_psd = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.edt_conform_psd));
         edt_new_psd = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.edt_new_psd));
+        edt_conform_psd = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.edt_conform_psd));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_modify);
             if (view!= null) {

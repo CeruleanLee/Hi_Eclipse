@@ -9,10 +9,11 @@ package com.handmark.pulltorefresh.library;
 
 public final class R {
     public static final class anim {
-        public static int slide_in_from_bottom=0x7f040000;
-        public static int slide_in_from_top=0x7f040001;
-        public static int slide_out_to_bottom=0x7f040002;
-        public static int slide_out_to_top=0x7f040003;
+        public static int loading_animation=0x7f040000;
+        public static int slide_in_from_bottom=0x7f040001;
+        public static int slide_in_from_top=0x7f040002;
+        public static int slide_out_to_bottom=0x7f040003;
+        public static int slide_out_to_top=0x7f040004;
     }
     public static final class attr {
         /**  BELOW HERE ARE DEPRECEATED. DO NOT USE. 
@@ -163,6 +164,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int indicator_arrow=0x7f020002;
         public static int indicator_bg_bottom=0x7f020003;
         public static int indicator_bg_top=0x7f020004;
+        public static int loading_anim1=0x7f020005;
+        public static int loading_anim2=0x7f020006;
+        public static int loading_anim3=0x7f020007;
+        public static int loading_anim4=0x7f020008;
+        public static int loading_anim5=0x7f020009;
+        public static int loading_anim6=0x7f02000a;
+        public static int loading_anim7=0x7f02000b;
+        public static int loading_anim8=0x7f02000c;
     }
     public static final class id {
         public static int both=0x7f060003;

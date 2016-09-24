@@ -86,21 +86,9 @@ public final class MenuLeftAct_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mTitleLayout = hasViews.findViewById(id.title_menuleft_layout);
-        mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
         mHight = hasViews.findViewById(id.title_secondTitle_Hight);
         tv_right_name = ((TextView) hasViews.findViewById(id.tv_right_name));
-        if (tv_right_name!= null) {
-            tv_right_name.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    MenuLeftAct_.this.onRight();
-                }
-
-            }
-            );
-        }
+        mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
         {
             View view = hasViews.findViewById(id.img_back);
             if (view!= null) {
@@ -115,6 +103,18 @@ public final class MenuLeftAct_
                 }
                 );
             }
+        }
+        if (tv_right_name!= null) {
+            tv_right_name.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    MenuLeftAct_.this.onRight();
+                }
+
+            }
+            );
         }
         initView();
     }

@@ -86,8 +86,8 @@ public final class MenuLeftSecondAct_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mTitleLayout = hasViews.findViewById(id.title_menulef);
-        mHight = hasViews.findViewById(id.title_secondTitle_Hight);
         mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
+        mHight = hasViews.findViewById(id.title_secondTitle_Hight);
         {
             View view = hasViews.findViewById(id.img_back);
             if (view!= null) {

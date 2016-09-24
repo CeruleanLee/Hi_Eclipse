@@ -9,15 +9,18 @@ import net.duohuo.dhroid.util.LogUtil;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.FrameLayout;
@@ -95,6 +98,12 @@ OnClickListener, PayPop2FragFace {
 	View top_view,bottom_View;
 	ScrollWebView mWebview;
 	Mylistview mCommentListview;
+	CheckBox toSeeMore;
+ViewGroup moreDetailGroup;
+
+int width,height ;
+
+Handler mHandler = new Handler(); 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -203,6 +212,28 @@ OnClickListener, PayPop2FragFace {
 				}
 			}
 		});
+		toSeeMore.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					moreDetailGroup.setVisibility(View.VISIBLE);
+					top_view.invalidate();
+					LogUtil.d("~~~ 准备滑动top_view.getHeight() "+top_view.getHeight()+"---height="+height);
+					mHandler.post(new Runnable() {  
+					    @Override  
+					    public void run() {  
+					    	((ScrollView) top_view).fullScroll(ScrollView.FOCUS_DOWN);  
+					    }  
+					}); 
+//					mcoySnapPageLayout.scrollTo(0,top_view.getBottom());
+//					LogUtil.d("~~~ 准备滑动完成"+scrollText.getX()+"---scrollText.getY()="+scrollText.getY());
+					
+				}else{
+					moreDetailGroup.setVisibility(View.GONE);
+				}
+			}
+		});
 
 	}
 
@@ -231,6 +262,24 @@ OnClickListener, PayPop2FragFace {
 		origin_ = (TextView) top_view.findViewById(R.id.ac_shop_origin);
 		edible_ = (TextView) top_view.findViewById(R.id.ac_shop_edible);
 		edible = (TextView) top_view.findViewById(R.id.ac_shop_edible_tv);
+		toSeeMore=(CheckBox) top_view.findViewById(R.id.toSeeMore);
+		moreDetailGroup=(ViewGroup) top_view.findViewById(R.id.moredetail_layout);
+		
+		moreDetailGroup.post(new Runnable() {  
+            @Override  
+            public void run() {  
+            	width = moreDetailGroup.getWidth();  
+               height = moreDetailGroup.getHeight();  
+               LogUtil.d("~~~width="+width+",height="+height);
+                moreDetailGroup.setVisibility(View.GONE);  
+            }  
+    });
+		
+		
+		
+		
+//		moreDetailGroup.setVisibility(View.GONE);
+// toSeeMore.setChecked(false);
 		mPicDetail=(RadioButton) bottom_View.findViewById(R.id.ac_shopdetail_mypicdetail);
 		mCommentDetail=(RadioButton) bottom_View.findViewById(R.id.ac_shopdetail_mycommentdetail);
 		mWebview=(ScrollWebView) bottom_View.findViewById(R.id.ac_good_detail_webview);
@@ -243,6 +292,9 @@ OnClickListener, PayPop2FragFace {
 		scrollText=(TextView) top_view.findViewById(R.id.scroll_Text);
 		//		mScrollView2=(ScrollView) findViewById(R.id.scrollView2);
 		//		mScrollView2.smoothScrollTo(0, 20);
+		
+		LogUtil.d("~~~ top_view.getHeight()=="+top_view.getHeight());
+		
 	}
 
 	@Override
@@ -743,5 +795,8 @@ OnClickListener, PayPop2FragFace {
 	public void onBackPressed() {
 		goBack();
 	}
+	
+	
+	
 
 }

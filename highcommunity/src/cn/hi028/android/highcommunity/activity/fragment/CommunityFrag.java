@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -101,7 +102,8 @@ public class CommunityFrag extends Fragment {
 		mListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
 			@Override
 			public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-				RefreshData(0);
+				
+				new GetDataTask().execute();
 			}
 
 			@Override
@@ -120,7 +122,9 @@ public class CommunityFrag extends Fragment {
 				isNeedRefresh = true;
 			}
 		});
-
+//		mListView.setLoadingDrawable(getResources().getDrawable(R.drawable.ic_refreshanim));
+//		mListView.setd
+//		mListView.setLayoutAnimation(new LayoutAnimationController(animation));
 		initDatas();
 	}
 
@@ -302,7 +306,54 @@ public class CommunityFrag extends Fragment {
 		}
 	}
 	private boolean isNoNetwork;
+	private class GetDataTask extends AsyncTask<Void, Void,String > {
 
+		@Override
+		protected String doInBackground(Void... params) {
+			try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+		}
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+			RefreshData(0);
+			mAdapter.notifyDataSetChanged();
+			
+				// Call onRefreshComplete when the list has been refreshed.
+//				mListView.onRefreshComplete();
+			super.onPostExecute(result);
+		}
+
+	
 
 
 }
+}
+
+
+
+//@Override
+//protected Void doInBackground(Void... params) {
+//	// Simulates a background job.
+//	try {
+//		Thread.sleep(4000);
+//	} catch (InterruptedException e) {
+//	}
+////	return mStrings;
+//	return null;
+//}
+//
+//@Override
+//protected void onPostExecute() {
+////	mListItems.addFirst("Added after refresh...");
+//	mAdapter.notifyDataSetChanged();
+//
+//	// Call onRefreshComplete when the list has been refreshed.
+//	mListView.onRefreshComplete();
+//
+//	super.onPostExecute();
+//}
+

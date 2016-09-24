@@ -22,9 +22,6 @@
             android:scaleType="center"
             android:src="@drawable/img_back_selector" />
         
-  
-        
-        
 
         <TextView
             android:id="@+id/ac_good_title_name"
