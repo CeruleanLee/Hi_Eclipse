@@ -16,7 +16,7 @@
         android:duration="150">
     </item>
     <item
-        android:drawable="@drawable/loading_anim5"
+        android:drawable="@drawable/loading_anim3"
         android:duration="150">
     </item>
     <item

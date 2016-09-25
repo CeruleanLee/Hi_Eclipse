@@ -64,7 +64,7 @@ BDLocationListener {
 		// NativeParametersFunc.c(this, getPackageName(), DOMAINNAME,
 		// DOMAINNAME,
 		// ":8888");
-		TypeFaceYaHei = Typeface.createFromAsset(getAssets(), "ltjianhei.ttf");
+//		TypeFaceYaHei = Typeface.createFromAsset(getAssets(), "ltjianhei.ttf");
 		
 		try  
 		{  

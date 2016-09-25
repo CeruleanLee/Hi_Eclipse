@@ -102,8 +102,9 @@ public class CommunityFrag extends Fragment {
 		mListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
 			@Override
 			public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-				
 				new GetDataTask().execute();
+				//				RefreshData(0);
+				//				mAdapter.notifyDataSetChanged();
 			}
 
 			@Override
@@ -122,9 +123,9 @@ public class CommunityFrag extends Fragment {
 				isNeedRefresh = true;
 			}
 		});
-//		mListView.setLoadingDrawable(getResources().getDrawable(R.drawable.ic_refreshanim));
-//		mListView.setd
-//		mListView.setLayoutAnimation(new LayoutAnimationController(animation));
+		//		mListView.setLoadingDrawable(getResources().getDrawable(R.drawable.ic_refreshanim));
+		//		mListView.setd
+		//		mListView.setLayoutAnimation(new LayoutAnimationController(animation));
 		initDatas();
 	}
 
@@ -141,8 +142,8 @@ public class CommunityFrag extends Fragment {
 
 		@Override
 		public void onTryAgainClick() {
-			//			if(!isNoNetwork)
-			//				Toast.makeText(getActivity(), "------------OnLoadingViewListener", 0).show();
+						if(!isNoNetwork)
+							initDatas();
 		}
 	};
 	private void initDatas() {
@@ -215,7 +216,7 @@ public class CommunityFrag extends Fragment {
 			}
 			HighCommunityUtils.GetInstantiation().ShowToast(message, 0);
 			//            if(!isNoNetwork){
-//			mLoadingView.loadFailed();
+			//			mLoadingView.loadFailed();
 			//			}
 		}
 
@@ -287,7 +288,7 @@ public class CommunityFrag extends Fragment {
 
 					}
 					//有网络
-//					Toast.makeText(getActivity(), "有网络", 0).show();
+					//					Toast.makeText(getActivity(), "有网络", 0).show();
 					LogUtils.d("有网络");
 					//					if(nextPage == 1){
 					//					  RefreshData(0);
@@ -311,26 +312,21 @@ public class CommunityFrag extends Fragment {
 		@Override
 		protected String doInBackground(Void... params) {
 			try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-		}
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+			}
 			return null;
 		}
 
 		@Override
 		protected void onPostExecute(String result) {
 			RefreshData(0);
-			mAdapter.notifyDataSetChanged();
-			
-				// Call onRefreshComplete when the list has been refreshed.
-//				mListView.onRefreshComplete();
+
+			// Call onRefreshComplete when the list has been refreshed.
+			//				mListView.onRefreshComplete();
 			super.onPostExecute(result);
 		}
-
-	
-
-
-}
+	}
 }
 
 

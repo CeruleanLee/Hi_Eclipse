@@ -50,9 +50,9 @@
 	    android:background="#ffffff"
 	    >
 	    <ImageView 
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:src="@drawable/img_net_work_error"
+	        android:layout_width="100dp"
+	        android:layout_height="100dp"
+	        android:src="@drawable/ic_nonet"
 	        />
 	    <TextView 
 	        android:id="@+id/tv_tips"

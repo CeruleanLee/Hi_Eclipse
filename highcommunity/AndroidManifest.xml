@@ -134,7 +134,7 @@
             </intent-filter>
         </activity>
         <!-- 欢迎模块（包括登录、注册、找回密码） -->
-        <!-- 欢迎模块（包括登录、注册、找回密码） -->
+        <!-- 欢迎模块（包括登录、注册、找回密码）  入口 -->
         <activity
             android:name=".activity.WelcomeAct"
             android:configChanges="orientation|keyboardHidden"

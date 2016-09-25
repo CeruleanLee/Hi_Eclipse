@@ -73,8 +73,8 @@ public final class MessageCenterFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mPager = ((ViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.vp_MessageCenter_ViewPager));
         rg = ((RadioGroup) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rg_Message_Center));
+        mPager = ((ViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.vp_MessageCenter_ViewPager));
         initView();
     }
 

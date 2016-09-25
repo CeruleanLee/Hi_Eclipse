@@ -90,13 +90,13 @@ public final class LabelAct_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mLocation = ((TextView) hasViews.findViewById(id.tv_label_Postlocation));
-        mTitle = ((TextView) hasViews.findViewById(id.tv_label_title));
-        mGridView = ((PullToRefreshGridView) hasViews.findViewById(id.iv_label_gridview));
-        mPublish = ((TextView) hasViews.findViewById(id.tv_label_RightnMenu));
-        mContent = ((EditText) hasViews.findViewById(id.tv_label_PostContent));
-        mContentLayout = ((RelativeLayout) hasViews.findViewById(id.rl_labellaout_contentlayout));
         mMainLayout = ((LinearLayout) hasViews.findViewById(id.ll_labellayout_mainlayout));
         mPostImage = ((PullToRefreshGridView) hasViews.findViewById(id.ptrgv_label_PostImage));
+        mPublish = ((TextView) hasViews.findViewById(id.tv_label_RightnMenu));
+        mContentLayout = ((RelativeLayout) hasViews.findViewById(id.rl_labellaout_contentlayout));
+        mTitle = ((TextView) hasViews.findViewById(id.tv_label_title));
+        mGridView = ((PullToRefreshGridView) hasViews.findViewById(id.iv_label_gridview));
+        mContent = ((EditText) hasViews.findViewById(id.tv_label_PostContent));
         {
             View view = hasViews.findViewById(id.iv_label_back);
             if (view!= null) {

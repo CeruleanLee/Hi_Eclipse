@@ -76,16 +76,16 @@ public final class HuiChipsDetailFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        tv_info = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_info));
-        tv_count = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_count));
-        tv_chips_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_chips_price));
         vgcpi = ((CirclePageIndicator) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.view_cpi));
-        viewPager = ((AutoScrollViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.view_pager));
+        tv_count = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_count));
+        tv_info = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_info));
+        tv_join_chips = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_join_chips));
         lc_chips = ((LineChart) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.lc_chips));
-        tv_chips_person_num = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_chips_person_num));
+        tv_chips_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_chips_price));
         tv_chips_time = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_chips_time));
         tv_name = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_name));
-        tv_join_chips = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_join_chips));
+        tv_chips_person_num = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_chips_person_num));
+        viewPager = ((AutoScrollViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.view_pager));
         if (tv_join_chips!= null) {
             tv_join_chips.setOnClickListener(new OnClickListener() {
 

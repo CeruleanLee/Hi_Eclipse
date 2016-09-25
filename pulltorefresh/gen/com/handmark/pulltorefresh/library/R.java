@@ -161,17 +161,19 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class drawable {
         public static int default_ptr_flip=0x7f020000;
         public static int default_ptr_rotate=0x7f020001;
-        public static int indicator_arrow=0x7f020002;
-        public static int indicator_bg_bottom=0x7f020003;
-        public static int indicator_bg_top=0x7f020004;
-        public static int loading_anim1=0x7f020005;
-        public static int loading_anim2=0x7f020006;
-        public static int loading_anim3=0x7f020007;
-        public static int loading_anim4=0x7f020008;
-        public static int loading_anim5=0x7f020009;
-        public static int loading_anim6=0x7f02000a;
-        public static int loading_anim7=0x7f02000b;
-        public static int loading_anim8=0x7f02000c;
+        public static int ic_isloading=0x7f020002;
+        public static int ic_liloading_32px=0x7f020003;
+        public static int indicator_arrow=0x7f020004;
+        public static int indicator_bg_bottom=0x7f020005;
+        public static int indicator_bg_top=0x7f020006;
+        public static int loading_anim1=0x7f020007;
+        public static int loading_anim2=0x7f020008;
+        public static int loading_anim3=0x7f020009;
+        public static int loading_anim4=0x7f02000a;
+        public static int loading_anim5=0x7f02000b;
+        public static int loading_anim6=0x7f02000c;
+        public static int loading_anim7=0x7f02000d;
+        public static int loading_anim8=0x7f02000e;
     }
     public static final class id {
         public static int both=0x7f060003;

@@ -93,7 +93,10 @@ String Tag="~~~ActFrag~~~";
 		 mListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
 			 @Override
 			 public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-				 HTTPHelper.GetActivityList(mIbpi, HighCommunityApplication.mUserInfo.getId() + "");
+				 new GetDataTask().execute();
+				 
+				 
+//				 HTTPHelper.GetActivityList(mIbpi, HighCommunityApplication.mUserInfo.getId() + "");
 			 }
 
 			 @Override
@@ -243,7 +246,27 @@ String Tag="~~~ActFrag~~~";
 		 }
 	 }
 	 private boolean isNoNetwork;
+	 private class GetDataTask extends AsyncTask<Void, Void,String > {
 
+			@Override
+			protected String doInBackground(Void... params) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+				}
+				return null;
+			}
+
+			@Override
+			protected void onPostExecute(String result) {
+				 HTTPHelper.GetActivityList(mIbpi, HighCommunityApplication.mUserInfo.getId() + "");
+				 
+
+				// Call onRefreshComplete when the list has been refreshed.
+				//				mListView.onRefreshComplete();
+				super.onPostExecute(result);
+			}
+		}
 
 
 }

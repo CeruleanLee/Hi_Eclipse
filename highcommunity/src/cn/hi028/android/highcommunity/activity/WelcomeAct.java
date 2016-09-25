@@ -5,8 +5,13 @@
 package cn.hi028.android.highcommunity.activity;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -16,8 +21,10 @@ import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.baidu.location.LocationClientOption;
+import com.lidroid.xutils.util.LogUtils;
 import com.umeng.update.UmengUpdateAgent;
 
 import net.duohuo.dhroid.activity.ActivityTack;
@@ -29,6 +36,8 @@ import cn.hi028.android.highcommunity.HighCommunityApplication;
 import cn.hi028.android.highcommunity.R;
 import cn.hi028.android.highcommunity.activity.fragment.LoginFrag;
 import cn.hi028.android.highcommunity.activity.fragment.WelcomeFrag;
+import cn.hi028.android.highcommunity.activity.fragment.ActFrag.NetworkReceiver;
+import cn.hi028.android.highcommunity.utils.HTTPHelper;
 import cn.hi028.android.highcommunity.utils.HighCommunityUtils;
 import cn.hi028.android.highcommunity.utils.LocUtils;
 import cn.jpush.android.api.JPushInterface;
@@ -123,5 +132,57 @@ public class WelcomeAct extends BaseActivity {
 	protected void onResume() {
 		super.onResume();
 		JPushInterface.onResume(this);
+		 registNetworkReceiver();
 	}
+	
+	 /****
+	  * 与网络状态相关
+	  */
+	 private BroadcastReceiver receiver;
+	 private void registNetworkReceiver(){
+		 if(receiver == null){
+			 receiver = new NetworkReceiver();
+			 IntentFilter filter = new IntentFilter();
+			 filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+			 WelcomeAct.this.registerReceiver(receiver, filter );
+		 }
+	 }
+	 private void unregistNetworkReceiver(){
+		 WelcomeAct.this.unregisterReceiver(receiver);
+	 }
+	 public class NetworkReceiver extends BroadcastReceiver{
+
+		 @Override
+		 public void onReceive(Context context, Intent intent) {
+			 if(intent.getAction().equals(ConnectivityManager.CONNECTIVITY_ACTION)){
+				 ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE); 
+				 NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+				 if(networkInfo != null && networkInfo.isAvailable()){
+					 int type = networkInfo.getType(); 
+					 if(ConnectivityManager.TYPE_WIFI == type){
+					 }else if(ConnectivityManager.TYPE_MOBILE == type){
+					 }else if(ConnectivityManager.TYPE_ETHERNET == type){
+					 }
+					 //有网络
+					 //					Toast.makeText(getActivity(), "有网络", 0).show();
+					 LogUtils.d("有网络");
+					 //					if(nextPage == 1){
+					 //					}
+					 isNoNetwork = false;
+				 }else{
+					 //没有网络
+					 LogUtils.d("没有网络");
+					 Toast.makeText(WelcomeAct.this, "没有网络", 1).show();
+					 //					if(nextPage == 1){
+//					 mLoadingView.noNetwork();
+					 //					}
+					 isNoNetwork = true;
+				 }
+			 }
+		 }
+	 }
+	 private boolean isNoNetwork;
+	
+	
+	
 }

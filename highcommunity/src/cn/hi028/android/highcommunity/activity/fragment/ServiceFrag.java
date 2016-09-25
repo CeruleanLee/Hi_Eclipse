@@ -175,7 +175,8 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 		@Override
 		public void onTryAgainClick() {
 			if(!isNoNetwork)
-				HTTPHelper.GetThirdService(mIbpi);
+				initDatas();
+//				HTTPHelper.GetThirdService(mIbpi);
 //			Toast.makeText(getActivity(), "------------OnLoadingViewListener", 0).show();
 		}
 	};

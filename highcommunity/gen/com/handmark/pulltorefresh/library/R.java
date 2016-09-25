@@ -45,17 +45,19 @@ public final class R {
 	public static final class drawable {
 		public static final int default_ptr_flip = 0x7f020049;
 		public static final int default_ptr_rotate = 0x7f02004a;
-		public static final int indicator_arrow = 0x7f020078;
-		public static final int indicator_bg_bottom = 0x7f020079;
-		public static final int indicator_bg_top = 0x7f02007a;
-		public static final int loading_anim1 = 0x7f020082;
-		public static final int loading_anim2 = 0x7f020083;
-		public static final int loading_anim3 = 0x7f020084;
-		public static final int loading_anim4 = 0x7f020085;
-		public static final int loading_anim5 = 0x7f020086;
-		public static final int loading_anim6 = 0x7f020087;
-		public static final int loading_anim7 = 0x7f020088;
-		public static final int loading_anim8 = 0x7f020089;
+		public static final int ic_isloading = 0x7f020052;
+		public static final int ic_liloading_32px = 0x7f020054;
+		public static final int indicator_arrow = 0x7f02007a;
+		public static final int indicator_bg_bottom = 0x7f02007b;
+		public static final int indicator_bg_top = 0x7f02007c;
+		public static final int loading_anim1 = 0x7f020084;
+		public static final int loading_anim2 = 0x7f020085;
+		public static final int loading_anim3 = 0x7f020086;
+		public static final int loading_anim4 = 0x7f020087;
+		public static final int loading_anim5 = 0x7f020088;
+		public static final int loading_anim6 = 0x7f020089;
+		public static final int loading_anim7 = 0x7f02008a;
+		public static final int loading_anim8 = 0x7f02008b;
 	}
 	public static final class id {
 		public static final int both = 0x7f0b001b;

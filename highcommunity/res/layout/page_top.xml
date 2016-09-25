@@ -154,15 +154,16 @@
 
             <CheckBox
                 android:id="@+id/toSeeMore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/ac_shop_detail_tv"
                 android:layout_marginRight="8dp"
+                android:background="@drawable/selecter_goodsdetail_toseemore"
                 android:button="@null"
                 android:checked="false"
-                android:drawableRight="@drawable/selecter_goodsdetail_toseemore" />
+                android:padding="15dp" />
         </RelativeLayout>
 
         <View
@@ -204,8 +205,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:layerType="software"
-                android:background="@null" />
+                android:background="@null"
+                android:layerType="software" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
