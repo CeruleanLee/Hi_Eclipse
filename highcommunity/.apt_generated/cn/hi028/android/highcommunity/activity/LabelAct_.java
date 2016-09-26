@@ -89,13 +89,13 @@ public final class LabelAct_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mContent = ((EditText) hasViews.findViewById(id.tv_label_PostContent));
-        mGridView = ((PullToRefreshGridView) hasViews.findViewById(id.iv_label_gridview));
-        mLocation = ((TextView) hasViews.findViewById(id.tv_label_Postlocation));
-        mPostImage = ((PullToRefreshGridView) hasViews.findViewById(id.ptrgv_label_PostImage));
-        mPublish = ((TextView) hasViews.findViewById(id.tv_label_RightnMenu));
-        mMainLayout = ((LinearLayout) hasViews.findViewById(id.ll_labellayout_mainlayout));
         mContentLayout = ((RelativeLayout) hasViews.findViewById(id.rl_labellaout_contentlayout));
+        mContent = ((EditText) hasViews.findViewById(id.tv_label_PostContent));
+        mPostImage = ((PullToRefreshGridView) hasViews.findViewById(id.ptrgv_label_PostImage));
+        mMainLayout = ((LinearLayout) hasViews.findViewById(id.ll_labellayout_mainlayout));
+        mLocation = ((TextView) hasViews.findViewById(id.tv_label_Postlocation));
+        mPublish = ((TextView) hasViews.findViewById(id.tv_label_RightnMenu));
+        mGridView = ((PullToRefreshGridView) hasViews.findViewById(id.iv_label_gridview));
         mTitle = ((TextView) hasViews.findViewById(id.tv_label_title));
         if (mPublish!= null) {
             mPublish.setOnClickListener(new OnClickListener() {

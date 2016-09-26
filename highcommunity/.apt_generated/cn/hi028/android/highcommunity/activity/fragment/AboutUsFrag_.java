@@ -73,12 +73,12 @@ public final class AboutUsFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mFunctionIntro = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_FunctionIntro));
-        mProtocol = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Protocol));
         mUpdateContent = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_UpdateContent));
-        mShare = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Share));
-        mContactUs = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_ContactUs));
         mAppVersion = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_AppVersion));
+        mFunctionIntro = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_FunctionIntro));
+        mContactUs = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_ContactUs));
+        mProtocol = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Protocol));
+        mShare = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Share));
         if (mFunctionIntro!= null) {
             mFunctionIntro.setOnClickListener(new OnClickListener() {
 

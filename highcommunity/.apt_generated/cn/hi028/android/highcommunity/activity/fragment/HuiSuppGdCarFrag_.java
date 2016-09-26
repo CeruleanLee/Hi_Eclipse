@@ -77,11 +77,11 @@ public final class HuiSuppGdCarFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_gdcar_notice);
         tv_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_price));
-        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_gdcar_Nodata));
         img_goods_ch = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_goods_ch));
         ll_price = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_price));
+        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_gdcar_Nodata));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_gdcar_notice);
         btn_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_pay));
         mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_gdcar_listView));
         if (img_goods_ch!= null) {

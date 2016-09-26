@@ -75,15 +75,15 @@ public final class ActivityCreateFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mWeixin = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_Weixin));
-        mContent = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_activityContent));
-        mEndTime = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_EndTime));
-        mQQ = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_QQ));
-        mPhone = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_Phone));
         mGridView = ((PullToRefreshGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrgv_activityCreate_PostImage));
+        mWeixin = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_Weixin));
+        mEndTime = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_EndTime));
+        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_name));
+        mPhone = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_Phone));
         mStartTime = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_StartTime));
         mLocation = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_Location));
-        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_name));
+        mContent = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_activityContent));
+        mQQ = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_activityCreate_QQ));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activityCreate_submit);
             if (view!= null) {

@@ -75,15 +75,15 @@ public final class GroupDetilsFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mBefore = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_transTitle_before));
         mTitle = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_transTitle_name));
-        mFirstName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_title));
-        mAfter = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_transTitle_after));
-        mIntroduce = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_introduce));
-        mName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_name));
-        mGrideView = ((PullToRefreshGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrgv_group_member_grideview));
         mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_groupdetils_avatar));
+        mBefore = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_transTitle_before));
         mCreater = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_creater));
+        mFirstName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_title));
+        mIntroduce = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_introduce));
+        mGrideView = ((PullToRefreshGridView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrgv_group_member_grideview));
+        mAfter = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_transTitle_after));
+        mName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_name));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_groupdetils_message);
             if (view!= null) {

@@ -4,7 +4,7 @@
     <!-- app 主色调 -->
     <color name="Defult_Color_AppGreen">#1fc796</color>
     <color name="Defult_Color_AppGreen_Alpha">#ff1fc796</color>
-    
+    <color name="Defult_Text_Color">#000000</color>
       <color name="bg_Loading">#dd1fc796</color>
     <!-- 主色调透明   联盟订单item用 -->
     <color name="Defult_Color_AppGreen_Alph">#441fc796</color>

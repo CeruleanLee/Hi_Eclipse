@@ -44,14 +44,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
+                android:textColor="#000000"
                 android:textAppearance="?android:attr/textAppearance"
-                android:textStyle="bold" />
+                />
 
             <TextView
                 android:id="@+id/pull_to_refresh_sub_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
+                android:textColor="#000000"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:visibility="gone" />
         </LinearLayout>

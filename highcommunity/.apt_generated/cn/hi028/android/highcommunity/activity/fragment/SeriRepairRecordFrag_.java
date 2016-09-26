@@ -73,9 +73,9 @@ public final class SeriRepairRecordFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
-        mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
         mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_repair_record));
+        mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
         initView();
     }
 

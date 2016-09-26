@@ -86,11 +86,11 @@ public final class TicketAct_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        img_back = ((ImageView) hasViews.findViewById(id.img_back));
-        mListView = ((PullToRefreshListView) hasViews.findViewById(id.ptrlv_ticket_listView));
-        mProgress = hasViews.findViewById(id.progress_ticket_notice);
-        mNodata = ((TextView) hasViews.findViewById(id.tv_ticket_Nodata));
         mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
+        mListView = ((PullToRefreshListView) hasViews.findViewById(id.ptrlv_ticket_listView));
+        mNodata = ((TextView) hasViews.findViewById(id.tv_ticket_Nodata));
+        mProgress = hasViews.findViewById(id.progress_ticket_notice);
+        img_back = ((ImageView) hasViews.findViewById(id.img_back));
         initView();
     }
 

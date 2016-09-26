@@ -78,16 +78,16 @@ public final class BillPayFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         btn_billpay_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_billpay_pay));
-        mSum = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_billpay_sum));
+        mTotal = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_amount_pay));
         mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_Nodata));
         mRealPrice = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_realprice));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_billpay);
-        mTotal = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_amount_pay));
-        mAlipay = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rb_billpay_alipay));
-        mWeixin = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rb_billpay_weixinpay));
-        mDiscount = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_discount));
-        mWallet = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_wallet));
+        mSum = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_billpay_sum));
         mPayTypeGroup = ((RadioGroup) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rb_billpay_group));
+        mWeixin = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rb_billpay_weixinpay));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_billpay);
+        mAlipay = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rb_billpay_alipay));
+        mWallet = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_wallet));
+        mDiscount = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_billpay_discount));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.fl_billpay_discountLayout);
             if (view!= null) {
