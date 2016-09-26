@@ -120,8 +120,7 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 		mGridView = (PullToRefreshGridView) view.findViewById(R.id.ptrgv_service_thirdParty);
 		mScrollview = (PullToRefreshScrollView) view.findViewById(R.id.service_scrollView_layout);
 		mLoadingView = (LoadingView) view.findViewById(R.id.loadingView);
-		
-		
+	
 	}
 
 	
@@ -407,8 +406,26 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 				startActivity(mIntent);
 			}
 			break;
-
+		case R.id.ll_service_notice_one:
+			if (HighCommunityUtils.GetInstantiation().isLogin(getActivity())) {
+				mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_NOTICE_ONE);
+				startActivity(mIntent);
+			}
+			break;
 		}
+		
+//		
+//	one.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_NOTICE_ONE);
+//				startActivity(mIntent);
+//				
+//			}
+//		});
+		
 		
 	}
 

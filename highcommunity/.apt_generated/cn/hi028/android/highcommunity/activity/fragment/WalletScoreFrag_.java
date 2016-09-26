@@ -75,26 +75,14 @@ public final class WalletScoreFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_walletScore);
         mMoney = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_money));
         mScore = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_score));
-        mRecodeList = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_recode));
         mRules = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_rules));
-        mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletScore_Nodata));
         mSubmit = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_exChange));
         mNumber = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_inputNumber));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_walletScore);
-        if (mRules!= null) {
-            mRules.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    WalletScoreFrag_.this.rules();
-                }
-
-            }
-            );
-        }
+        mRecodeList = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_recode));
+        mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletScore_Nodata));
         if (mSubmit!= null) {
             mSubmit.setOnClickListener(new OnClickListener() {
 
@@ -102,6 +90,18 @@ public final class WalletScoreFrag_
                 @Override
                 public void onClick(View view) {
                     WalletScoreFrag_.this.submit();
+                }
+
+            }
+            );
+        }
+        if (mRules!= null) {
+            mRules.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    WalletScoreFrag_.this.rules();
                 }
 
             }

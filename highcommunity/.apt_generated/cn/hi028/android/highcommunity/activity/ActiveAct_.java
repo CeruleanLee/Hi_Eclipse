@@ -86,9 +86,9 @@ public final class ActiveAct_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mHight = hasViews.findViewById(id.title_secondTitle_Hight);
         mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
         mShare = ((ImageView) hasViews.findViewById(id.img_second_share));
+        mHight = hasViews.findViewById(id.title_secondTitle_Hight);
         if (mShare!= null) {
             mShare.setOnClickListener(new OnClickListener() {
 

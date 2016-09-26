@@ -77,25 +77,13 @@ public final class HuiSuppGdCarFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        btn_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_pay));
-        mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_gdcar_listView));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_gdcar_notice);
+        tv_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_price));
         mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_gdcar_Nodata));
         img_goods_ch = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_goods_ch));
-        tv_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_price));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_gdcar_notice);
         ll_price = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_price));
-        if (btn_pay!= null) {
-            btn_pay.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    HuiSuppGdCarFrag_.this.payClick();
-                }
-
-            }
-            );
-        }
+        btn_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_pay));
+        mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_gdcar_listView));
         if (img_goods_ch!= null) {
             img_goods_ch.setOnClickListener(new OnClickListener() {
 
@@ -103,6 +91,18 @@ public final class HuiSuppGdCarFrag_
                 @Override
                 public void onClick(View view) {
                     HuiSuppGdCarFrag_.this.checkClick();
+                }
+
+            }
+            );
+        }
+        if (btn_pay!= null) {
+            btn_pay.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    HuiSuppGdCarFrag_.this.payClick();
                 }
 
             }

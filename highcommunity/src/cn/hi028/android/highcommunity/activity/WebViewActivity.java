@@ -1,12 +1,14 @@
 package cn.hi028.android.highcommunity.activity;
 
-import cn.hi028.android.highcommunity.R;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import cn.hi028.android.highcommunity.R;
 
 public class WebViewActivity extends BaseFragmentActivity {
 
@@ -22,6 +24,14 @@ public class WebViewActivity extends BaseFragmentActivity {
 		String url = getIntent().getStringExtra("url");
 		setWebView(webview);
 		webview.loadUrl(url);
+		goBack.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onBackPressed();
+			}
+		});
 	}
 
 	private void setWebView(WebView webview) {

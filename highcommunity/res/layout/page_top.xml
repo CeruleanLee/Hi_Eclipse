@@ -34,6 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
+                 android:textColor="#000000"
                 android:text="库存99" />
 
             <LinearLayout
@@ -112,6 +113,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_toLeftOf="@id/vertial_line"
                 android:text="商品名称"
+                android:textColor="#000000"
                 android:textSize="15sp" />
 
             <TextView
@@ -120,6 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/ac_shop_detail_goods_name"
                 android:layout_marginTop="6dp"
+                 android:textColor="#000000"
                 android:text="¥9.9" />
         </RelativeLayout>
 
@@ -150,6 +153,7 @@
                 android:layout_below="@id/jianjie"
                 android:layout_marginTop="5dp"
                 android:lineSpacingExtra="2dp"
+                 android:textColor="#000000"
                 android:text="" />
 
             <CheckBox
@@ -163,7 +167,10 @@
                 android:background="@drawable/selecter_goodsdetail_toseemore"
                 android:button="@null"
                 android:checked="false"
-                android:padding="15dp" />
+                android:paddingBottom="15dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp" />
         </RelativeLayout>
 
         <View
@@ -191,6 +198,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商品名称："
+                     android:textColor="#000000"
                     android:textSize="13sp" />
 
                 <TextView
@@ -199,6 +207,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text=""
+                     android:textColor="#000000"
                     android:textSize="13sp" />
             </RelativeLayout>
 
@@ -219,6 +228,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="规格："
+                     android:textColor="#000000"
                     android:textSize="13sp" />
 
                 <TextView
@@ -227,6 +237,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text="个"
+                     android:textColor="#000000"
                     android:textSize="13sp" />
             </RelativeLayout>
 
@@ -247,6 +258,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="产地："
+                     android:textColor="#000000"
                     android:textSize="13sp" />
 
                 <TextView
@@ -255,6 +267,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text="中国"
+                     android:textColor="#000000"
                     android:textSize="13sp" />
             </RelativeLayout>
 
@@ -275,6 +288,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="食用人群："
+                     android:textColor="#000000"
                     android:textSize="13sp" />
 
                 <TextView
@@ -283,9 +297,52 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text="一般人群皆可食用"
+                     android:textColor="#000000"
                     android:textSize="13sp" />
             </RelativeLayout>
-        </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginTop="5dp"
+                android:background="@color/Defult_Color_LineGrey" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/shop_detail_service_telephone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="客服电话：1231231231321"
+                    android:textColor="@color/Defult_Color_AppGreen" />
+
+                <TextView
+                    android:id="@+id/ac_shop_detail_service_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/shop_detail_service_telephone"
+                    android:layout_marginTop="5dp"
+                     android:textColor="#000000"
+                    android:text="服务时间：9:00-22:00" />
+
+                <ImageButton
+                    android:id="@+id/call"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:padding="20dp"
+                    android:clickable="true"
+                    android:src="@mipmap/phone_img"
+                    android:background="@drawable/selector_goodsdetail_phone_bg" />
+            </RelativeLayout>
+        </LinearLayout>
 
         <View
             android:id="@+id/view13"

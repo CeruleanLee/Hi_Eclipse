@@ -31,8 +31,8 @@
             android:layout_height="match_parent"
             android:layout_weight="3.5"
             android:background="#FFFFFF"
-            android:divider="@null"        
-                android:listSelector="@color/transparent"
+            android:divider="@null"
+            android:listSelector="@color/transparent"
             android:scrollbars="none" >
         </ListView>
     </LinearLayout>
@@ -119,21 +119,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="1dp"
                 android:text="获取金额" />
         </LinearLayout>
 
         <cn.hi028.android.highcommunity.view.RevealLayout
             android:layout_width="100dp"
-            android:layout_alignParentRight="true"
-            android:layout_height="match_parent" 
-            >
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true" >
 
             <Button
                 android:id="@+id/ac_merchant_shop_car_go_pay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                
                 android:background="#FFA52B"
                 android:gravity="center"
                 android:padding="10dp"

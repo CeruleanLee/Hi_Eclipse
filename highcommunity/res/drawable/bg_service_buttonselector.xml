@@ -15,9 +15,8 @@
     </item>
     <item>
         <shape android:shape="rectangle">
-           
             <stroke android:width="0.25dip" android:color="@color/Defult_Color_LineGrey" />
         </shape>
     </item>
-<!--  <gradient android:angle="270.0" android:endColor="#ffffffff" android:startColor="#ffffffff" /> -->
+
 </selector>

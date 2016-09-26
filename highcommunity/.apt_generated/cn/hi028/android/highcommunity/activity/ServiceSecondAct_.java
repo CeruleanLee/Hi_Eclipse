@@ -86,9 +86,9 @@ public final class ServiceSecondAct_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        img_back = ((ImageView) hasViews.findViewById(id.img_back));
         mHight = hasViews.findViewById(id.title_secondTitle_Hight);
         mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
-        img_back = ((ImageView) hasViews.findViewById(id.img_back));
         if (img_back!= null) {
             img_back.setOnClickListener(new OnClickListener() {
 

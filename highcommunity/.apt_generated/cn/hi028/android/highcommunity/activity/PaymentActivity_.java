@@ -88,8 +88,8 @@ public final class PaymentActivity_
     public void onViewChanged(HasViews hasViews) {
         mHight = hasViews.findViewById(id.title_secondTitle_Hight);
         mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
-        img_right = ((ImageView) hasViews.findViewById(id.img_right));
         img_back = ((ImageView) hasViews.findViewById(id.img_back));
+        img_right = ((ImageView) hasViews.findViewById(id.img_right));
         if (img_back!= null) {
             img_back.setOnClickListener(new OnClickListener() {
 

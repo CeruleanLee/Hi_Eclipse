@@ -89,14 +89,26 @@ public final class LabelAct_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        mContent = ((EditText) hasViews.findViewById(id.tv_label_PostContent));
+        mGridView = ((PullToRefreshGridView) hasViews.findViewById(id.iv_label_gridview));
         mLocation = ((TextView) hasViews.findViewById(id.tv_label_Postlocation));
-        mMainLayout = ((LinearLayout) hasViews.findViewById(id.ll_labellayout_mainlayout));
         mPostImage = ((PullToRefreshGridView) hasViews.findViewById(id.ptrgv_label_PostImage));
         mPublish = ((TextView) hasViews.findViewById(id.tv_label_RightnMenu));
+        mMainLayout = ((LinearLayout) hasViews.findViewById(id.ll_labellayout_mainlayout));
         mContentLayout = ((RelativeLayout) hasViews.findViewById(id.rl_labellaout_contentlayout));
         mTitle = ((TextView) hasViews.findViewById(id.tv_label_title));
-        mGridView = ((PullToRefreshGridView) hasViews.findViewById(id.iv_label_gridview));
-        mContent = ((EditText) hasViews.findViewById(id.tv_label_PostContent));
+        if (mPublish!= null) {
+            mPublish.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    LabelAct_.this.publish();
+                }
+
+            }
+            );
+        }
         {
             View view = hasViews.findViewById(id.iv_label_back);
             if (view!= null) {
@@ -111,18 +123,6 @@ public final class LabelAct_
                 }
                 );
             }
-        }
-        if (mPublish!= null) {
-            mPublish.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    LabelAct_.this.publish();
-                }
-
-            }
-            );
         }
         initView();
     }

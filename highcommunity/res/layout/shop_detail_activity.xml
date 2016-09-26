@@ -274,27 +274,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp" >
 
-                <RelativeLayout
-                    android:id="@+id/ac_shop_look_map_detail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="查看图文详情" />
-
-                    <View
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/list_right_img" />
-                </RelativeLayout>
+               
 
                 <View
                     android:layout_width="match_parent"

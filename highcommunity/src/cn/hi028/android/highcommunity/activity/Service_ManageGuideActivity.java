@@ -100,7 +100,7 @@ public class Service_ManageGuideActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_community);
+		setContentView(R.layout.activity_banshiguid);
 		init();
 		// 这里就是在加载页面
 		mWebView.loadUrl("http://028hi.cn/api/guide/index.html?token="

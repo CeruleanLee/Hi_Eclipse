@@ -1285,7 +1285,7 @@ public class HighCommunityUtils extends DongUtils {
 		PublicWay.num = num;
 		Bimp.tempSelectBitmap.clear();
 		ImageItem mItem = new ImageItem();
-		mItem.setImagePath("drawable://" + R.mipmap.img_label_update);
+		mItem.setImagePath("drawable://" + R.mipmap.img_upload_addpic);
 		Bimp.tempSelectBitmap.add(mItem);
 	}
 

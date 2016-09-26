@@ -2,14 +2,13 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Light" mce_bogus="1">
-
         <!-- Customize your theme here. -->
         <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
-       <item name="android:typeface">serif</item> 
+        <item name="android:typeface">serif</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:theme">@android:style/Theme.Translucent.NoTitleBar</item>
     </style>
-
+<!-- <item name="android:typeface">serif</item>  -->
     <style name="AnimationActivity" parent="@android:style/Animation.Activity" mce_bogus="1" >
         <item name="android:activityOpenEnterAnimation">@anim/anim_enter</item>
         <item name="android:activityOpenExitAnimation">@anim/anim_exit</item>

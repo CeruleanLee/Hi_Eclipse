@@ -15,6 +15,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import cn.hi028.android.highcommunity.R;
@@ -30,13 +31,30 @@ public class MerchantGoodRightAdapter extends MyBaseAdapter<Goods_info>
 		implements OnClickListener {
 
 	ShopAddSubListener shopListener;
+	 AdapterView<?> adapterView;
+	 
+	public AdapterView<?> getAdapterView() {
+		return adapterView;
+	}
+
+	public void setAdapterView(AdapterView<?> adapterView) {
+		this.adapterView = adapterView;
+	}
 
 	public MerchantGoodRightAdapter(Context context, BaseFragment frag,
 			List<Goods_info> data) {
 		super(context, data);
 		shopListener = (ShopAddSubListener) frag;
 	}
-
+	
+	public MerchantGoodRightAdapter(Context context, BaseFragment frag,
+			List<Goods_info> data,AdapterView<?> adapterView) {
+		super(context, data);
+		shopListener = (ShopAddSubListener) frag;
+		this.adapterView = adapterView;
+	}
+	
+	
 	@Override
 	public int getItemResource(int pos) {
 		return R.layout.item_merchant_goods_right_list;
@@ -100,5 +118,15 @@ public class MerchantGoodRightAdapter extends MyBaseAdapter<Goods_info>
 
 		}
 	}
-
+@Override
+public void notifyDataSetChanged() {
+	// TODO Auto-generated method stub
+	notifyDataSetInvalidated();
+	super.notifyDataSetChanged();
+}
+@Override
+public void notifyDataSetInvalidated() {
+	// TODO Auto-generated method stub
+	super.notifyDataSetInvalidated();
+}
 }

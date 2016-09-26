@@ -74,11 +74,23 @@ public final class ServicePaymentFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        wuguan = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_wuguan));
-        water = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_water));
         dian = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_dian));
         img_seri_repair_order = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repair_order));
+        wuguan = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_wuguan));
+        water = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_water));
         qi = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_qi));
+        if (img_seri_repair_order!= null) {
+            img_seri_repair_order.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    ServicePaymentFrag_.this.onClickOrder();
+                }
+
+            }
+            );
+        }
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repairr_jj);
             if (view!= null) {
@@ -93,18 +105,6 @@ public final class ServicePaymentFrag_
                 }
                 );
             }
-        }
-        if (img_seri_repair_order!= null) {
-            img_seri_repair_order.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    ServicePaymentFrag_.this.onClickOrder();
-                }
-
-            }
-            );
         }
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repair_record);

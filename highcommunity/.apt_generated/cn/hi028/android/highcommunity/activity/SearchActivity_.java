@@ -86,10 +86,10 @@ public final class SearchActivity_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        mHight = hasViews.findViewById(id.title_searchTitle_Hight);
         tv_billpay_Nodata = ((TextView) hasViews.findViewById(id.tv_billpay_Nodata));
         lv_search = ((ListView) hasViews.findViewById(id.lv_search));
         edt_search = ((EditText) hasViews.findViewById(id.edt_search));
-        mHight = hasViews.findViewById(id.title_searchTitle_Hight);
         tv_cancel = ((TextView) hasViews.findViewById(id.tv_cancel));
         initView();
     }

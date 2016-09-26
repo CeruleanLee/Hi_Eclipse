@@ -131,6 +131,7 @@
                                 android:src="@mipmap/ic_fuwu" />
 
                             <TextView
+                                 android:textColor="#000000"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="自治大厅" />
@@ -153,11 +154,11 @@
                                 android:src="@mipmap/img_payment_service" />
 
                             <TextView
+                                 android:textColor="#000000"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="缴费" />
                         </LinearLayout>
-
 
                         <LinearLayout
                             android:id="@+id/ll_service_tenement"
@@ -176,11 +177,11 @@
                                 android:src="@mipmap/img_tenement" />
 
                             <TextView
+                                 android:textColor="#000000"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="租房" />
                         </LinearLayout>
-
 
                         <LinearLayout
                             android:id="@+id/ll_service_notice"
@@ -199,11 +200,11 @@
                                 android:src="@mipmap/img_notice_servcie" />
 
                             <TextView
+                                 android:textColor="#000000"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="公告" />
                         </LinearLayout>
-
                     </LinearLayout>
 
                     <View
@@ -249,11 +250,11 @@
                                 android:src="@mipmap/ic_zyzfw" />
 
                             <TextView
+                                 android:textColor="#000000"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="志愿服务" />
                         </LinearLayout>
-
 
                         <LinearLayout
                             android:id="@+id/ll_service_guide"
@@ -272,18 +273,18 @@
                                 android:src="@mipmap/img_service_guide" />
 
                             <TextView
+                                 android:textColor="#000000"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="办事指南" />
                         </LinearLayout>
-
 
                         <LinearLayout
                             android:id="@+id/ll_service_research"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@drawable/bg_third_service_selector"
+                             android:background="@drawable/bg_third_service_selector"
                             android:clickable="true"
                             android:gravity="center"
                             android:orientation="vertical" >
@@ -295,6 +296,7 @@
                                 android:src="@mipmap/img_research" />
 
                             <TextView
+                                android:textColor="#000000"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="调查天地" />
@@ -317,6 +319,7 @@
                                 android:src="@mipmap/img_notice_one" />
 
                             <TextView
+                                 android:textColor="#000000"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="    公告    " />
@@ -366,6 +369,7 @@
                                 android:src="@mipmap/img_craftsman_h" />
 
                             <TextView
+                                 android:textColor="#000000"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="    手艺人    " />
@@ -388,11 +392,11 @@
                                 android:src="@mipmap/img_craftsman_service" />
 
                             <TextView
+                                 android:textColor="#000000"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="成为手艺人" />
                         </LinearLayout>
-
                     </LinearLayout>
 
                     <View

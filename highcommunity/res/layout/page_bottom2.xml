@@ -7,8 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical" >
 
         <LinearLayout
             android:id="@+id/layout0"
@@ -52,12 +51,13 @@
             android:id="@+id/ac_shopdetail_FrameLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" >
+            android:layout_weight="1"
+            android:background="#ffffff" >
 
-          <cn.hi028.android.highcommunity.view.ScrollWebView
+            <cn.hi028.android.highcommunity.view.ScrollWebView
                 android:id="@+id/ac_good_detail_webview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content" />
 
             <cn.hi028.android.highcommunity.view.Mylistview
                 android:id="@+id/ac_good_evaluation_listview"
@@ -66,6 +66,27 @@
                 android:scrollbars="none"
                 android:visibility="gone" >
             </cn.hi028.android.highcommunity.view.Mylistview>
+
+            <cn.hi028.android.highcommunity.view.DrawableCenterTextView
+                android:id="@+id/ac_good_nodata"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/ic_nodata"
+                android:text="暂无数据"
+                android:textColor="#aaaaaa"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+            <cn.hi028.android.highcommunity.view.DrawableCenterTextView
+                android:id="@+id/ac_good_comment_empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/ic_nodata"
+                android:gravity="center"
+                android:text="暂无评论"
+                android:textColor="#aaaaaa"
+                android:textSize="15sp"
+                android:visibility="gone" />
         </RelativeLayout>
     </LinearLayout>
 

@@ -7,6 +7,7 @@ import java.util.List;
 
 import net.duohuo.dhroid.util.LogUtil;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,6 +25,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -43,6 +45,7 @@ import cn.hi028.android.highcommunity.bean.SubmitOrderBean;
 import cn.hi028.android.highcommunity.lisenter.PayPop2FragFace;
 import cn.hi028.android.highcommunity.utils.Constacts;
 import cn.hi028.android.highcommunity.utils.HTTPHelper;
+import cn.hi028.android.highcommunity.view.DrawableCenterTextView;
 import cn.hi028.android.highcommunity.view.Mylistview;
 import cn.hi028.android.highcommunity.view.PaylistPopupWindow;
 import cn.hi028.android.highcommunity.view.ScrollWebView;
@@ -76,8 +79,9 @@ OnClickListener, PayPop2FragFace {
 	//	TextView time,telephone;
 	TextView guige_,origin_,edible_;
 	Button goPay;
-	TextView caramount,mAllprice;
-	View viewline1;View viewline2;View viewline3;
+	TextView caramount,mAllprice,telephone,time;
+	View viewline1,viewline2,viewline3;
+	ImageButton call;
 	FrameLayout shopcar;
 	RelativeLayout tuwenxiangqing;RelativeLayout goodevaluation;LinearLayout payrl;
 	RadioButton mPicDetail,mCommentDetail;
@@ -99,11 +103,14 @@ OnClickListener, PayPop2FragFace {
 	ScrollWebView mWebview;
 	Mylistview mCommentListview;
 	CheckBox toSeeMore;
-ViewGroup moreDetailGroup;
+	ViewGroup moreDetailGroup;
+	DrawableCenterTextView tv_noData,tv_empty;
 
-int width,height ;
 
-Handler mHandler = new Handler(); 
+
+	int width,height ;
+
+	Handler mHandler = new Handler(); 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -137,7 +144,7 @@ Handler mHandler = new Handler();
 			}
 		});
 		mWebview.setOnScrollChangeListener(new OnScrollChangeListener() {
-			
+
 			@Override
 			public void onScrollChanged(int l, int t, int oldl, int oldt) {
 			}
@@ -186,8 +193,8 @@ Handler mHandler = new Handler();
 		addimg.setOnClickListener(this);
 		shopcar.setOnClickListener(this);
 		goPay.setOnClickListener(this);
-		//		call.setOnClickListener(this);
-		//		telephone.setOnClickListener(this);
+		call.setOnClickListener(this);
+		telephone.setOnClickListener(this);
 
 		mPicDetail.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -213,7 +220,7 @@ Handler mHandler = new Handler();
 			}
 		});
 		toSeeMore.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			
+
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked) {
@@ -221,14 +228,14 @@ Handler mHandler = new Handler();
 					top_view.invalidate();
 					LogUtil.d("~~~ 准备滑动top_view.getHeight() "+top_view.getHeight()+"---height="+height);
 					mHandler.post(new Runnable() {  
-					    @Override  
-					    public void run() {  
-					    	((ScrollView) top_view).fullScroll(ScrollView.FOCUS_DOWN);  
-					    }  
+						@Override  
+						public void run() {  
+							((ScrollView) top_view).fullScroll(ScrollView.FOCUS_DOWN);  
+						}  
 					}); 
-//					mcoySnapPageLayout.scrollTo(0,top_view.getBottom());
-//					LogUtil.d("~~~ 准备滑动完成"+scrollText.getX()+"---scrollText.getY()="+scrollText.getY());
-					
+					//					mcoySnapPageLayout.scrollTo(0,top_view.getBottom());
+					//					LogUtil.d("~~~ 准备滑动完成"+scrollText.getX()+"---scrollText.getY()="+scrollText.getY());
+
 				}else{
 					moreDetailGroup.setVisibility(View.GONE);
 				}
@@ -264,27 +271,31 @@ Handler mHandler = new Handler();
 		edible = (TextView) top_view.findViewById(R.id.ac_shop_edible_tv);
 		toSeeMore=(CheckBox) top_view.findViewById(R.id.toSeeMore);
 		moreDetailGroup=(ViewGroup) top_view.findViewById(R.id.moredetail_layout);
-		
+		telephone = (TextView) top_view.findViewById(R.id.shop_detail_service_telephone);
+		time = (TextView) top_view.findViewById(R.id.ac_shop_detail_service_time);
+		call = (ImageButton) top_view.findViewById(R.id.call);
+
 		moreDetailGroup.post(new Runnable() {  
-            @Override  
-            public void run() {  
-            	width = moreDetailGroup.getWidth();  
-               height = moreDetailGroup.getHeight();  
-               LogUtil.d("~~~width="+width+",height="+height);
-                moreDetailGroup.setVisibility(View.GONE);  
-            }  
-    });
-		
-		
-		
-		
-//		moreDetailGroup.setVisibility(View.GONE);
-// toSeeMore.setChecked(false);
+			@Override  
+			public void run() {  
+				width = moreDetailGroup.getWidth();  
+				height = moreDetailGroup.getHeight();  
+				LogUtil.d("~~~width="+width+",height="+height);
+				moreDetailGroup.setVisibility(View.GONE);  
+			}  
+		});
+
+
+
+
+		//		moreDetailGroup.setVisibility(View.GONE);
+		// toSeeMore.setChecked(false);
 		mPicDetail=(RadioButton) bottom_View.findViewById(R.id.ac_shopdetail_mypicdetail);
 		mCommentDetail=(RadioButton) bottom_View.findViewById(R.id.ac_shopdetail_mycommentdetail);
 		mWebview=(ScrollWebView) bottom_View.findViewById(R.id.ac_good_detail_webview);
 		mCommentListview=(Mylistview) bottom_View.findViewById(R.id.ac_good_evaluation_listview);
-
+		tv_noData=(DrawableCenterTextView) bottom_View.findViewById(R.id.ac_good_nodata);
+		tv_empty=(DrawableCenterTextView) bottom_View.findViewById(R.id.ac_good_comment_empty);
 		viewline1 = top_view.findViewById(R.id.view11);
 		viewline2 = top_view.findViewById(R.id.view12);
 		viewline3 = top_view.findViewById(R.id.view13);
@@ -292,9 +303,9 @@ Handler mHandler = new Handler();
 		scrollText=(TextView) top_view.findViewById(R.id.scroll_Text);
 		//		mScrollView2=(ScrollView) findViewById(R.id.scrollView2);
 		//		mScrollView2.smoothScrollTo(0, 20);
-		
+
 		LogUtil.d("~~~ top_view.getHeight()=="+top_view.getHeight());
-		
+
 	}
 
 	@Override
@@ -312,8 +323,11 @@ Handler mHandler = new Handler();
 		@Override
 		public void onSuccess(Object message) {
 			goodsdata=(GoodsData) message;
+			LogUtil.d("~~~商品详情数据message~~~---"+message);
+			LogUtil.d("~~~商品详情数据~~~---"+goodsdata.toString());
 			//			switchFragment(0);
 			setUi((GoodsData) message);
+			mPicDetail.setChecked(true);
 		}
 
 		@Override
@@ -400,23 +414,44 @@ Handler mHandler = new Handler();
 				viewline3.setVisibility(View.GONE);
 			}
 		}
+		if (null != msg.getTel()) {
+			telephone.setText("客服电话：" + msg.getTel());
+			telPhone = msg.getTel();
+		}else {
+			telephone.setVisibility(View.GONE);
+		}
+		if (null != msg.getDelivery()){
+
+			time.setText("服务时间：" + msg.getDelivery());
+		}else {
+			telephone.setVisibility(View.GONE);
+		}
+
+
 		if (null != msg.getDetail()){
 			loadPicDetail(msg);
+		}else {
+			mWebview.setVisibility(View.GONE);
+			tv_noData.setText("暂无图文详情");
+//			tv_noData.setVisibility(View.VISIBLE);
 		}
 		if (null != msg.getComments()){
 			comment = msg.getComments();
 			EvaluationAdapter mEvaluationAdapter = new EvaluationAdapter(GoodsDetailActivity3.this, comment);
 			mEvaluationAdapter.setType(2);
+//			mCommentListview.setEmptyView(tv_empty);
 			mCommentListview.setAdapter(mEvaluationAdapter);
-			setCarAmount();}
-	}
+			setCarAmount();
 
+		}
+	}
+	/**获取图文详情数据**/
 	private void loadPicDetail(GoodsData msg) {
 		contentdetail = msg.getDetail();
 		WebSettings mSetting = mWebview.getSettings();
 		mSetting.setJavaScriptEnabled(true); 
 		mSetting.setDefaultTextEncodingName("utf-8");
-//		mSetting.setDisplayZoomControls(false);
+		//		mSetting.setDisplayZoomControls(false);
 		mSetting.setUseWideViewPort(true);
 		mSetting.setLoadWithOverviewMode(true);
 		mSetting.setLayoutAlgorithm(LayoutAlgorithm.NARROW_COLUMNS); 
@@ -632,11 +667,10 @@ Handler mHandler = new Handler();
 			HTTPHelper.GetOrderNo(getOrderNo, goods_price, sb.toString(),
 					storeId);
 			break;
-			//		case R.id.call:
-			//			Intent intent2 = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"
-			//					+ telPhone));
-			//			startActivity(intent2);
-			//			break;
+		case R.id.call:
+			Intent intent2 = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+ telPhone));
+			startActivity(intent2);
+			break;
 
 		}
 	}
@@ -795,8 +829,8 @@ Handler mHandler = new Handler();
 	public void onBackPressed() {
 		goBack();
 	}
-	
-	
-	
+
+
+
 
 }

@@ -292,6 +292,7 @@ public class McoySnapPageLayout extends ViewGroup {
 							}
 						}
 						if(mPicDetailWebview.getVisibility()==View.VISIBLE){
+//							mPicDetailWebview.getParent().g
 							if (mPicDetailWebview.isWebviewOnTop) {
 //								Toast.makeText(getContext(), "WebviewOnTop", 0).show();
 								mTouchState = TOUCH_STATE_SCROLLING;
