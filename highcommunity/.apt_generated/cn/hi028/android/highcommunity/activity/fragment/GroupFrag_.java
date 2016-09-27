@@ -77,12 +77,12 @@ public final class GroupFrag_
     public void onViewChanged(HasViews hasViews) {
         mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_group_listview));
         mNew = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_new));
-        mKeywords = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_groupclass_search));
-        mCreate = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_create));
         mMine = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_mine));
-        mHot = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_hot));
-        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_nodata));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.pg_grouplayout_progress);
+        mCreate = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_create));
+        mKeywords = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_groupclass_search));
+        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_nodata));
+        mHot = ((RadioButton) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_group_hot));
         initView();
     }
 

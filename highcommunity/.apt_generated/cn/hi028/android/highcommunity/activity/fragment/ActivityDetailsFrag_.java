@@ -75,11 +75,11 @@ public final class ActivityDetailsFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mJoin = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activitydetails_join));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_ActivityDetails);
-        mReplay = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activitydetails_replay));
         mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_ActivityDetails_Nodata));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_ActivityDetails);
+        mJoin = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activitydetails_join));
         mlistView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_activitydetails_listview));
+        mReplay = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_activitydetails_replay));
         if (mReplay!= null) {
             mReplay.setOnClickListener(new OnClickListener() {
 

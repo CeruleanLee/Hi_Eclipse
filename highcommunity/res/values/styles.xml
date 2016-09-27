@@ -5,6 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
         <item name="android:typeface">serif</item>
+       <item name="android:textColor">@color/defult_text_color</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:theme">@android:style/Theme.Translucent.NoTitleBar</item>
     </style>

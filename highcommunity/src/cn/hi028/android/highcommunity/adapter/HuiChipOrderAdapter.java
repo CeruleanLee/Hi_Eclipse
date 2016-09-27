@@ -22,6 +22,7 @@ import com.don.tools.GeneratedClassUtils;
 
 import net.duohuo.dhroid.util.ImageLoaderUtil;
 import net.duohuo.dhroid.util.ListUtils;
+import net.duohuo.dhroid.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -267,7 +268,9 @@ public class HuiChipOrderAdapter extends BaseAdapter {
             public void onClick(View v) {
                 Intent mIntent = new Intent(frag.getActivity(), GeneratedClassUtils.get(MenuLeftSecondAct.class));
                 mIntent.putExtra(MenuLeftSecondAct.ACTIVITYTAG, Constacts.MENU_LEFTSECOND_CHIP_ORDER_DETAIL);
+                LogUtil.d("~~~众筹订单全list adapter中点击item传递的订单号："+data.get(position).getOrder_id());
                 mIntent.putExtra(MenuLeftSecondAct.INTENTTAG, data.get(position).getOrder_id() + "");
+//                mIntent.putExtra(MenuLeftSecondAct.INTENTTAG, data.get(position).getOrder_num());
                 frag.startActivity(mIntent);
             }
         });

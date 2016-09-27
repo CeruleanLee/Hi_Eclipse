@@ -75,26 +75,14 @@ public final class WalletScoreFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mScore = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_score));
-        mMoney = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_money));
-        mRules = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_rules));
-        mSubmit = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_exChange));
-        mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletScore_Nodata));
-        mNumber = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_inputNumber));
-        mRecodeList = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_recode));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_walletScore);
-        if (mSubmit!= null) {
-            mSubmit.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    WalletScoreFrag_.this.submit();
-                }
-
-            }
-            );
-        }
+        mRecodeList = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_recode));
+        mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletScore_Nodata));
+        mRules = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_rules));
+        mNumber = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_inputNumber));
+        mScore = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_score));
+        mSubmit = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_exChange));
+        mMoney = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_walletscore_money));
         if (mRules!= null) {
             mRules.setOnClickListener(new OnClickListener() {
 
@@ -102,6 +90,18 @@ public final class WalletScoreFrag_
                 @Override
                 public void onClick(View view) {
                     WalletScoreFrag_.this.rules();
+                }
+
+            }
+            );
+        }
+        if (mSubmit!= null) {
+            mSubmit.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    WalletScoreFrag_.this.submit();
                 }
 
             }

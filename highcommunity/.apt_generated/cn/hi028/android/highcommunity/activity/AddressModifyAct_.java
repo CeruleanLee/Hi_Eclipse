@@ -87,8 +87,8 @@ public final class AddressModifyAct_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
-        mDelete = ((ImageView) hasViews.findViewById(id.img_second_delete));
         mHight = hasViews.findViewById(id.title_secondTitle_Hight);
+        mDelete = ((ImageView) hasViews.findViewById(id.img_second_delete));
         {
             View view = hasViews.findViewById(id.img_back);
             if (view!= null) {

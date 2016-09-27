@@ -6,6 +6,7 @@ package cn.hi028.android.highcommunity.activity.fragment;
 
 import android.os.AsyncTask;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -21,6 +22,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import net.duohuo.dhroid.activity.BaseFragment;
 import net.duohuo.dhroid.util.ListUtils;
+import net.duohuo.dhroid.util.LogUtil;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -157,6 +159,7 @@ public class HuiChipsOrderFrag extends BaseFragment {
             if (null == message)
                 return;
             List<ChipsOrderBean> data = (List<ChipsOrderBean>) message;
+            LogUtil.d("~~~众筹订单全部数据："+data.toString());
             adapterList.get(currentPo).setData(data);
             
         }

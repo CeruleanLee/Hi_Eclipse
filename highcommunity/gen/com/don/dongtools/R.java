@@ -18,9 +18,9 @@ public final class R {
 		public static final int wheel_val = 0x7f020152;
 	}
 	public static final class id {
-		public static final int Window_message = 0x7f0b0441;
-		public static final int Window_progress = 0x7f0b0440;
-		public static final int loading_message = 0x7f0b039a;
+		public static final int Window_message = 0x7f0b0442;
+		public static final int Window_progress = 0x7f0b0441;
+		public static final int loading_message = 0x7f0b039b;
 		public static final int pg_progress = 0x7f0b00ed;
 		public static final int tag_first = 0x7f0b0001;
 		public static final int tag_second = 0x7f0b0002;

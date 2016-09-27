@@ -28,6 +28,7 @@ import cn.hi028.android.highcommunity.utils.MBitmapHolder;
 
 /**
  * @功能：第三方服务adapter<br>
+ * 服务页 生活服务中间的girdview适配
  * @作者： 李凌云<br>
  * @版本：1.0<br>
  * @时间：2015/12/16<br>

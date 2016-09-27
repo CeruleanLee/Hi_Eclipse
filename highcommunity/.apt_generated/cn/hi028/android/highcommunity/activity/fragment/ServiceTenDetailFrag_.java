@@ -73,19 +73,19 @@ public final class ServiceTenDetailFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        tv_tenement_call = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_call));
-        tv_current_page = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_current_page));
-        tv_tenement_area = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_area));
-        tv_tenement_level = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_level));
         tv_tenement_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_price));
+        tv_tenement_level = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_level));
         tv_vallage_apartment = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_vallage_apartment));
-        tv_tenement_info = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_info));
-        tv_tenement_zhuangxiu = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_zhuangxiu));
         tv_tenement_size = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_size));
         viewPager = ((AutoScrollViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.view_pager));
+        tv_tenement_area = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_area));
         tv_vallage_name = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_vallage_name));
-        tv_tenement_name = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_name));
         tv_tenement_vallage = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_vallage));
+        tv_current_page = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_current_page));
+        tv_tenement_info = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_info));
+        tv_tenement_zhuangxiu = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_zhuangxiu));
+        tv_tenement_call = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_call));
+        tv_tenement_name = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_name));
         tv_tenement_type = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_tenement_type));
         initView();
     }

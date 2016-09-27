@@ -91,6 +91,7 @@ import cn.hi028.android.highcommunity.bean.VallageBean;
 import cn.hi028.android.highcommunity.bean.VallageSelectBean;
 import cn.hi028.android.highcommunity.bean.WechatParamBean;
 import cn.hi028.android.highcommunity.bean.WpayBean;
+import cn.hi028.android.highcommunity.bean.chiporder.ChipOrderDetail;
 import cn.hi028.android.highcommunity.params.HuiChipsOrderparams;
 import it.sauronsoftware.base64.Base64;
 
@@ -2518,8 +2519,8 @@ public class HTTPHelper {
 	 * @param result
 	 * @return
 	 */
-	public static NearbyOrderDetailBean ResolveGoodsOrder(String result) {
-		return gson.fromJson(result, NearbyOrderDetailBean.class);
+	public static ChipOrderDetailBean ResolveGoodsOrder(String result) {
+		return gson.fromJson(result, ChipOrderDetailBean.class);
 	}
 
 	/**

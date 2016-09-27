@@ -15,8 +15,8 @@ import cn.hi028.android.highcommunity.utils.CommonUtils;
  * @时间：2016-01-29<br>
  */
 public class ChipsOrderBean extends BaseBean {
-    private int order_id;
-    private String order_num;
+    private int order_id;//订单id
+    private String order_num;//众筹订单号
     private float join_price;
     private int num;
     private String name;
@@ -164,4 +164,29 @@ public class ChipsOrderBean extends BaseBean {
     public void setState(int state) {
         this.state = state;
     }
+
+	@Override
+	public String toString() {
+		return "ChipsOrderBean [order_id=" + order_id + ", order_num="
+				+ order_num + ", join_price=" + join_price + ", num=" + num
+				+ ", name=" + name + ", cover_pic=" + cover_pic + ", price="
+				+ price + ", remain_time=" + remain_time + ", state=" + state
+				+ ", total_price=" + total_price + ", zero_money=" + zero_money
+				+ ", zero_real_money=" + zero_real_money + ", ticket_id="
+				+ ticket_id + ", ticket_value=" + ticket_value + ", real_pri="
+				+ real_pri + ", address=" + address + ", getTicket_id()="
+				+ getTicket_id() + ", getTicket_value()=" + getTicket_value()
+				+ ", getZero_real_money()=" + getZero_real_money()
+				+ ", getReal_pri()=" + getReal_pri() + ", getTotal_price()="
+				+ getTotal_price() + ", getZero_money()=" + getZero_money()
+				+ ", getAddress()=" + getAddress() + ", getOrder_id()="
+				+ getOrder_id() + ", getOrder_num()=" + getOrder_num()
+				+ ", getJoin_price()=" + getJoin_price() + ", getNum()="
+				+ getNum() + ", getName()=" + getName() + ", getCover_pic()="
+				+ getCover_pic() + ", getPrice()=" + getPrice()
+				+ ", getRemain_time()=" + getRemain_time() + ", getState()="
+				+ getState() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
+	}
+    
 }
