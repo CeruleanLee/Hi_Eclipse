@@ -73,19 +73,19 @@ public final class AboutUsFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mContactUs = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_ContactUs));
-        mUpdateContent = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_UpdateContent));
         mAppVersion = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_AppVersion));
-        mProtocol = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Protocol));
-        mShare = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Share));
         mFunctionIntro = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_FunctionIntro));
-        if (mContactUs!= null) {
-            mContactUs.setOnClickListener(new OnClickListener() {
+        mUpdateContent = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_UpdateContent));
+        mProtocol = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Protocol));
+        mContactUs = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_ContactUs));
+        mShare = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_AboutUs_Share));
+        if (mFunctionIntro!= null) {
+            mFunctionIntro.setOnClickListener(new OnClickListener() {
 
 
                 @Override
                 public void onClick(View view) {
-                    AboutUsFrag_.this.constactUs();
+                    AboutUsFrag_.this.functionIntro();
                 }
 
             }
@@ -115,13 +115,13 @@ public final class AboutUsFrag_
             }
             );
         }
-        if (mFunctionIntro!= null) {
-            mFunctionIntro.setOnClickListener(new OnClickListener() {
+        if (mContactUs!= null) {
+            mContactUs.setOnClickListener(new OnClickListener() {
 
 
                 @Override
                 public void onClick(View view) {
-                    AboutUsFrag_.this.functionIntro();
+                    AboutUsFrag_.this.constactUs();
                 }
 
             }

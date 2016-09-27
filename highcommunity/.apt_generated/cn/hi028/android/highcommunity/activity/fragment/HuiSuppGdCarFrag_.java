@@ -77,25 +77,13 @@ public final class HuiSuppGdCarFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        btn_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_pay));
         tv_price = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_price));
-        img_goods_ch = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_goods_ch));
         ll_price = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_price));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_gdcar_notice);
-        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_gdcar_Nodata));
+        img_goods_ch = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_goods_ch));
         mListView = ((PullToRefreshListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_gdcar_listView));
-        if (btn_pay!= null) {
-            btn_pay.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    HuiSuppGdCarFrag_.this.payClick();
-                }
-
-            }
-            );
-        }
+        btn_pay = ((Button) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.btn_pay));
+        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_gdcar_Nodata));
         if (img_goods_ch!= null) {
             img_goods_ch.setOnClickListener(new OnClickListener() {
 
@@ -103,6 +91,18 @@ public final class HuiSuppGdCarFrag_
                 @Override
                 public void onClick(View view) {
                     HuiSuppGdCarFrag_.this.checkClick();
+                }
+
+            }
+            );
+        }
+        if (btn_pay!= null) {
+            btn_pay.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    HuiSuppGdCarFrag_.this.payClick();
                 }
 
             }

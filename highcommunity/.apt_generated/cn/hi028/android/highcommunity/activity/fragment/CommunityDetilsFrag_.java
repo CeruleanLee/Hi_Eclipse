@@ -79,24 +79,12 @@ public final class CommunityDetilsFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mSpeakerImage = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_communitydetails_spokerImage));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
-        mSpeakerContent = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ev_communitydetails_spokerContent));
-        mSpeakerButton = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ev_communitydetails_spokerButton));
-        mSpeakerLayout = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_communitydetails_spokerLayout));
         mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
+        mSpeakerButton = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ev_communitydetails_spokerButton));
         mList = ((ListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_communitydetails_listview));
-        if (mSpeakerButton!= null) {
-            mSpeakerButton.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    CommunityDetilsFrag_.this.Comment();
-                }
-
-            }
-            );
-        }
+        mSpeakerLayout = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_communitydetails_spokerLayout));
+        mSpeakerContent = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ev_communitydetails_spokerContent));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civl_commDetails_avatar);
             if (view!= null) {
@@ -111,6 +99,18 @@ public final class CommunityDetilsFrag_
                 }
                 );
             }
+        }
+        if (mSpeakerButton!= null) {
+            mSpeakerButton.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    CommunityDetilsFrag_.this.Comment();
+                }
+
+            }
+            );
         }
         initView();
     }

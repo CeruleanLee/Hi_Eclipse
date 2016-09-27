@@ -82,6 +82,7 @@ BDLocationListener {
 		{  
 		    e.printStackTrace();  
 		}
+//		Fresco.in
 		
 		mDongUtils = HighCommunityUtils.GetInstantiation();
 		BpiHttpClient.initCookies(this);

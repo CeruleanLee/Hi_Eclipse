@@ -87,8 +87,8 @@ public final class GroupMessageAct_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mAvatar = ((CircleImageView) hasViews.findViewById(id.img_second_GoupHead));
-        mHight = hasViews.findViewById(id.title_secondTitle_Hight);
         mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
+        mHight = hasViews.findViewById(id.title_secondTitle_Hight);
         if (mAvatar!= null) {
             mAvatar.setOnClickListener(new OnClickListener() {
 

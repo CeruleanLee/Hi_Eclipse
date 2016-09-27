@@ -74,8 +74,8 @@ public final class ServiceTenementFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         tv_Nodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_Nodata));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
         lv_tenement = ((ListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.lv_tenement));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
         initView();
     }
 

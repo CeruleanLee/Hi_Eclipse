@@ -80,21 +80,6 @@ public final class CreateGroupFrag_
         mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_creategroup_name));
         mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_creategroup_avatar));
         {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_back);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        CreateGroupFrag_.this.back();
-                    }
-
-                }
-                );
-            }
-        }
-        {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_creategroup_submit);
             if (view!= null) {
                 view.setOnClickListener(new OnClickListener() {
@@ -103,6 +88,21 @@ public final class CreateGroupFrag_
                     @Override
                     public void onClick(View view) {
                         CreateGroupFrag_.this.submit();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_back);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        CreateGroupFrag_.this.back();
                     }
 
                 }

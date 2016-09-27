@@ -144,6 +144,7 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 		LogUtil.d(Tag+"---startLoading");
 		HTTPHelper.GetThirdService(mIbpi);
 		LogUtil.d(Tag+"---GetThirdService");
+		viewPager.startAutoScroll();
 	}
 
 	/****
@@ -191,16 +192,20 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 
 		@Override
 		public void onSuccess(Object message) {
+			mLoadingView.setVisibility(View.GONE);
+			mLoadingView.loadSuccess();
+			tatalLayout.setVisibility(View.VISIBLE);
 			LogUtil.d("-------------  initView   onSuccess");
-			if (null == message) return;
+//			if (null == message) return;
 			LogUtil.d("-------------  initView   message:"+message);
 			ThirdServiceBean mBean = (ThirdServiceBean) message;
 			mAdapter.AddNewData(mBean.getServices());
 			mGridView.setAdapter(mAdapter);
+			mLoadingView.loadSuccess();
 			pagerAdapter.setImageIdList(mBean.getBanners());
+			mLoadingView.loadSuccess();
 			HighCommunityUtils.GetInstantiation()
 			.setThirdServiceGridViewHeight(mGridView, mAdapter, 4);
-			mLoadingView.loadSuccess();
 			tatalLayout.setVisibility(View.VISIBLE);
 
 		}
@@ -300,7 +305,7 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 	public void onResume() {
 		super.onResume();
 		LogUtil.d(Tag+"onResume");
-		viewPager.startAutoScroll();
+	
 		//		mLoadingView.startLoading();
 		registNetworkReceiver();
 	}
@@ -343,7 +348,8 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 //					Toast.makeText(getActivity(), "有网络", 0).show();
 					LogUtils.d("有网络");
 					//					if(nextPage == 1){
-					HTTPHelper.GetThirdService(mIbpi);
+//					initDatas();
+//					HTTPHelper.GetThirdService(mIbpi);
 					//					}
 					isNoNetwork = false;
 				}else{

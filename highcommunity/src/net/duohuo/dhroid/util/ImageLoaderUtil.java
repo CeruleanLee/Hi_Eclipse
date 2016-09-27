@@ -1,11 +1,12 @@
+package net.duohuo.dhroid.util;
 /**
  * 文件名：ImageLoaderUtils.java
  * 全路径：com.smartgame.android.utils.ImageLoaderUtils
  */
-package net.duohuo.dhroid.util;
 
 import android.graphics.Bitmap;
 import android.widget.ImageView;
+import cn.hi028.android.highcommunity.R;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -16,8 +17,6 @@ import com.nostra13.universalimageloader.core.display.RoundedVignetteBitmapDispl
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 import com.nostra13.universalimageloader.core.imageaware.ImageAware;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-
-import cn.hi028.android.highcommunity.R;
 
 
 /**
