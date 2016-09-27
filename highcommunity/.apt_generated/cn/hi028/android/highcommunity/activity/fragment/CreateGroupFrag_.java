@@ -75,10 +75,10 @@ public final class CreateGroupFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
+        mTitle = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_secondtitle_name));
         mIntro = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_creategrpu_intro));
         mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_creategroup_name));
         mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_creategroup_avatar));
-        mTitle = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_secondtitle_name));
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_back);
             if (view!= null) {

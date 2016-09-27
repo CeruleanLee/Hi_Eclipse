@@ -74,12 +74,12 @@ public final class ServiceNoticeDetailFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
-        mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
-        mTime = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_PublishTime));
-        mTitle = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_title));
-        mImage = ((AutoScrollViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_NoticeDetails_Picture));
-        mName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_PublishName));
         mContent = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_Content));
+        mTime = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_PublishTime));
+        mName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_PublishName));
+        mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
+        mImage = ((AutoScrollViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_NoticeDetails_Picture));
+        mTitle = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_title));
         initView();
     }
 
