@@ -26,8 +26,8 @@ public final class R {
 		public static final int tag_second = 0x7f0b0002;
 	}
 	public static final class layout {
-		public static final int progress = 0x7f0400d8;
-		public static final int waitting_popupwindow = 0x7f0400ff;
+		public static final int progress = 0x7f0400da;
+		public static final int waitting_popupwindow = 0x7f040101;
 	}
 	public static final class string {
 		public static final int RequestEnd = 0x7f09001d;

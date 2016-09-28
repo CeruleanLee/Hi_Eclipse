@@ -201,4 +201,18 @@ public class UserInfoBean extends BaseBean {
     public void setHistory_vid(String history_vid) {
         this.history_vid = history_vid;
     }
+
+	@Override
+	public String toString() {
+		return "UserInfoBean [id=" + id + ", username=" + username
+				+ ", password=" + password + ", v_id=" + v_id + ", birthday="
+				+ birthday + ", head_pic=" + head_pic + ", sex=" + sex
+				+ ", nick=" + nick + ", sign=" + sign + ", reg_time="
+				+ reg_time + ", state=" + state + ", hobby=" + hobby
+				+ ", counts=" + counts + ", login_time=" + login_time
+				+ ", scores=" + scores + ", token=" + token + ", zero_money="
+				+ zero_money + ", history_vid=" + history_vid + ", third_uid="
+				+ third_uid + "]";
+	}
+    
 }

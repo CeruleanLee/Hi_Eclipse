@@ -31,6 +31,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -66,6 +67,7 @@ public class AllianceOderDetailActivity extends BaseFragmentActivity {
 	PopupWindow waitPop;
 	String order_num;
 	ViewGroup userinfroCantainer;
+	ImageView img_back;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -97,6 +99,14 @@ public class AllianceOderDetailActivity extends BaseFragmentActivity {
 		img_goods_pic = (ImageView) findViewById(R.id.img_goods_pic);
 		ll_NoticeDetails_Progress = findViewById(R.id.ll_NoticeDetails_Progress);
 		userinfroCantainer=(ViewGroup) findViewById(R.id.order_userinfro);
+		img_back=(ImageView) findViewById(R.id.img_back);
+		img_back.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+			}
+		});
 	}
 
 	void initView() {

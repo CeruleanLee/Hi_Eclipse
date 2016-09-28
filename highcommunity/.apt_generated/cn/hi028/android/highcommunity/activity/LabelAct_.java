@@ -89,26 +89,14 @@ public final class LabelAct_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mLocation = ((TextView) hasViews.findViewById(id.tv_label_Postlocation));
-        mContentLayout = ((RelativeLayout) hasViews.findViewById(id.rl_labellaout_contentlayout));
-        mPublish = ((TextView) hasViews.findViewById(id.tv_label_RightnMenu));
-        mContent = ((EditText) hasViews.findViewById(id.tv_label_PostContent));
-        mTitle = ((TextView) hasViews.findViewById(id.tv_label_title));
-        mPostImage = ((PullToRefreshGridView) hasViews.findViewById(id.ptrgv_label_PostImage));
-        mMainLayout = ((LinearLayout) hasViews.findViewById(id.ll_labellayout_mainlayout));
         mGridView = ((PullToRefreshGridView) hasViews.findViewById(id.iv_label_gridview));
-        if (mPublish!= null) {
-            mPublish.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    LabelAct_.this.publish();
-                }
-
-            }
-            );
-        }
+        mContent = ((EditText) hasViews.findViewById(id.tv_label_PostContent));
+        mContentLayout = ((RelativeLayout) hasViews.findViewById(id.rl_labellaout_contentlayout));
+        mPostImage = ((PullToRefreshGridView) hasViews.findViewById(id.ptrgv_label_PostImage));
+        mPublish = ((TextView) hasViews.findViewById(id.tv_label_RightnMenu));
+        mLocation = ((TextView) hasViews.findViewById(id.tv_label_Postlocation));
+        mMainLayout = ((LinearLayout) hasViews.findViewById(id.ll_labellayout_mainlayout));
+        mTitle = ((TextView) hasViews.findViewById(id.tv_label_title));
         {
             View view = hasViews.findViewById(id.iv_label_back);
             if (view!= null) {
@@ -123,6 +111,18 @@ public final class LabelAct_
                 }
                 );
             }
+        }
+        if (mPublish!= null) {
+            mPublish.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    LabelAct_.this.publish();
+                }
+
+            }
+            );
         }
         initView();
     }

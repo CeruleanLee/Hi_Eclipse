@@ -74,25 +74,22 @@ public final class ServicePaymentFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        water = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_water));
         dian = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_dian));
         qi = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_qi));
-        img_seri_repair_order = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repair_order));
         wuguan = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_wuguan));
-        {
-            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repairr_jj);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
+        water = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_payment_service_water));
+        img_seri_repair_order = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repair_order));
+        if (img_seri_repair_order!= null) {
+            img_seri_repair_order.setOnClickListener(new OnClickListener() {
 
 
-                    @Override
-                    public void onClick(View view) {
-                        ServicePaymentFrag_.this.onClickJJ();
-                    }
-
+                @Override
+                public void onClick(View view) {
+                    ServicePaymentFrag_.this.onClickOrder();
                 }
-                );
+
             }
+            );
         }
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repair_record);
@@ -109,17 +106,20 @@ public final class ServicePaymentFrag_
                 );
             }
         }
-        if (img_seri_repair_order!= null) {
-            img_seri_repair_order.setOnClickListener(new OnClickListener() {
+        {
+            View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.img_seri_repairr_jj);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
 
 
-                @Override
-                public void onClick(View view) {
-                    ServicePaymentFrag_.this.onClickOrder();
+                    @Override
+                    public void onClick(View view) {
+                        ServicePaymentFrag_.this.onClickJJ();
+                    }
+
                 }
-
+                );
             }
-            );
         }
         initView();
     }

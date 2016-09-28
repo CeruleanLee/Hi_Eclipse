@@ -50,7 +50,6 @@ public class CommunityFrag extends Fragment {
 
 	public static final String FRAGMENTTAG = "CommunityFrag";
 	final String  Tag="------------CommunityFrag";
-	//	private View mFragmeView;
 	private int mCount = -1;
 	CommunityListAdapter2 mAdapter;
 	private PullToRefreshListView mListView;
@@ -290,6 +289,7 @@ public class CommunityFrag extends Fragment {
 					//有网络
 					//					Toast.makeText(getActivity(), "有网络", 0).show();
 					LogUtils.d("有网络");
+					initDatas();
 					//					if(nextPage == 1){
 					//					  RefreshData(0);
 					//					}

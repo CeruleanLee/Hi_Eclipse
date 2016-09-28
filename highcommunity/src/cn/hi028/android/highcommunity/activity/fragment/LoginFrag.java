@@ -25,6 +25,7 @@ import com.don.tools.GeneratedClassUtils;
 import com.mob.tools.utils.UIHandler;
 
 import net.duohuo.dhroid.activity.BaseFragment;
+import net.duohuo.dhroid.util.LogUtil;
 
 import java.util.HashMap;
 import java.util.List;
@@ -171,8 +172,10 @@ public class LoginFrag extends BaseFragment {
 
         @Override
         public void onSuccess(Object message) {
+        	LogUtil.d("~~~messageonSuccess"+message.toString());
             if (null == message)
                 return;
+            LogUtil.d("~~~message"+message.toString());
             HighCommunityApplication.mUserInfo = (UserInfoBean) message;
             HighCommunityApplication.mUserInfo.setV_id(HighCommunityApplication.mUserInfo.getV_id());
             HighCommunityApplication.SaveUser();

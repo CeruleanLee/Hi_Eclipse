@@ -1057,6 +1057,9 @@ public class HTTPHelper {
 		mParamMap.put("doorNum", doorNum);
 		mParamMap.put("isDefault", isDefault);
 		mParamMap.put("uid", uid);
+		LogUtil.d("~~~~新增收货地址传递的参数："+mParamMap.toString());
+		
+		
 		post(mParamMap, mIbpi, url);
 	}
 
@@ -1080,6 +1083,7 @@ public class HTTPHelper {
 		mParamMap.put("doorNum", doorNum);
 		mParamMap.put("isDefault", isDefault);
 		mParamMap.put("uid", uid);
+	
 		post(mParamMap, mIbpi, url);
 	}
 
@@ -1779,11 +1783,20 @@ public class HTTPHelper {
 	 * 第三方服务接口
 	 **/
 	public static void GetThirdService(BpiHttpHandler.IBpiHttpHandler mIbpi) {
-		LogUtil.d("-------------  initView   GetThirdService");
 		String url = HTTPPOSTURL + "service/index.html";
 		HashMap<String, String> mParamMap = getBaseParamMap();
+		LogUtil.d("-------------GetThirdService=="+mParamMap.get("token"));
+		
 		post(mParamMap, mIbpi, url);
 	}
+	public static void GetThirdService2(BpiHttpHandler.IBpiHttpHandler mIbpi) {
+		String url = HTTPPOSTURL + "service/index.html";
+		HashMap<String, String> mParamMap = getBaseParamMap();
+		LogUtil.d("-------------GetThirdService=="+mParamMap.get("token"));
+		
+		post(mParamMap, mIbpi, url);
+	}
+	
 
 	/**
 	 * 个人资料接口
@@ -2780,8 +2793,8 @@ public class HTTPHelper {
 	private static HashMap<String, String> getBaseParamMap() {
 		HashMap<String, String> maps = new HashMap<String, String>();
 		if (!TextUtils.isEmpty((HighCommunityApplication.mUserInfo.getToken())))
+			LogUtil.d("------User token------"+HighCommunityApplication.mUserInfo.getToken());
 			maps.put("token", HighCommunityApplication.mUserInfo.getToken());
-	LogUtil.d("------User token------"+HighCommunityApplication.mUserInfo.getToken());
 		return maps;
 	}
 

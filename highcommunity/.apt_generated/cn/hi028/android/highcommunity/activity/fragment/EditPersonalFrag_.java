@@ -75,12 +75,24 @@ public final class EditPersonalFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_NickName));
-        mSex = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_UserSex));
-        mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_EditPersonal_Avatar));
+        tvAuth = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_AuthZiliao));
         mAge = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_UserAge));
         mIntro = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.et_EditPersonal_UserIntro));
-        tvAuth = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_AuthZiliao));
+        mSex = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_UserSex));
+        mName = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_NickName));
+        mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_EditPersonal_Avatar));
+        if (tvAuth!= null) {
+            tvAuth.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    EditPersonalFrag_.this.authClick();
+                }
+
+            }
+            );
+        }
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_EditPersonal_submit);
             if (view!= null) {
@@ -95,18 +107,6 @@ public final class EditPersonalFrag_
                 }
                 );
             }
-        }
-        if (tvAuth!= null) {
-            tvAuth.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    EditPersonalFrag_.this.authClick();
-                }
-
-            }
-            );
         }
         initView();
     }

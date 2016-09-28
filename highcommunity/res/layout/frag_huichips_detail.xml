@@ -8,7 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="42dp"
-        android:fillViewport="true" >
+        android:fillViewport="true"
+        android:scrollbars="none" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,12 +32,12 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|bottom"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="8dp"
                     android:background="@android:color/transparent"
-                    android:padding="10dp"
+                    android:padding="6dp"
                     app:fillColor="@color/Defult_Color_AppGreen"
                     app:pageColor="#8EE2C9"
-                    app:radius="6dp"
+                    app:radius="5dp"
                     app:strokeColor="@color/Defult_Color_AppGreen"
                     app:strokeWidth="0dp" />
             </FrameLayout>
@@ -45,17 +46,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp" >
+              >
 
                 <TextView
                     android:id="@+id/tv_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="5dp"
-                    android:ellipsize="end"
-                    android:singleLine="true"
+                    android:layout_marginRight="12dp"
                     android:textColor="@color/Defult_Color_Grey"
                     android:textSize="@dimen/font_extra_small_half" />
 
@@ -64,10 +62,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignRight="@id/tv_count"
                     android:layout_below="@id/tv_count"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="12dp"
                     android:textColor="@color/Defult_Color_MidGrey"
                     android:textSize="@dimen/font_small" />
             </RelativeLayout>

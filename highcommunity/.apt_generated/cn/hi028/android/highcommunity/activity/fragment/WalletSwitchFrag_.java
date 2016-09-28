@@ -73,8 +73,8 @@ public final class WalletSwitchFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mViewPager = ((ViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.vp_walletSwitch_viewpager));
         mRadioGroup = ((RadioGroup) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.rg_walletSwitch));
+        mViewPager = ((ViewPager) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.vp_walletSwitch_viewpager));
         initView();
     }
 

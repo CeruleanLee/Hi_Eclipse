@@ -27,6 +27,7 @@ import com.don.tools.BpiUniveralImage;
 import com.don.tools.SaveBitmap;
 
 import net.duohuo.dhroid.activity.BaseFragment;
+import net.duohuo.dhroid.activity.BrowseActivity;
 import net.duohuo.dhroid.util.ImageLoaderUtil;
 
 import org.androidannotations.annotations.AfterViews;
@@ -150,8 +151,10 @@ public class ServiceBeCarftsFrag extends BaseFragment {
 				ClickId = R.id.iv_becomeworker_ziliao_inside;
 				break;
 			case R.id.tv_register_agree:
-				Intent intent = new Intent(getActivity(), ShouYiRenText.class);
-				getActivity().startActivity(intent);
+			    BrowseActivity.toBrowseActivity(getActivity(), "用户协议", "http://028hi.cn/api/default/agreement.html");
+//			    break;
+//				Intent intent = new Intent(getActivity(), ShouYiRenText.class);
+//				getActivity().startActivity(intent);
 				return;
 			}
 			if (mPhotoPopupWindow == null) {

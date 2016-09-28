@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/gray"
     android:orientation="vertical" >
-
+<!--  评价界面布局-->
     <include
         android:id="@+id/evluate_include"
         layout="@layout/title_secondlevel" />

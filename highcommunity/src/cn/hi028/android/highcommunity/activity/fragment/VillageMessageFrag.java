@@ -64,7 +64,7 @@ public class VillageMessageFrag extends Fragment {
 
     private void initView() {
         mFragmeView = LayoutInflater.from(getActivity()).inflate(
-                R.layout.frag_community_list, null);
+                R.layout.frag_villagemessage, null);
         vid = getActivity().getIntent().getStringExtra(FRAGMENTTAG);
         mListView = (PullToRefreshListView) mFragmeView.findViewById(R.id.ptrlv_community_listview);
         mChange = (ImageView) mFragmeView.findViewById(R.id.iv_community_change);

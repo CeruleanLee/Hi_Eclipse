@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/common_title"
-        layout="@layout/common_titlebar" />
+        layout="@layout/common_chiporderdetail_title" />
 
     <include
         android:id="@+id/ll_NoticeDetails_Progress"

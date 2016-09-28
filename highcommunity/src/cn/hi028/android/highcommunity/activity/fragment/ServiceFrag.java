@@ -65,21 +65,21 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 	PullToRefreshScrollView mScrollview;
 
 	LoadingView mLoadingView;
-	
+
 	ThirdServiceAdapter mAdapter;
 	Intent mIntent;
 	//租房  公告
 	LinearLayout  payment,tenement,notice,tenement2,guide,research,
 	voluntary,one,crafts,become;
 	ViewGroup tatalLayout;
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		LogUtil.d(Tag+"onCreateView");
 		View view = inflater.inflate(R.layout.frag_service, null);
 		findView(view);
 		registerListener();
-		
+
 		if (mLoadingView == null) {
 			Log.e("test", "11111");
 		}
@@ -113,20 +113,20 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 		one=(LinearLayout) view.findViewById(R.id.ll_service_notice_one);
 		crafts=(LinearLayout) view.findViewById(R.id.ll_service_craftsman);
 		become=(LinearLayout) view.findViewById(R.id.ll_service_become_craftsman);
-		
+
 		tatalLayout=(ViewGroup) view.findViewById(R.id.service_scrollView_LinearLayoutContainer);
 		viewPager = (AutoScrollViewPager) view.findViewById(R.id.view_pager);
 		vgcpi = (CirclePageIndicator) view.findViewById(R.id.home_cpi);
 		mGridView = (PullToRefreshGridView) view.findViewById(R.id.ptrgv_service_thirdParty);
 		mScrollview = (PullToRefreshScrollView) view.findViewById(R.id.service_scrollView_layout);
 		mLoadingView = (LoadingView) view.findViewById(R.id.loadingView);
-	
+
 	}
 
-	
+
 	void initView() {
 		LogUtil.d(Tag+"initView");
-				mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
+		mLoadingView.setOnLoadingViewListener(onLoadingViewListener);
 		//		LogUtil.d(Tag+" initView   startLoading");
 		mScrollview.setMode(PullToRefreshBase.Mode.DISABLED);
 		initPager();
@@ -176,14 +176,15 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 		public void onTryAgainClick() {
 			if(!isNoNetwork)
 				initDatas();
-//				HTTPHelper.GetThirdService(mIbpi);
-//			Toast.makeText(getActivity(), "------------OnLoadingViewListener", 0).show();
+			//				HTTPHelper.GetThirdService(mIbpi);
+			//			Toast.makeText(getActivity(), "------------OnLoadingViewListener", 0).show();
 		}
 	};
 	BpiHttpHandler.IBpiHttpHandler mIbpi = new BpiHttpHandler.IBpiHttpHandler() {
 		@Override
 		public void onError(int id, String message) {
-			LogUtil.d("-------------  initView   onError");
+			LogUtil.d(Tag+"---~~~onError");
+			LogUtil.d(Tag+"-------------  initView   onError");
 			HighCommunityUtils.GetInstantiation().ShowToast(message, 0);
 			if(!isNoNetwork){
 				mLoadingView.loadFailed();
@@ -192,18 +193,15 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 
 		@Override
 		public void onSuccess(Object message) {
-			mLoadingView.setVisibility(View.GONE);
 			mLoadingView.loadSuccess();
-			tatalLayout.setVisibility(View.VISIBLE);
-			LogUtil.d("-------------  initView   onSuccess");
-//			if (null == message) return;
-			LogUtil.d("-------------  initView   message:"+message);
+			mLoadingView.setVisibility(View.GONE);
+			LogUtil.d(Tag+"---~~~initViewonSuccess");
+//						if (null == message) return;
+			LogUtil.d(Tag+"---~~~ initView   message:"+message);
 			ThirdServiceBean mBean = (ThirdServiceBean) message;
 			mAdapter.AddNewData(mBean.getServices());
 			mGridView.setAdapter(mAdapter);
-			mLoadingView.loadSuccess();
 			pagerAdapter.setImageIdList(mBean.getBanners());
-			mLoadingView.loadSuccess();
 			HighCommunityUtils.GetInstantiation()
 			.setThirdServiceGridViewHeight(mGridView, mAdapter, 4);
 			tatalLayout.setVisibility(View.VISIBLE);
@@ -212,6 +210,7 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 		@Override
 		public Object onResolve(String result) {
 			Log.e("renk", result);
+			LogUtil.d(Tag+"---~~~iresult"+result);
 			return HTTPHelper.ResolveThirdService(result);
 		}
 
@@ -226,62 +225,62 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 		}
 	};
 
-//	public void payment(View view) {
-//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_PAYMENT);
-//		startActivity(mIntent);
-//	}
-//
-//	void tenement(View view) {
-//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_TENEMENT);
-//		startActivity(mIntent);
-//	}
-//
-//	void notice(View view) {
-//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_NOTICE);
-//		startActivity(mIntent);
-//	}
-//
-//	/**
-//	 * 此处处理社区
-//	 */
-//	void tenement2(View view) {
-//		Intent i = new Intent(getActivity(), Service_AutonomousActivity.class);
-//		startActivity(i);
-//	}
-//
-//	void guide(View view) {
-//		Intent i = new Intent(getActivity(), Service_ManageGuideActivity.class);
-//		startActivity(i);
-//
-//	}
-//
-//	void research(View view) {
-//		Intent i = new Intent(getActivity(), Service_SurveyWorldActivity.class);
-//		startActivity(i);
-//	}
-//
-//	void voluntary(View view) {
-//		Intent i = new Intent(getActivity(), Service_VoluntaryActivity.class);
-//		startActivity(i);
-//	}
-//
-//	void one(View view) {
-//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_NOTICE_ONE);
-//		startActivity(mIntent);
-//	}
-//
-//	void crafts(View view) {
-//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_CARFSMAN);
-//		startActivity(mIntent);
-//	}
-//
-//	void become(View view) {
-//		if (HighCommunityUtils.GetInstantiation().isLogin(getActivity())) {
-//			mIntent.putExtra(ServiceAct.ACTIVITYTAG,
-//					Constacts.SERVICE_BECOME_CARFSMAN);
-//			startActivity(mIntent);
-//		}
-//	}
+	//	public void payment(View view) {
+	//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_PAYMENT);
+	//		startActivity(mIntent);
+	//	}
+	//
+	//	void tenement(View view) {
+	//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_TENEMENT);
+	//		startActivity(mIntent);
+	//	}
+	//
+	//	void notice(View view) {
+	//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_NOTICE);
+	//		startActivity(mIntent);
+	//	}
+	//
+	//	/**
+	//	 * 此处处理社区
+	//	 */
+	//	void tenement2(View view) {
+	//		Intent i = new Intent(getActivity(), Service_AutonomousActivity.class);
+	//		startActivity(i);
+	//	}
+	//
+	//	void guide(View view) {
+	//		Intent i = new Intent(getActivity(), Service_ManageGuideActivity.class);
+	//		startActivity(i);
+	//
+	//	}
+	//
+	//	void research(View view) {
+	//		Intent i = new Intent(getActivity(), Service_SurveyWorldActivity.class);
+	//		startActivity(i);
+	//	}
+	//
+	//	void voluntary(View view) {
+	//		Intent i = new Intent(getActivity(), Service_VoluntaryActivity.class);
+	//		startActivity(i);
+	//	}
+	//
+	//	void one(View view) {
+	//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_NOTICE_ONE);
+	//		startActivity(mIntent);
+	//	}
+	//
+	//	void crafts(View view) {
+	//		mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_CARFSMAN);
+	//		startActivity(mIntent);
+	//	}
+	//
+	//	void become(View view) {
+	//		if (HighCommunityUtils.GetInstantiation().isLogin(getActivity())) {
+	//			mIntent.putExtra(ServiceAct.ACTIVITYTAG,
+	//					Constacts.SERVICE_BECOME_CARFSMAN);
+	//			startActivity(mIntent);
+	//		}
+	//	}
 
 	AdapterView.OnItemClickListener mItemClickListener = new AdapterView.OnItemClickListener() {
 		@Override
@@ -305,7 +304,7 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 	public void onResume() {
 		super.onResume();
 		LogUtil.d(Tag+"onResume");
-	
+
 		//		mLoadingView.startLoading();
 		registNetworkReceiver();
 	}
@@ -345,11 +344,11 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 
 					}
 					//有网络
-//					Toast.makeText(getActivity(), "有网络", 0).show();
+					//					Toast.makeText(getActivity(), "有网络", 0).show();
 					LogUtils.d("有网络");
 					//					if(nextPage == 1){
-//					initDatas();
-//					HTTPHelper.GetThirdService(mIbpi);
+										initDatas();
+					//					HTTPHelper.GetThirdService(mIbpi);
 					//					}
 					isNoNetwork = false;
 				}else{
@@ -365,8 +364,8 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 		}
 	}
 	private boolean isNoNetwork;
-	
-	
+
+
 
 
 	@Override
@@ -419,20 +418,20 @@ public class ServiceFrag extends BaseFragment implements OnClickListener {
 			}
 			break;
 		}
-		
-//		
-//	one.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_NOTICE_ONE);
-//				startActivity(mIntent);
-//				
-//			}
-//		});
-		
-		
+
+		//		
+		//	one.setOnClickListener(new OnClickListener() {
+		//			
+		//			@Override
+		//			public void onClick(View v) {
+		//				// TODO Auto-generated method stub
+		//				mIntent.putExtra(ServiceAct.ACTIVITYTAG, Constacts.SERVICE_NOTICE_ONE);
+		//				startActivity(mIntent);
+		//				
+		//			}
+		//		});
+
+
 	}
 
 }

@@ -29,11 +29,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * 
+ * 商品评价
  * @author Administrator
  *
  */
-public class MyGoodsEvluateActivity extends Activity implements OnClickListener {
+public class MyGoodsEvluateActivity extends BaseFragmentActivity implements OnClickListener {
 
 	List<OnEvaluateBean> BeanList;
 
