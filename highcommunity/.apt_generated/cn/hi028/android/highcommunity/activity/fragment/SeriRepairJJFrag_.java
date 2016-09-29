@@ -74,8 +74,8 @@ public final class SeriRepairJJFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
-        lv_repair_jj = ((ListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.lv_repair_jj));
         mNoData = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
+        lv_repair_jj = ((ListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.lv_repair_jj));
         initView();
     }
 

@@ -76,26 +76,14 @@ public final class UserInfoFrag_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mAuth = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_UserInfo_AuthZiliao));
+        mIntro = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_UserIntro));
+        mAge = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_UserAge));
+        mName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_NickName));
         mRight = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_RightnMenu));
         mTitle = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_title));
-        mName = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_NickName));
-        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_UserInfo);
-        mSex = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_UserSex));
-        mAge = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_UserAge));
-        mIntro = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_UserIntro));
         mAvatar = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_UserInfo_Avatar));
-        if (mRight!= null) {
-            mRight.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    UserInfoFrag_.this.write();
-                }
-
-            }
-            );
-        }
+        mSex = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_UserInfo_UserSex));
+        mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.progress_UserInfo);
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.iv_UserInfo_back);
             if (view!= null) {
@@ -118,6 +106,18 @@ public final class UserInfoFrag_
                 @Override
                 public void onClick(View view) {
                     UserInfoFrag_.this.authClick();
+                }
+
+            }
+            );
+        }
+        if (mRight!= null) {
+            mRight.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    UserInfoFrag_.this.write();
                 }
 
             }

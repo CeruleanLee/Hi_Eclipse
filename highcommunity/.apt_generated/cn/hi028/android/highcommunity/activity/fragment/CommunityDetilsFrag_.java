@@ -78,13 +78,25 @@ public final class CommunityDetilsFrag_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mList = ((ListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_communitydetails_listview));
-        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
-        mSpeakerLayout = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_communitydetails_spokerLayout));
-        mSpeakerButton = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ev_communitydetails_spokerButton));
-        mSpeakerImage = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_communitydetails_spokerImage));
         mSpeakerContent = ((EditText) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ev_communitydetails_spokerContent));
+        mNodata = ((TextView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.tv_NoticeDetails_noData));
+        mSpeakerButton = ((ImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ev_communitydetails_spokerButton));
         mProgress = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_NoticeDetails_Progress);
+        mSpeakerLayout = ((LinearLayout) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ll_communitydetails_spokerLayout));
+        mList = ((ListView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.ptrlv_communitydetails_listview));
+        mSpeakerImage = ((CircleImageView) hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civ_communitydetails_spokerImage));
+        if (mSpeakerButton!= null) {
+            mSpeakerButton.setOnClickListener(new OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    CommunityDetilsFrag_.this.Comment();
+                }
+
+            }
+            );
+        }
         {
             View view = hasViews.findViewById(cn.hi028.android.highcommunity.R.id.civl_commDetails_avatar);
             if (view!= null) {
@@ -99,18 +111,6 @@ public final class CommunityDetilsFrag_
                 }
                 );
             }
-        }
-        if (mSpeakerButton!= null) {
-            mSpeakerButton.setOnClickListener(new OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    CommunityDetilsFrag_.this.Comment();
-                }
-
-            }
-            );
         }
         initView();
     }

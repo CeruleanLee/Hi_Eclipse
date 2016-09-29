@@ -87,8 +87,8 @@ public final class PaymentActivity_
     @Override
     public void onViewChanged(HasViews hasViews) {
         mTitle = ((TextView) hasViews.findViewById(id.tv_secondtitle_name));
-        img_back = ((ImageView) hasViews.findViewById(id.img_back));
         mHight = hasViews.findViewById(id.title_secondTitle_Hight);
+        img_back = ((ImageView) hasViews.findViewById(id.img_back));
         img_right = ((ImageView) hasViews.findViewById(id.img_right));
         if (img_back!= null) {
             img_back.setOnClickListener(new OnClickListener() {
